@@ -2,15 +2,20 @@ export const metadata = {
   title: 'MevETH',
   description:
     'On this page, we’ll dive into the different contact endpoints you can use to manage contacts programmatically.',
-}
+};
 
 # MevETH
 
-As the name suggests, contacts are a core part of Protocol — the very reason Protocol exists is so you can have secure conversations with your contacts. On this page, we'll dive into the different contact endpoints you can use to manage contacts programmatically. We'll look at how to query, create, update, and delete contacts. {{ className: 'lead' }}
+As the name suggests, contacts are a core part of Protocol — the very reason Protocol exists is so you can
+have secure conversations with your contacts. On this page, we'll dive into the different contact endpoints
+you can use to manage contacts programmatically. We'll look at how to query, create, update, and delete
+contacts. {{ className: 'lead' }}
 
 ## The contact model
 
-The contact model contains all the information about your contacts, such as their username, avatar, and phone number. It also contains a reference to the conversation between you and the contact and information about when they were last active on Protocol.
+The contact model contains all the information about your contacts, such as their username, avatar, and phone
+number. It also contains a reference to the conversation between you and the contact and information about
+when they were last active on Protocol.
 
 ### Properties
 
@@ -28,8 +33,7 @@ The contact model contains all the information about your contacts, such as thei
     The avatar image URL for the contact.
   </Property>
   <Property name="display_name" type="string">
-    The contact display name in the contact list. By default, this is just the
-    username.
+    The contact display name in the contact list. By default, this is just the username.
   </Property>
   <Property name="conversation_id" type="string">
     Unique identifier for the conversation associated with the contact.
