@@ -29,9 +29,9 @@ interface Resource {
 const resources: Array<Resource> = [
   {
     href: '/staking',
-    name: 'Contacts',
+    name: 'Staking',
     description:
-      'Learn about the contact model and how to create, retrieve, update, delete, and list staking.',
+      'Learn about the staking model and how to create, retrieve, update, delete, and list staking.',
     icon: UserIcon,
     pattern: {
       y: 16,
@@ -43,9 +43,9 @@ const resources: Array<Resource> = [
   },
   {
     href: '/lending',
-    name: 'Conversations',
+    name: 'Lending',
     description:
-      'Learn about the conversation model and how to create, retrieve, update, delete, and list lending.',
+      'Learn about the lending model and how to create, retrieve, update, delete, and list lending.',
     icon: ChatBubbleIcon,
     pattern: {
       y: -6,
@@ -57,9 +57,9 @@ const resources: Array<Resource> = [
   },
   {
     href: '/markets',
-    name: 'Messages',
+    name: 'Markets',
     description:
-      'Learn about the message model and how to create, retrieve, update, delete, and list markets.',
+      'Learn about the MEV markets and how to create, retrieve, bid, join, and list available markets.',
     icon: EnvelopeIcon,
     pattern: {
       y: 32,
@@ -71,9 +71,9 @@ const resources: Array<Resource> = [
   },
   {
     href: '/rates',
-    name: 'Groups',
+    name: 'Rates',
     description:
-      'Learn about the group model and how to create, retrieve, update, delete, and list rates.',
+      'Learn about the different rate model and how to estimate, retrieve, compare, and list rates.',
     icon: UsersIcon,
     pattern: {
       y: 22,

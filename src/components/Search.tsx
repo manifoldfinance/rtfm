@@ -63,7 +63,7 @@ function useAutocomplete({ close }: { close: () => void }) {
       React.KeyboardEvent
     >({
       id,
-      placeholder: 'Find something...',
+      placeholder: '🔎',
       defaultActiveItemId: 0,
       onStateChange({ state }) {
         setAutocompleteState(state)
