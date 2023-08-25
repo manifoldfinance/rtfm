@@ -1,0 +1,46 @@
+# CI/CD Release Workflow
+name: nodejs
+
+on:
+  push:
+    branches:
+      - master
+  pull_request_target:
+    branches:
+      - master
+
+defaults:
+  run:
+    shell: bash
+
+env:
+  COMMIT_SHA: ${{ github.event.pull_request.head.sha }}
+  RUN_ID: ${{ github.run_id }}
+  FORCE_COLOR: 2
+
+jobs:
+  pipeline:
+    name: Node ${{ matrix.node-version }} on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: ['18.x']
+        os: ['ubuntu-latest']
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: 'https://registry.npmjs.org'
+          cache: npm
+
+      - run: npm install -g npm
+      - run: npm ci --quiet --no-progress
+        id: install
+
+      - run: npm run build
+        id: build
