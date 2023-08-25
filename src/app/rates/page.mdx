@@ -1,16 +1,16 @@
 export const metadata = {
-  title: 'Groups',
+  title: 'Infrastructure',
   description:
-    'On this page, we’ll dive into the different group endpoints you can use to manage groups programmatically.',
+    'On this page, we’ll dive into the different group endpoints you can use to manage infrastructure programmatically.',
 }
 
-# Groups
+# Infrastructure
 
-Groups are where communities live in Protocol — they are a collection of contacts you're talking to all at once. On this page, we'll dive into the different group endpoints you can use to manage groups programmatically. We'll look at how to query, create, update, and delete groups. {{ className: 'lead' }}
+Infrastructure are where communities live in Protocol — they are a collection of contacts you're talking to all at once. On this page, we'll dive into the different group endpoints you can use to manage infrastructure programmatically. We'll look at how to query, create, update, and delete infrastructure. {{ className: 'lead' }}
 
 ## The group model
 
-The group model contains all the information about your groups, including what contacts are in the group and the group's name, description, and avatar.
+The group model contains all the information about your infrastructure, including what contacts are in the group and the group's name, description, and avatar.
 
 ### Properties
 
@@ -43,31 +43,31 @@ The group model contains all the information about your groups, including what c
 
 ---
 
-## List all groups {{ tag: 'GET', label: '/v1/groups' }}
+## List all infrastructure {{ tag: 'GET', label: '/v1/infrastructure' }}
 
 <Row>
   <Col>
 
-    This endpoint allows you to retrieve a paginated list of all your groups. By default, a maximum of ten groups are shown per page.
+    This endpoint allows you to retrieve a paginated list of all your infrastructure. By default, a maximum of ten infrastructure are shown per page.
 
     ### Optional attributes
 
     <Properties>
       <Property name="limit" type="integer">
-        Limit the number of groups returned.
+        Limit the number of infrastructure returned.
       </Property>
       <Property name="archived" type="boolean">
-        Only show groups that are archived when set to `true`.
+        Only show infrastructure that are archived when set to `true`.
       </Property>
     </Properties>
 
   </Col>
   <Col sticky>
 
-    <CodeGroup title="Request" tag="GET" label="/v1/groups">
+    <CodeGroup title="Request" tag="GET" label="/v1/infrastructure">
 
     ```bash {{ title: 'cURL' }}
-    curl -G https://api.protocol.chat/v1/groups \
+    curl -G https://api.protocol.chat/v1/infrastructure \
       -H "Authorization: Bearer {token}" \
       -d limit=10
     ```
@@ -77,7 +77,7 @@ The group model contains all the information about your groups, including what c
 
     const client = new ApiClient(token)
 
-    await client.groups.list()
+    await client.infrastructure.list()
     ```
 
     ```python
@@ -85,13 +85,13 @@ The group model contains all the information about your groups, including what c
 
     client = ApiClient(token)
 
-    client.groups.list()
+    client.infrastructure.list()
     ```
 
     ```php
     $client = new \Protocol\ApiClient($token);
 
-    $client->groups->list();
+    $client->infrastructure->list();
     ```
 
     </CodeGroup>
@@ -140,7 +140,7 @@ The group model contains all the information about your groups, including what c
 
 ---
 
-## Create a group {{ tag: 'POST', label: '/v1/groups' }}
+## Create a group {{ tag: 'POST', label: '/v1/infrastructure' }}
 
 <Row>
   <Col>
@@ -172,10 +172,10 @@ The group model contains all the information about your groups, including what c
   </Col>
   <Col sticky>
 
-    <CodeGroup title="Request" tag="POST" label="/v1/groups">
+    <CodeGroup title="Request" tag="POST" label="/v1/infrastructure">
 
     ```bash {{ title: 'cURL' }}
-    curl https://api.protocol.chat/v1/groups \
+    curl https://api.protocol.chat/v1/infrastructure \
       -H "Authorization: Bearer {token}" \
       -d name="Plaza Hotel"
     ```
@@ -185,7 +185,7 @@ The group model contains all the information about your groups, including what c
 
     const client = new ApiClient(token)
 
-    await client.groups.create({
+    await client.infrastructure.create({
       name: 'Plaza Hotel',
     })
     ```
@@ -195,13 +195,13 @@ The group model contains all the information about your groups, including what c
 
     client = ApiClient(token)
 
-    client.groups.create(name="Plaza Hotel")
+    client.infrastructure.create(name="Plaza Hotel")
     ```
 
     ```php
     $client = new \Protocol\ApiClient($token);
 
-    $client->groups->create([
+    $client->infrastructure->create([
       'name' => 'Plaza Hotel',
     ]);
     ```
@@ -226,7 +226,7 @@ The group model contains all the information about your groups, including what c
 
 ---
 
-## Retrieve a group {{ tag: 'GET', label: '/v1/groups/:id' }}
+## Retrieve a group {{ tag: 'GET', label: '/v1/infrastructure/:id' }}
 
 <Row>
   <Col>
@@ -236,10 +236,10 @@ The group model contains all the information about your groups, including what c
   </Col>
   <Col sticky>
 
-    <CodeGroup title="Request" tag="GET" label="/v1/groups/L7cGNIBKZiNJ6wqF">
+    <CodeGroup title="Request" tag="GET" label="/v1/infrastructure/L7cGNIBKZiNJ6wqF">
 
     ```bash {{ title: 'cURL' }}
-    curl https://api.protocol.chat/v1/groups/L7cGNIBKZiNJ6wqF \
+    curl https://api.protocol.chat/v1/infrastructure/L7cGNIBKZiNJ6wqF \
       -H "Authorization: Bearer {token}"
     ```
 
@@ -248,7 +248,7 @@ The group model contains all the information about your groups, including what c
 
     const client = new ApiClient(token)
 
-    await client.groups.get('L7cGNIBKZiNJ6wqF')
+    await client.infrastructure.get('L7cGNIBKZiNJ6wqF')
     ```
 
     ```python
@@ -256,13 +256,13 @@ The group model contains all the information about your groups, including what c
 
     client = ApiClient(token)
 
-    client.groups.get("L7cGNIBKZiNJ6wqF")
+    client.infrastructure.get("L7cGNIBKZiNJ6wqF")
     ```
 
     ```php
     $client = new \Protocol\ApiClient($token);
 
-    $client->groups->get('L7cGNIBKZiNJ6wqF');
+    $client->infrastructure->get('L7cGNIBKZiNJ6wqF');
     ```
 
     </CodeGroup>
@@ -302,7 +302,7 @@ The group model contains all the information about your groups, including what c
 
 ---
 
-## Update a group {{ tag: 'PUT', label: '/v1/groups/:id' }}
+## Update a group {{ tag: 'PUT', label: '/v1/infrastructure/:id' }}
 
 <Row>
   <Col>
@@ -332,10 +332,10 @@ The group model contains all the information about your groups, including what c
   </Col>
   <Col sticky>
 
-    <CodeGroup title="Request" tag="PUT" label="/v1/groups/L7cGNIBKZiNJ6wqF">
+    <CodeGroup title="Request" tag="PUT" label="/v1/infrastructure/L7cGNIBKZiNJ6wqF">
 
     ```bash {{ title: 'cURL' }}
-    curl -X PUT https://api.protocol.chat/v1/groups/L7cGNIBKZiNJ6wqF \
+    curl -X PUT https://api.protocol.chat/v1/infrastructure/L7cGNIBKZiNJ6wqF \
       -H "Authorization: Bearer {token}" \
       -d description="The finest in New York."
     ```
@@ -345,7 +345,7 @@ The group model contains all the information about your groups, including what c
 
     const client = new ApiClient(token)
 
-    await client.groups.update('L7cGNIBKZiNJ6wqF', {
+    await client.infrastructure.update('L7cGNIBKZiNJ6wqF', {
         description: 'The finest in New York.',
     })
     ```
@@ -355,13 +355,13 @@ The group model contains all the information about your groups, including what c
 
     client = ApiClient(token)
 
-    client.groups.update("L7cGNIBKZiNJ6wqF", description="The finest in New York.")
+    client.infrastructure.update("L7cGNIBKZiNJ6wqF", description="The finest in New York.")
     ```
 
     ```php
     $client = new \Protocol\ApiClient($token);
 
-    $client->groups->update('L7cGNIBKZiNJ6wqF', [
+    $client->infrastructure->update('L7cGNIBKZiNJ6wqF', [
       'description' => 'The finest in New York.',
     ]);
     ```
@@ -403,20 +403,20 @@ The group model contains all the information about your groups, including what c
 
 ---
 
-## Delete a group {{ tag: 'DELETE', label: '/v1/groups/:id' }}
+## Delete a group {{ tag: 'DELETE', label: '/v1/infrastructure/:id' }}
 
 <Row>
   <Col>
 
-    This endpoint allows you to delete groups. Note: This will permanently delete the group, including the messages — archive it instead if you want to be able to restore it later.
+    This endpoint allows you to delete infrastructure. Note: This will permanently delete the group, including the messages — archive it instead if you want to be able to restore it later.
 
   </Col>
   <Col sticky>
 
-    <CodeGroup title="Request" tag="DELETE" label="/v1/groups/L7cGNIBKZiNJ6wqF">
+    <CodeGroup title="Request" tag="DELETE" label="/v1/infrastructure/L7cGNIBKZiNJ6wqF">
 
     ```bash {{ title: 'cURL' }}
-    curl -X DELETE https://api.protocol.chat/v1/groups/L7cGNIBKZiNJ6wqF \
+    curl -X DELETE https://api.protocol.chat/v1/infrastructure/L7cGNIBKZiNJ6wqF \
       -H "Authorization: Bearer {token}"
     ```
 
@@ -425,7 +425,7 @@ The group model contains all the information about your groups, including what c
 
     const client = new ApiClient(token)
 
-    await client.groups.delete('L7cGNIBKZiNJ6wqF')
+    await client.infrastructure.delete('L7cGNIBKZiNJ6wqF')
     ```
 
     ```python
@@ -433,13 +433,13 @@ The group model contains all the information about your groups, including what c
 
     client = ApiClient(token)
 
-    client.groups.delete("L7cGNIBKZiNJ6wqF")
+    client.infrastructure.delete("L7cGNIBKZiNJ6wqF")
     ```
 
     ```php
     $client = new \Protocol\ApiClient($token);
 
-    $client->groups->delete('L7cGNIBKZiNJ6wqF');
+    $client->infrastructure->delete('L7cGNIBKZiNJ6wqF');
     ```
 
     </CodeGroup>

@@ -8,8 +8,8 @@ const guides = [
     description: 'Learn how to authenticate your API requests.',
   },
   {
-    href: '/pagination',
-    name: 'Pagination',
+    href: '/vaults',
+    name: 'Vaults',
     description: 'Understand how to work with paginated responses.',
   },
   {

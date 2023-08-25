@@ -52,12 +52,12 @@ composer require protocol/sdk
 
 ## Making your first API request
 
-After picking your preferred client, you are ready to make your first call to the Protocol API. Below, you can see how to send a GET request to the Conversations endpoint to get a list of all your conversations. In the cURL example, results are limited to ten conversations, the default page length for each client.
+After picking your preferred client, you are ready to make your first call to the Protocol API. Below, you can see how to send a GET request to the Modules endpoint to get a list of all your conversations. In the cURL example, results are limited to ten conversations, the default page length for each client.
 
-<CodeGroup tag="GET" label="/v1/conversations">
+<CodeGroup tag="GET" label="/v1/modules">
 
 ```bash {{ title: 'cURL' }}
-curl -G https://api.protocol.chat/v1/conversations \
+curl -G https://api.protocol.chat/v1/modules \
   -H "Authorization: Bearer {token}" \
   -d limit=10
 ```
@@ -88,10 +88,10 @@ $client->conversations->list();
 
 <div className="not-prose">
   <Button
-    href="/conversations"
+    href="/modules"
     variant="text"
     arrow="right"
-    children="Read the docs for the Conversations endpoint"
+    children="Read the docs for the Modules endpoint"
   />
 </div>
 
@@ -100,5 +100,5 @@ $client->conversations->list();
 Great, you're now set up with an API client and have made your first request to the API. Here are a few links that might be handy as you venture further into the Protocol API:
 
 - [Grab your API key from the Protocol dashboard](#)
-- [Check out the Conversations endpoint](/conversations)
+- [Check out the Modules endpoint](/modules)
 - [Learn about the different error messages in Protocol](/errors)

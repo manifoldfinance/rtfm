@@ -1,12 +1,12 @@
 export const metadata = {
-  title: 'Conversations',
+  title: 'Modules',
   description:
     'On this page, we’ll dive into the different conversation endpoints you can use to manage conversations programmatically.',
 }
 
-# Conversations
+# Modules
 
-Conversations are an essential part of Protocol — they are the containers for the messages between you, your contacts, and groups. On this page, we’ll dive into the different conversation endpoints you can use to manage conversations programmatically. We'll look at how to query, create, update, and delete conversations. {{ className: 'lead' }}
+Modules are an essential part of Protocol — they are the containers for the messages between you, your contacts, and infrastructure. On this page, we’ll dive into the different conversation endpoints you can use to manage conversations programmatically. We'll look at how to query, create, update, and delete conversations. {{ className: 'lead' }}
 
 ## The conversation model
 
@@ -50,7 +50,7 @@ The conversation model contains all the information about the conversations betw
 
 ---
 
-## List all conversations {{ tag: 'GET', label: '/v1/conversations' }}
+## List all conversations {{ tag: 'GET', label: '/v1/modules' }}
 
 <Row>
   <Col>
@@ -80,10 +80,10 @@ The conversation model contains all the information about the conversations betw
   </Col>
   <Col sticky>
 
-    <CodeGroup title="Request" tag="GET" label="/v1/conversations">
+    <CodeGroup title="Request" tag="GET" label="/v1/modules">
 
     ```bash {{ title: 'cURL' }}
-    curl -G https://api.protocol.chat/v1/conversations \
+    curl -G https://api.protocol.chat/v1/modules \
       -H "Authorization: Bearer {token}" \
       -d limit=10
     ```
@@ -141,7 +141,7 @@ The conversation model contains all the information about the conversations betw
 
 ---
 
-## Create a conversation {{ tag: 'POST', label: '/v1/conversations' }}
+## Create a conversation {{ tag: 'POST', label: '/v1/modules' }}
 
 <Row>
   <Col>
@@ -162,10 +162,10 @@ The conversation model contains all the information about the conversations betw
   </Col>
   <Col sticky>
 
-    <CodeGroup title="Request" tag="POST" label="/v1/conversations">
+    <CodeGroup title="Request" tag="POST" label="/v1/modules">
 
     ```bash {{ title: 'cURL' }}
-    curl https://api.protocol.chat/v1/conversations \
+    curl https://api.protocol.chat/v1/modules \
       -H "Authorization: Bearer {token}" \
       -d 'contact_id'="WAz8eIbvDR60rouK"
     ```
@@ -218,7 +218,7 @@ The conversation model contains all the information about the conversations betw
 
 ---
 
-## Retrieve a conversation {{ tag: 'GET', label: '/v1/conversations/:id' }}
+## Retrieve a conversation {{ tag: 'GET', label: '/v1/modules/:id' }}
 
 <Row>
   <Col>
@@ -228,10 +228,10 @@ The conversation model contains all the information about the conversations betw
   </Col>
   <Col sticky>
 
-    <CodeGroup title="Request" tag="GET" label="/v1/conversations/xgQQXg3hrtjh7AvZ">
+    <CodeGroup title="Request" tag="GET" label="/v1/modules/xgQQXg3hrtjh7AvZ">
 
     ```bash {{ title: 'cURL' }}
-    curl https://api.protocol.chat/v1/conversations/xgQQXg3hrtjh7AvZ \
+    curl https://api.protocol.chat/v1/modules/xgQQXg3hrtjh7AvZ \
       -H "Authorization: Bearer {token}"
     ```
 
@@ -279,7 +279,7 @@ The conversation model contains all the information about the conversations betw
 
 ---
 
-## Update a conversation {{ tag: 'PUT', label: '/v1/conversations/:id' }}
+## Update a conversation {{ tag: 'PUT', label: '/v1/modules/:id' }}
 
 <Row>
   <Col>
@@ -306,10 +306,10 @@ The conversation model contains all the information about the conversations betw
   </Col>
   <Col sticky>
 
-    <CodeGroup title="Request" tag="PUT" label="/v1/conversations/xgQQXg3hrtjh7AvZ">
+    <CodeGroup title="Request" tag="PUT" label="/v1/modules/xgQQXg3hrtjh7AvZ">
 
     ```bash {{ title: 'cURL' }}
-    curl -X PUT https://api.protocol.chat/v1/conversations/xgQQXg3hrtjh7AvZ \
+    curl -X PUT https://api.protocol.chat/v1/modules/xgQQXg3hrtjh7AvZ \
       -H "Authorization: Bearer {token}" \
       -d 'is_muted'=true
     ```
@@ -362,7 +362,7 @@ The conversation model contains all the information about the conversations betw
 
 ---
 
-## Delete a conversation {{ tag: 'DELETE', label: '/v1/conversations/:id' }}
+## Delete a conversation {{ tag: 'DELETE', label: '/v1/modules/:id' }}
 
 <Row>
   <Col>
@@ -372,10 +372,10 @@ The conversation model contains all the information about the conversations betw
   </Col>
   <Col sticky>
 
-    <CodeGroup title="Request" tag="DELETE" label="/v1/conversations/xgQQXg3hrtjh7AvZ">
+    <CodeGroup title="Request" tag="DELETE" label="/v1/modules/xgQQXg3hrtjh7AvZ">
 
     ```bash {{ title: 'cURL' }}
-    curl -X DELETE https://api.protocol.chat/v1/conversations/xgQQXg3hrtjh7AvZ \
+    curl -X DELETE https://api.protocol.chat/v1/modules/xgQQXg3hrtjh7AvZ \
       -H "Authorization: Bearer {token}"
     ```
 

@@ -237,7 +237,7 @@ export const navigation: Array<NavGroup> = [
       { title: 'Quickstart', href: '/quickstart' },
       { title: 'SDKs', href: '/sdks' },
       { title: 'Authentication', href: '/authentication' },
-      { title: 'Pagination', href: '/pagination' },
+      { title: 'Vaults', href: '/vaults' },
       { title: 'Errors', href: '/errors' },
       { title: 'Webhooks', href: '/webhooks' },
     ],
@@ -245,11 +245,11 @@ export const navigation: Array<NavGroup> = [
   {
     title: 'Resources',
     links: [
-      { title: 'Contacts', href: '/contacts' },
-      { title: 'Conversations', href: '/conversations' },
-      { title: 'Omnichain', href: '/omnichain' },
-      { title: 'Groups', href: '/groups' },
-      { title: 'Attachments', href: '/attachments' },
+      { title: 'MevETH', href: '/contacts' },
+      { title: 'Modules', href: '/modules' },
+      { title: 'Markets', href: '/omnichain' },
+      { title: 'Infrastructure', href: '/infrastructure' },
+      { title: 'Auctions', href: '/auctions' },
     ],
   },
 ]

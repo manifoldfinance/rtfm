@@ -29,7 +29,7 @@ interface Resource {
 const resources: Array<Resource> = [
   {
     href: '/contacts',
-    name: 'Contacts',
+    name: 'MevETH',
     description:
       'Learn about the contact model and how to create, retrieve, update, delete, and list contacts.',
     icon: UserIcon,
@@ -42,8 +42,8 @@ const resources: Array<Resource> = [
     },
   },
   {
-    href: '/conversations',
-    name: 'Conversations',
+    href: '/modules',
+    name: 'Modules',
     description:
       'Learn about the conversation model and how to create, retrieve, update, delete, and list conversations.',
     icon: ChatBubbleIcon,
@@ -57,7 +57,7 @@ const resources: Array<Resource> = [
   },
   {
     href: '/omnichain',
-    name: 'Omnichain',
+    name: 'Markets',
     description:
       'Learn about the message model and how to create, retrieve, update, delete, and list omnichain.',
     icon: EnvelopeIcon,

@@ -1,16 +1,16 @@
 export const metadata = {
-  title: 'Attachments',
+  title: 'Auctions',
   description:
-    'On this page, we’ll dive into the different attachment endpoints you can use to manage attachments programmatically.',
+    'On this page, we’ll dive into the different attachment endpoints you can use to manage auctions programmatically.',
 }
 
-# Attachments
+# Auctions
 
-Attachments are how you share things in Protocol — they allow you to send all sorts of files to your contacts and groups. On this page, we'll dive into the different attachment endpoints you can use to manage attachments programmatically. We'll look at how to query, upload, update, and delete attachments. {{ className: 'lead' }}
+Auctions are how you share things in Protocol — they allow you to send all sorts of files to your contacts and infrastructure. On this page, we'll dive into the different attachment endpoints you can use to manage auctions programmatically. We'll look at how to query, upload, update, and delete auctions. {{ className: 'lead' }}
 
 ## The attachment model
 
-The attachment model contains all the information about the files you send to your contacts and groups, including the name, type, and size.
+The attachment model contains all the information about the files you send to your contacts and infrastructure, including the name, type, and size.
 
 ### Properties
 
@@ -40,31 +40,31 @@ The attachment model contains all the information about the files you send to yo
 
 ---
 
-## List all attachments {{ tag: 'GET', label: '/v1/attachments' }}
+## List all auctions {{ tag: 'GET', label: '/v1/auctions' }}
 
 <Row>
   <Col>
 
-    This endpoint allows you to retrieve a paginated list of all your attachments (in a conversation if a conversation id is provided). By default, a maximum of ten attachments are shown per page.
+    This endpoint allows you to retrieve a paginated list of all your auctions (in a conversation if a conversation id is provided). By default, a maximum of ten auctions are shown per page.
 
     ### Optional attributes
 
     <Properties>
       <Property name="conversation_id" type="string">
-        Limit to attachments from a given conversation.
+        Limit to auctions from a given conversation.
       </Property>
       <Property name="limit" type="integer">
-        Limit the number of attachments returned.
+        Limit the number of auctions returned.
       </Property>
     </Properties>
 
   </Col>
   <Col sticky>
 
-    <CodeGroup title="Request" tag="GET" label="/v1/attachments">
+    <CodeGroup title="Request" tag="GET" label="/v1/auctions">
 
     ```bash {{ title: 'cURL' }}
-    curl -G https://api.protocol.chat/v1/attachments \
+    curl -G https://api.protocol.chat/v1/auctions \
       -H "Authorization: Bearer {token}" \
       -d conversation_id="xgQQXg3hrtjh7AvZ" \
       -d limit=10
@@ -75,7 +75,7 @@ The attachment model contains all the information about the files you send to yo
 
     const client = new ApiClient(token)
 
-    await client.attachments.list()
+    await client.auctions.list()
     ```
 
     ```python
@@ -83,13 +83,13 @@ The attachment model contains all the information about the files you send to yo
 
     client = ApiClient(token)
 
-    client.attachments.list()
+    client.auctions.list()
     ```
 
     ```php
     $client = new \Protocol\ApiClient($token);
 
-    $client->attachments->list();
+    $client->auctions->list();
     ```
 
     </CodeGroup>
@@ -102,7 +102,7 @@ The attachment model contains all the information about the files you send to yo
           "id": "Nc6yKKMpcxiiFxp6",
           "message_id": "LoPsJaMcPBuFNjg1",
           "filename": "Invoice_room_service__Plaza_Hotel.pdf",
-          "file_url": "https://assets.protocol.chat/attachments/Invoice_room_service__Plaza_Hotel.pdf",
+          "file_url": "https://assets.protocol.chat/auctions/Invoice_room_service__Plaza_Hotel.pdf",
           "file_type": "application/pdf",
           "file_size": 21352,
           "created_at": 692233200
@@ -120,7 +120,7 @@ The attachment model contains all the information about the files you send to yo
 
 ---
 
-## Create an attachment {{ tag: 'POST', label: '/v1/attachments' }}
+## Create an attachment {{ tag: 'POST', label: '/v1/auctions' }}
 
 <Row>
   <Col>
@@ -138,10 +138,10 @@ The attachment model contains all the information about the files you send to yo
   </Col>
   <Col sticky>
 
-    <CodeGroup title="Request" tag="POST" label="/v1/attachments">
+    <CodeGroup title="Request" tag="POST" label="/v1/auctions">
 
     ```bash {{ title: 'cURL' }}
-    curl https://api.protocol.chat/v1/attachments \
+    curl https://api.protocol.chat/v1/auctions \
       -H "Authorization: Bearer {token}" \
       -F file="../Invoice_room_service__Plaza_Hotel.pdf"
     ```
@@ -151,7 +151,7 @@ The attachment model contains all the information about the files you send to yo
 
     const client = new ApiClient(token)
 
-    await client.attachments.create({ file })
+    await client.auctions.create({ file })
     ```
 
     ```python
@@ -159,13 +159,13 @@ The attachment model contains all the information about the files you send to yo
 
     client = ApiClient(token)
 
-    client.attachments.create(file=file)
+    client.auctions.create(file=file)
     ```
 
     ```php
     $client = new \Protocol\ApiClient($token);
 
-    $client->attachments->create([
+    $client->auctions->create([
       'file' => $file,
     ]);
     ```
@@ -177,7 +177,7 @@ The attachment model contains all the information about the files you send to yo
       "id": "Nc6yKKMpcxiiFxp6",
       "message_id": "LoPsJaMcPBuFNjg1",
       "filename": "Invoice_room_service__Plaza_Hotel.pdf",
-      "file_url": "https://assets.protocol.chat/attachments/Invoice_room_service__Plaza_Hotel.pdf",
+      "file_url": "https://assets.protocol.chat/auctions/Invoice_room_service__Plaza_Hotel.pdf",
       "file_type": "application/pdf",
       "file_size": 21352,
       "created_at": 692233200
@@ -189,7 +189,7 @@ The attachment model contains all the information about the files you send to yo
 
 ---
 
-## Retrieve an attachment {{ tag: 'GET', label: '/v1/attachments/:id' }}
+## Retrieve an attachment {{ tag: 'GET', label: '/v1/auctions/:id' }}
 
 <Row>
   <Col>
@@ -199,10 +199,10 @@ The attachment model contains all the information about the files you send to yo
   </Col>
   <Col sticky>
 
-    <CodeGroup title="Request" tag="GET" label="/v1/attachments/Nc6yKKMpcxiiFxp6">
+    <CodeGroup title="Request" tag="GET" label="/v1/auctions/Nc6yKKMpcxiiFxp6">
 
     ```bash {{ title: 'cURL' }}
-    curl https://api.protocol.chat/v1/attachments/Nc6yKKMpcxiiFxp6 \
+    curl https://api.protocol.chat/v1/auctions/Nc6yKKMpcxiiFxp6 \
       -H "Authorization: Bearer {token}"
     ```
 
@@ -211,7 +211,7 @@ The attachment model contains all the information about the files you send to yo
 
     const client = new ApiClient(token)
 
-    await client.attachments.get('Nc6yKKMpcxiiFxp6')
+    await client.auctions.get('Nc6yKKMpcxiiFxp6')
     ```
 
     ```python
@@ -219,13 +219,13 @@ The attachment model contains all the information about the files you send to yo
 
     client = ApiClient(token)
 
-    client.attachments.get("Nc6yKKMpcxiiFxp6")
+    client.auctions.get("Nc6yKKMpcxiiFxp6")
     ```
 
     ```php
     $client = new \Protocol\ApiClient($token);
 
-    $client->attachments->get('Nc6yKKMpcxiiFxp6');
+    $client->auctions->get('Nc6yKKMpcxiiFxp6');
     ```
 
     </CodeGroup>
@@ -235,7 +235,7 @@ The attachment model contains all the information about the files you send to yo
       "id": "Nc6yKKMpcxiiFxp6",
       "message_id": "LoPsJaMcPBuFNjg1",
       "filename": "Invoice_room_service__Plaza_Hotel.pdf",
-      "file_url": "https://assets.protocol.chat/attachments/Invoice_room_service__Plaza_Hotel.pdf",
+      "file_url": "https://assets.protocol.chat/auctions/Invoice_room_service__Plaza_Hotel.pdf",
       "file_type": "application/pdf",
       "file_size": 21352,
       "created_at": 692233200
@@ -247,7 +247,7 @@ The attachment model contains all the information about the files you send to yo
 
 ---
 
-## Update an attachment {{ tag: 'PUT', label: '/v1/attachments/:id' }}
+## Update an attachment {{ tag: 'PUT', label: '/v1/auctions/:id' }}
 
 <Row>
   <Col>
@@ -265,10 +265,10 @@ The attachment model contains all the information about the files you send to yo
   </Col>
   <Col sticky>
 
-    <CodeGroup title="Request" tag="PUT" label="/v1/attachments/Nc6yKKMpcxiiFxp6">
+    <CodeGroup title="Request" tag="PUT" label="/v1/auctions/Nc6yKKMpcxiiFxp6">
 
     ```bash {{ title: 'cURL' }}
-    curl -X PUT https://api.protocol.chat/v1/attachments/Nc6yKKMpcxiiFxp6 \
+    curl -X PUT https://api.protocol.chat/v1/auctions/Nc6yKKMpcxiiFxp6 \
       -H "Authorization: Bearer {token}" \
       -d filename="Invoice_room_service__Plaza_Hotel_updated.pdf"
     ```
@@ -278,7 +278,7 @@ The attachment model contains all the information about the files you send to yo
 
     const client = new ApiClient(token)
 
-    await client.attachments.update('Nc6yKKMpcxiiFxp6', {
+    await client.auctions.update('Nc6yKKMpcxiiFxp6', {
       filename: 'Invoice_room_service__Plaza_Hotel_updated.pdf',
     })
     ```
@@ -288,13 +288,13 @@ The attachment model contains all the information about the files you send to yo
 
     client = ApiClient(token)
 
-    client.attachments.update("Nc6yKKMpcxiiFxp6", filename="Invoice_room_service__Plaza_Hotel_updated.pdf")
+    client.auctions.update("Nc6yKKMpcxiiFxp6", filename="Invoice_room_service__Plaza_Hotel_updated.pdf")
     ```
 
     ```php
     $client = new \Protocol\ApiClient($token);
 
-    $client->attachments->update('Nc6yKKMpcxiiFxp6', [
+    $client->auctions->update('Nc6yKKMpcxiiFxp6', [
       'filename' => 'Invoice_room_service__Plaza_Hotel_updated.pdf',
     ]);
     ```
@@ -306,7 +306,7 @@ The attachment model contains all the information about the files you send to yo
       "id": "Nc6yKKMpcxiiFxp6",
       "message_id": "LoPsJaMcPBuFNjg1",
       "filename": "Invoice_room_service__Plaza_Hotel.pdf",
-      "file_url": "https://assets.protocol.chat/attachments/Invoice_room_service__Plaza_Hotel_updated.pdf",
+      "file_url": "https://assets.protocol.chat/auctions/Invoice_room_service__Plaza_Hotel_updated.pdf",
       "file_type": "application/pdf",
       "file_size": 21352,
       "created_at": 692233200
@@ -318,20 +318,20 @@ The attachment model contains all the information about the files you send to yo
 
 ---
 
-## Delete an attachment {{ tag: 'DELETE', label: '/v1/attachments/:id' }}
+## Delete an attachment {{ tag: 'DELETE', label: '/v1/auctions/:id' }}
 
 <Row>
   <Col>
 
-    This endpoint allows you to delete attachments. Note: This will permanently delete the file.
+    This endpoint allows you to delete auctions. Note: This will permanently delete the file.
 
   </Col>
   <Col sticky>
 
-    <CodeGroup title="Request" tag="DELETE" label="/v1/attachments/Nc6yKKMpcxiiFxp6">
+    <CodeGroup title="Request" tag="DELETE" label="/v1/auctions/Nc6yKKMpcxiiFxp6">
 
     ```bash {{ title: 'cURL' }}
-    curl -X DELETE https://api.protocol.chat/v1/attachments/Nc6yKKMpcxiiFxp6 \
+    curl -X DELETE https://api.protocol.chat/v1/auctions/Nc6yKKMpcxiiFxp6 \
       -H "Authorization: Bearer {token}"
     ```
 
@@ -340,7 +340,7 @@ The attachment model contains all the information about the files you send to yo
 
     const client = new ApiClient(token)
 
-    await client.attachments.delete('Nc6yKKMpcxiiFxp6')
+    await client.auctions.delete('Nc6yKKMpcxiiFxp6')
     ```
 
     ```python
@@ -348,13 +348,13 @@ The attachment model contains all the information about the files you send to yo
 
     client = ApiClient(token)
 
-    client.attachments.delete("Nc6yKKMpcxiiFxp6")
+    client.auctions.delete("Nc6yKKMpcxiiFxp6")
     ```
 
     ```php
     $client = new \Protocol\ApiClient($token);
 
-    $client->attachments->delete('Nc6yKKMpcxiiFxp6');
+    $client->auctions->delete('Nc6yKKMpcxiiFxp6');
     ```
 
     </CodeGroup>
