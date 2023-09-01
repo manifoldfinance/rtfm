@@ -20,6 +20,7 @@ env:
 
 jobs:
   pipeline:
+    if: github.repository_owner == 'manifoldfinance'
     name: Node ${{ matrix.node-version }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
 

@@ -224,6 +224,16 @@ function NavigationGroup({
   );
 }
 
+/**
+ * @const Navigation
+ * @description The navigation component for the documentation.
+ *    The navigation is split into two groups: Guides and Resources.
+ *    The Guides group is always visible, while the Resources group
+ *    is only visible on desktop.
+ *
+ * @version August 31, 2023
+ */
+
 export const navigation: Array<NavGroup> = [
   {
     title: 'Guides',
@@ -231,31 +241,42 @@ export const navigation: Array<NavGroup> = [
       { title: 'Introduction', href: '/' },
       { title: 'Quickstart', href: '/quickstart' },
       { title: 'SDKs', href: '/sdks' },
-      { title: 'Authentication', href: '/protocol' },
-      { title: 'Pagination', href: '/infrastructure' },
-      { title: 'Errors', href: '/rulebook' },
-      { title: 'Webhooks', href: '/metrics' },
+      { title: 'Protocol', href: '/protocol' },
+      { title: 'Infrastructure', href: '/infrastructure' },
+      { title: 'Rulebook', href: '/rulebook' },
+      { title: 'Metrics API', href: '/metrics' },
     ],
   },
   {
     title: 'Resources',
     links: [
-      { title: 'Contacts', href: '/staking' },
-      { title: 'Conversations', href: '/lending' },
-      { title: 'Messages', href: '/markets' },
-      { title: 'Groups', href: '/rates' },
-      { title: 'Attachments', href: '/relay' },
+      { title: 'Staking', href: '/staking' },
+      { title: 'Lending', href: '/lending' },
+      { title: 'Markets', href: '/markets' },
+      { title: 'Rates', href: '/rates' },
+      { title: 'Relay', href: '/relay' },
     ],
   },
 ];
 
+/**
+ *
+ * @export Navigation
+ * @returns NavigationGroup
+ * @description The navigation component for the documentation.
+ *   - Vision
+ *   - MEV Integrators
+ *   - Ecosystem
+ *
+ *  @version August 31, 2023
+ */
 export function Navigation(props: React.ComponentPropsWithoutRef<'nav'>) {
   return (
     <nav {...props}>
       <ul role="list">
-        <TopLevelNavItem href="/">API</TopLevelNavItem>
-        <TopLevelNavItem href="#">Documentation</TopLevelNavItem>
-        <TopLevelNavItem href="#">Support</TopLevelNavItem>
+        <TopLevelNavItem href="/">Vision</TopLevelNavItem>
+        <TopLevelNavItem href="#">MEV Integrators</TopLevelNavItem>
+        <TopLevelNavItem href="#">Ecosystem</TopLevelNavItem>
         {navigation.map((group, groupIndex) => (
           <NavigationGroup
             key={group.title}
