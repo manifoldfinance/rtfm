@@ -338,6 +338,11 @@ function SearchDialog({
       return;
     }
 
+    /**
+     * @function onKeyDown
+     * @description Keyboard event listener for the search dialog - CMD + K
+     * @param event KeyboardEvent
+     */
     function onKeyDown(event: KeyboardEvent) {
       if (event.key === 'k' && (event.metaKey || event.ctrlKey)) {
         event.preventDefault();
@@ -446,6 +451,7 @@ export function Search() {
   let [modifierKey, setModifierKey] = useState<string>();
   let { buttonProps, dialogProps } = useSearchProps();
 
+  // @dev Detect the modifier key for the keyboard shortcut based on the user's platform
   useEffect(() => {
     setModifierKey(
       /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform) ? '⌘' : 'Ctrl ',
