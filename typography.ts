@@ -1,4 +1,4 @@
-import { type PluginUtils } from 'tailwindcss/types/config'
+import { type PluginUtils } from 'tailwindcss/types/config';
 
 export default function typographyStyles({ theme }: PluginUtils) {
   return {
@@ -357,5 +357,5 @@ export default function typographyStyles({ theme }: PluginUtils) {
         '--tw-prose-td-borders': 'var(--tw-prose-invert-td-borders)',
       },
     },
-  }
+  };
 }

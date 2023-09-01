@@ -1,16 +1,42 @@
+/**
+ * @module components/Guides
+ * @description The Guides component for the documentation.
+ *    - Protocol
+ *    - Infrastructure
+ *    - Rulebook
+ *    - Metrics
+ *
+ * @see {@link https://github.com/manifoldfinance/rtfm/}
+ * @copyright 2023 CommodityStream, Inc.
+ */
+
 import { Button } from '@/components/Button';
 import { Heading } from '@/components/Heading';
+
+/**
+ *
+ * @const guides
+ * @description An array of objects that contain information about the guides.
+ * @property {string} href - The URL of the guide.
+ * @property {string} name - The name of the guide.
+ * @property {string} description - The description of the guide.
+ * @exports guides
+ *
+ * @version August 31, 2023
+ */
+
+// TODO: Rename Metrics to more generic namespace that includes metrics and other data
 
 const guides = [
   {
     href: '/protocol',
     name: 'Protocol',
-    description: 'Learn how to authenticate your API requests.',
+    description: 'Learn how mevETH works and how to integrate with it.',
   },
   {
     href: '/infrastructure',
     name: 'Infrastructure',
-    description: 'Understand how to work with paginated responses.',
+    description: 'Understand how we manage and secure our infrastructure.',
   },
   {
     href: '/rulebook',
@@ -21,7 +47,7 @@ const guides = [
     href: '/metrics',
     name: 'Metrics',
     description:
-      'Learn how to programmatically configure metrics for your app.',
+      'Learn how to programmatically access metrics from our API endpoints.',
   },
 ];
 
@@ -42,7 +68,7 @@ export function Guides() {
             </p>
             <p className="mt-4">
               <Button href={guide.href} variant="text" arrow="right">
-                Read more
+                Read more →
               </Button>
             </p>
           </div>

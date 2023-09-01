@@ -1,7 +1,7 @@
-import { type Config } from 'tailwindcss'
-import typographyStyles from './typography'
-import typographyPlugin from '@tailwindcss/typography'
-import headlessuiPlugin from '@headlessui/tailwindcss'
+import { type Config } from 'tailwindcss';
+import typographyStyles from './typography';
+import typographyPlugin from '@tailwindcss/typography';
+import headlessuiPlugin from '@headlessui/tailwindcss';
 
 export default {
   content: ['./src/**/*.{js,mjs,jsx,ts,tsx,mdx}'],
@@ -43,4 +43,4 @@ export default {
     },
   },
   plugins: [typographyPlugin, headlessuiPlugin],
-} satisfies Config
+} satisfies Config;
