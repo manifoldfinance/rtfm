@@ -3,12 +3,12 @@
   "version": "0.1.5",
   "private": true,
   "scripts": {
-    "dev": "NEXT_TELEMETRY_DISABLED=1 next dev",
+    "dev": "NEXT_TELEMETRY_DISABLED=1 npx next dev",
     "build": "NEXT_TELEMETRY_DISABLED=1 NODE_ENV=production npx next build",
     "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
-    "fmt": "npx prettier --config .prettierrc.js --write '**/*.{js,jsx,ts,tsx,mdx}'",
+    "fmt": "npx prettier --config prettier.config.js --write '**/*.{js,jsx,ts,tsx,mjs}'",
     "debug": "NODE_OPTIONS='--inspect' next dev",
     "baseline": "npx tsc --extendedDiagnostics",
     "explain": "npx tsc --explainFiles > explanation.txt",
@@ -17,8 +17,8 @@
     "tracer": "mkdir -p tmp_folder/ && npx tsc -p ./tsconfig.json --generateTrace tmp_folder"
   },
   "dependencies": {
-    "@algolia/autocomplete-core": "^1.7.3",
-    "@headlessui/react": "^1.7.15",
+    "@algolia/autocomplete-core": "^1.11.0",
+    "@headlessui/react": "^1.7.17",
     "@headlessui/tailwindcss": "^0.2.0",
     "@mdx-js/loader": "^2.3.0",
     "@mdx-js/react": "^2.3.0",
@@ -32,7 +32,7 @@
     "@vercel/analytics": "^1.0.2",
     "acorn": "^8.8.1",
     "autoprefixer": "^10.4.7",
-    "clsx": "^1.2.0",
+    "clsx": "^2.0.0",
     "fast-glob": "^3.3.0",
     "flexsearch": "^0.7.31",
     "framer-motion": "7.8.1",
@@ -53,7 +53,7 @@
     "typescript": "5.1.6",
     "unist-util-filter": "^4.0.1",
     "unist-util-visit": "^4.1.1",
-    "zustand": "^4.3.2"
+    "zustand": "^4.4.1"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.62.0",
@@ -93,5 +93,8 @@
     "budgetPercentIncreaseRed": 20,
     "minimumChangeThreshold": 0,
     "showDetails": true
+  },
+  "volta": {
+    "node": "18.17.1"
   }
 }
