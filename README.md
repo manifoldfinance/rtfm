@@ -28,7 +28,22 @@ npm run build
 
 ## Configuration
 
-### Colors
+## Writing Content
+
+[see https://github.com/sambacha/dappspec/tree/master/rules](https://github.com/sambacha/dappspec/tree/master/rules) 
+
+### Styling
+
+#### Admonitions
+
+```mdx
+<Note>
+  Before you can make requests to the Protocol API, you will need to grab your
+  API key from your dashboard. You find it under [Settings &raquo; API](#).
+</Note>
+```
+
+#### Colors
 
 > see `src/components/Tag.tsx`
 
