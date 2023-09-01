@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import {
   createContext,
@@ -7,14 +7,14 @@ import {
   useContext,
   useEffect,
   useRef,
-} from 'react'
-import { usePathname, useSearchParams } from 'next/navigation'
-import { Dialog, Transition } from '@headlessui/react'
-import { motion } from 'framer-motion'
-import { create } from 'zustand'
+} from 'react';
+import { usePathname, useSearchParams } from 'next/navigation';
+import { Dialog, Transition } from '@headlessui/react';
+import { motion } from 'framer-motion';
+import { create } from 'zustand';
 
-import { Header } from '@/components/Header'
-import { Navigation } from '@/components/Navigation'
+import { Header } from '@/components/Header';
+import { Navigation } from '@/components/Navigation';
 
 function MenuIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -23,11 +23,10 @@ function MenuIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
       fill="none"
       strokeLinecap="round"
       aria-hidden="true"
-      {...props}
-    >
+      {...props}>
       <path d="M.5 1h9M.5 8h9M.5 4.5h9" />
     </svg>
-  )
+  );
 }
 
 function XIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
@@ -37,45 +36,44 @@ function XIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
       fill="none"
       strokeLinecap="round"
       aria-hidden="true"
-      {...props}
-    >
+      {...props}>
       <path d="m1.5 1 7 7M8.5 1l-7 7" />
     </svg>
-  )
+  );
 }
 
-const IsInsideMobileNavigationContext = createContext(false)
+const IsInsideMobileNavigationContext = createContext(false);
 
 function MobileNavigationDialog({
   isOpen,
   close,
 }: {
-  isOpen: boolean
-  close: () => void
+  isOpen: boolean;
+  close: () => void;
 }) {
-  let pathname = usePathname()
-  let searchParams = useSearchParams()
-  let initialPathname = useRef(pathname).current
-  let initialSearchParams = useRef(searchParams).current
+  let pathname = usePathname();
+  let searchParams = useSearchParams();
+  let initialPathname = useRef(pathname).current;
+  let initialSearchParams = useRef(searchParams).current;
 
   useEffect(() => {
     if (pathname !== initialPathname || searchParams !== initialSearchParams) {
-      close()
+      close();
     }
-  }, [pathname, searchParams, close, initialPathname, initialSearchParams])
+  }, [pathname, searchParams, close, initialPathname, initialSearchParams]);
 
   function onClickDialog(event: React.MouseEvent<HTMLDivElement>) {
     if (!(event.target instanceof HTMLElement)) {
-      return
+      return;
     }
 
-    let link = event.target.closest('a')
+    let link = event.target.closest('a');
     if (
       link &&
       link.pathname + link.search + link.hash ===
         window.location.pathname + window.location.search + window.location.hash
     ) {
-      close()
+      close();
     }
   }
 
@@ -84,8 +82,7 @@ function MobileNavigationDialog({
       <Dialog
         onClickCapture={onClickDialog}
         onClose={close}
-        className="fixed inset-0 z-50 lg:hidden"
-      >
+        className="fixed inset-0 z-50 lg:hidden">
         <Transition.Child
           as={Fragment}
           enter="duration-300 ease-out"
@@ -93,8 +90,7 @@ function MobileNavigationDialog({
           enterTo="opacity-100"
           leave="duration-200 ease-in"
           leaveFrom="opacity-100"
-          leaveTo="opacity-0"
-        >
+          leaveTo="opacity-0">
           <div className="fixed inset-0 top-14 bg-zinc-400/20 backdrop-blur-sm dark:bg-black/40" />
         </Transition.Child>
 
@@ -106,8 +102,7 @@ function MobileNavigationDialog({
             enterTo="opacity-100"
             leave="duration-200 ease-in"
             leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-          >
+            leaveTo="opacity-0">
             <Header />
           </Transition.Child>
 
@@ -118,41 +113,39 @@ function MobileNavigationDialog({
             enterTo="translate-x-0"
             leave="duration-500 ease-in-out"
             leaveFrom="translate-x-0"
-            leaveTo="-translate-x-full"
-          >
+            leaveTo="-translate-x-full">
             <motion.div
               layoutScroll
-              className="fixed bottom-0 left-0 top-14 w-full overflow-y-auto bg-white px-4 pb-4 pt-6 shadow-lg shadow-zinc-900/10 ring-1 ring-zinc-900/7.5 dark:bg-zinc-900 dark:ring-zinc-800 min-[416px]:max-w-sm sm:px-6 sm:pb-10"
-            >
+              className="fixed bottom-0 left-0 top-14 w-full overflow-y-auto bg-white px-4 pb-4 pt-6 shadow-lg shadow-zinc-900/10 ring-1 ring-zinc-900/7.5 dark:bg-zinc-900 dark:ring-zinc-800 min-[416px]:max-w-sm sm:px-6 sm:pb-10">
               <Navigation />
             </motion.div>
           </Transition.Child>
         </Dialog.Panel>
       </Dialog>
     </Transition.Root>
-  )
+  );
 }
 
 export function useIsInsideMobileNavigation() {
-  return useContext(IsInsideMobileNavigationContext)
+  return useContext(IsInsideMobileNavigationContext);
 }
 
 export const useMobileNavigationStore = create<{
-  isOpen: boolean
-  open: () => void
-  close: () => void
-  toggle: () => void
+  isOpen: boolean;
+  open: () => void;
+  close: () => void;
+  toggle: () => void;
 }>()((set) => ({
   isOpen: false,
   open: () => set({ isOpen: true }),
   close: () => set({ isOpen: false }),
   toggle: () => set((state) => ({ isOpen: !state.isOpen })),
-}))
+}));
 
 export function MobileNavigation() {
-  let isInsideMobileNavigation = useIsInsideMobileNavigation()
-  let { isOpen, toggle, close } = useMobileNavigationStore()
-  let ToggleIcon = isOpen ? XIcon : MenuIcon
+  let isInsideMobileNavigation = useIsInsideMobileNavigation();
+  let { isOpen, toggle, close } = useMobileNavigationStore();
+  let ToggleIcon = isOpen ? XIcon : MenuIcon;
 
   return (
     <IsInsideMobileNavigationContext.Provider value={true}>
@@ -160,8 +153,7 @@ export function MobileNavigation() {
         type="button"
         className="flex h-6 w-6 items-center justify-center rounded-md transition hover:bg-zinc-900/5 dark:hover:bg-white/5"
         aria-label="Toggle navigation"
-        onClick={toggle}
-      >
+        onClick={toggle}>
         <ToggleIcon className="w-2.5 stroke-zinc-900 dark:stroke-white" />
       </button>
       {!isInsideMobileNavigation && (
@@ -170,5 +162,5 @@ export function MobileNavigation() {
         </Suspense>
       )}
     </IsInsideMobileNavigationContext.Provider>
-  )
+  );
 }

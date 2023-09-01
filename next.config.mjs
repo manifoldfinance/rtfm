@@ -12,8 +12,6 @@ import { remarkPlugins } from './src/mdx/remark.mjs'
 import withSearch from './src/mdx/search.mjs'
 
 const withMDX = nextMDX({
-  reactStrictMode: true,
-  poweredByHeader: false,
   options: {
     remarkPlugins,
     rehypePlugins,
@@ -22,6 +20,8 @@ const withMDX = nextMDX({
 })
 
 const nextConfig = {
+  reactStrictMode: true,
+  poweredByHeader: false,
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
 }
 

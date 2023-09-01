@@ -1,22 +1,21 @@
-import { Guides } from '@/components/Guides'
-import { Resources } from '@/components/Resources'
-import { HeroPattern } from '@/components/HeroPattern'
+import { Guides } from '@/components/Guides';
+import { Resources } from '@/components/Resources';
+import { HeroPattern } from '@/components/HeroPattern';
 
 export const metadata = {
   title: 'mevETH Protocol Documentation',
   description:
-    'Who overcome by force, hath overcome but half his foe. -- ohn Milton *Paradise Lost*'
-}
+    'Who overcome by force, hath overcome but half his foe. -- ohn Milton *Paradise Lost*',
+};
 
 export const sections = [
   { title: 'Guides', id: 'guides' },
   { title: 'Resources', id: 'resources' },
-]
+];
 
 <HeroPattern />
 
-# API Documentation
-
+# mevETH Protocol Documentation
 
 The `mevETH` protocol serves as a sophisticated platform for Liquid Staking Receipt (LSR) management, designed to optimize Ethereum value through efficient staking and reward distribution.
 This contract leverages multiple core modules to achieve its objectives, including admin control, staking management, share vault updates, ERC4626 integration, withdrawal queues and omni-chain tokens. {{ className: 'lead' }}
@@ -38,7 +37,6 @@ The `MevEth` contract comprises several core modules, each contributing to its c
 - **Role management**: Supports roles management
 - **Withdrawal Queues**: First come, first served queues for withdrawal requests beyond buffer balances
 - **Omni-chain fungible tokens**: Allows `MevEth` tokens to be sent across chains.
-
 
 <div className="not-prose">
   <Button

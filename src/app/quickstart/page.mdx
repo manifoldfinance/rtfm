@@ -2,7 +2,7 @@ export const metadata = {
   title: 'Quickstart',
   description:
     'This guide will get you all set up and ready to use the Protocol API. We’ll cover how to get started an API client and how to make your first API request.',
-}
+};
 
 # Quickstart
 
@@ -12,6 +12,20 @@ This guide will get you all set up and ready to use the Protocol API. We'll cove
   Before you can make requests to the Protocol API, you will need to grab your
   API key from your dashboard. You find it under [Settings &raquo; API](#).
 </Note>
+
+## Using an SDK
+
+If you use one of our official SDKs, you won't have to worry about any of the above — fetch your access token from the [Protocol dashboard](#) under API settings, and the client library will take care of the rest. All the client libraries use OAuth2 behind the scenes.
+
+<div className="not-prose">
+  <Button
+    href="/sdks"
+    variant="text"
+    arrow="right"
+    children="Check out our list of first-party SDKs"
+  />
+</div>
+
 
 ## Choose your client
 
@@ -63,11 +77,11 @@ curl -G https://api.protocol.chat/v1/conversations \
 ```
 
 ```js
-import ApiClient from '@example/protocol-api'
+import ApiClient from '@example/protocol-api';
 
-const client = new ApiClient(token)
+const client = new ApiClient(token);
 
-await client.conversations.list()
+await client.conversations.list();
 ```
 
 ```python

@@ -1,47 +1,46 @@
-import { forwardRef } from 'react'
-import Link from 'next/link'
-import clsx from 'clsx'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { forwardRef } from 'react';
+import Link from 'next/link';
+import clsx from 'clsx';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
-import { Button } from '@/components/Button'
-import { Logo } from '@/components/Logo'
+import { Button } from '@/components/Button';
+import { Logo } from '@/components/Logo';
 import {
   MobileNavigation,
   useIsInsideMobileNavigation,
-} from '@/components/MobileNavigation'
-import { useMobileNavigationStore } from '@/components/MobileNavigation'
-import { MobileSearch, Search } from '@/components/Search'
-import { ThemeToggle } from '@/components/ThemeToggle'
+} from '@/components/MobileNavigation';
+import { useMobileNavigationStore } from '@/components/MobileNavigation';
+import { MobileSearch, Search } from '@/components/Search';
+import { ThemeToggle } from '@/components/ThemeToggle';
 
 function TopLevelNavItem({
   href,
   children,
 }: {
-  href: string
-  children: React.ReactNode
+  href: string;
+  children: React.ReactNode;
 }) {
   return (
     <li>
       <Link
         href={href}
-        className="text-sm leading-5 text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
-      >
+        className="text-sm leading-5 text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white">
         {children}
       </Link>
     </li>
-  )
+  );
 }
 
 export const Header = forwardRef<
   React.ElementRef<'div'>,
   { className?: string }
 >(function Header({ className }, ref) {
-  let { isOpen: mobileNavIsOpen } = useMobileNavigationStore()
-  let isInsideMobileNavigation = useIsInsideMobileNavigation()
+  let { isOpen: mobileNavIsOpen } = useMobileNavigationStore();
+  let isInsideMobileNavigation = useIsInsideMobileNavigation();
 
-  let { scrollY } = useScroll()
-  let bgOpacityLight = useTransform(scrollY, [0, 72], [0.5, 0.9])
-  let bgOpacityDark = useTransform(scrollY, [0, 72], [0.2, 0.8])
+  let { scrollY } = useScroll();
+  let bgOpacityLight = useTransform(scrollY, [0, 72], [0.5, 0.9]);
+  let bgOpacityDark = useTransform(scrollY, [0, 72], [0.2, 0.8]);
 
   return (
     <motion.div
@@ -60,8 +59,7 @@ export const Header = forwardRef<
           '--bg-opacity-light': bgOpacityLight,
           '--bg-opacity-dark': bgOpacityDark,
         } as React.CSSProperties
-      }
-    >
+      }>
       <div
         className={clsx(
           'absolute inset-x-0 top-full h-px transition',
@@ -94,5 +92,5 @@ export const Header = forwardRef<
         </div>
       </div>
     </motion.div>
-  )
-})
+  );
+});

@@ -1,5 +1,5 @@
-import { Button } from '@/components/Button'
-import { Heading } from '@/components/Heading'
+import { Button } from '@/components/Button';
+import { Heading } from '@/components/Heading';
 
 const guides = [
   {
@@ -15,8 +15,7 @@ const guides = [
   {
     href: '/rulebook',
     name: 'Rulebook',
-    description:
-      'Our Rulebook defines our market structure and terms',
+    description: 'Our Rulebook defines our market structure and terms',
   },
   {
     href: '/metrics',
@@ -24,7 +23,7 @@ const guides = [
     description:
       'Learn how to programmatically configure metrics for your app.',
   },
-]
+];
 
 export function Guides() {
   return (
@@ -50,5 +49,5 @@ export function Guides() {
         ))}
       </div>
     </div>
-  )
+  );
 }
