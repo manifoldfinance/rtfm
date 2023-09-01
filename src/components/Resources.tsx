@@ -1,7 +1,12 @@
 'use client';
 
 import Link from 'next/link';
-import { type MotionValue, motion, useMotionTemplate, useMotionValue } from 'framer-motion';
+import {
+  type MotionValue,
+  motion,
+  useMotionTemplate,
+  useMotionValue,
+} from 'framer-motion';
 
 import { GridPattern } from '@/components/GridPattern';
 import { Heading } from '@/components/Heading';
@@ -15,7 +20,10 @@ interface Resource {
   name: string;
   description: string;
   icon: React.ComponentType<{ className?: string }>;
-  pattern: Omit<React.ComponentPropsWithoutRef<typeof GridPattern>, 'width' | 'height' | 'x'>;
+  pattern: Omit<
+    React.ComponentPropsWithoutRef<typeof GridPattern>,
+    'width' | 'height' | 'x'
+  >;
 }
 
 const resources: Array<Resource> = [
@@ -110,8 +118,7 @@ function ResourcePattern({
       />
       <motion.div
         className="absolute inset-0 rounded-2xl opacity-0 mix-blend-overlay transition duration-300 group-hover:opacity-100"
-        style={style}
-      >
+        style={style}>
         <GridPattern
           width={72}
           height={56}
@@ -128,7 +135,11 @@ function Resource({ resource }: { resource: Resource }) {
   let mouseX = useMotionValue(0);
   let mouseY = useMotionValue(0);
 
-  function onMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent<HTMLDivElement>) {
+  function onMouseMove({
+    currentTarget,
+    clientX,
+    clientY,
+  }: React.MouseEvent<HTMLDivElement>) {
     let { left, top } = currentTarget.getBoundingClientRect();
     mouseX.set(clientX - left);
     mouseY.set(clientY - top);
@@ -138,8 +149,7 @@ function Resource({ resource }: { resource: Resource }) {
     <div
       key={resource.href}
       onMouseMove={onMouseMove}
-      className="group relative flex rounded-2xl bg-zinc-50 transition-shadow hover:shadow-md hover:shadow-zinc-900/5 dark:bg-white/2.5 dark:hover:shadow-black/5"
-    >
+      className="group relative flex rounded-2xl bg-zinc-50 transition-shadow hover:shadow-md hover:shadow-zinc-900/5 dark:bg-white/2.5 dark:hover:shadow-black/5">
       <ResourcePattern {...resource.pattern} mouseX={mouseX} mouseY={mouseY} />
       <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-zinc-900/7.5 group-hover:ring-zinc-900/10 dark:ring-white/10 dark:group-hover:ring-white/20" />
       <div className="relative rounded-2xl px-4 pb-4 pt-16">
@@ -150,7 +160,9 @@ function Resource({ resource }: { resource: Resource }) {
             {resource.name}
           </Link>
         </h3>
-        <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">{resource.description}</p>
+        <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
+          {resource.description}
+        </p>
       </div>
     </div>
   );

@@ -34,7 +34,13 @@ type ButtonProps = {
   | (React.ComponentPropsWithoutRef<'button'> & { href?: undefined })
 );
 
-export function Button({ variant = 'primary', className, children, arrow, ...props }: ButtonProps) {
+export function Button({
+  variant = 'primary',
+  className,
+  children,
+  arrow,
+  ...props
+}: ButtonProps) {
   className = clsx(
     'inline-flex gap-0.5 justify-center overflow-hidden text-sm font-medium transition',
     variantStyles[variant],
