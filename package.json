@@ -1,6 +1,6 @@
 {
   "name": "@meveth/docs",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "private": true,
   "scripts": {
     "dev": "NEXT_TELEMETRY_DISABLED=1 next dev",
