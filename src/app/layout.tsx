@@ -1,4 +1,5 @@
 import glob from 'fast-glob'
+import { Analytics } from '@vercel/analytics/react';
 
 import { Providers } from '@/app/providers'
 import { Layout } from '@/components/Layout'
@@ -10,7 +11,7 @@ import { type Section } from '@/components/SectionProvider'
 export const metadata: Metadata = {
   title: {
     template: '%s - Protocol Reference',
-    default: 'mevETH Protocol and API Reference',
+    default: 'mevETH Protocol Specification',
   },
 }
 
@@ -33,10 +34,12 @@ export default async function RootLayout({
       <body className="flex min-h-full bg-white antialiased dark:bg-zinc-900">
         <Providers>
           <div className="w-full">
-            <Layout allSections={allSections}>{children}</Layout>
+            <Layout allSections={allSections}>{children}
+            <Analytics />
+            </Layout>
           </div>
         </Providers>
       </body>
     </html>
-  )
+  );
 }
