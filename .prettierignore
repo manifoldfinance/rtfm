@@ -1,0 +1,16 @@
+# Ignore all CSS files:
+*.css
+*.json
+*.scss
+*.html
+*.svg
+*.min.js
+.next/
+.github/
+pnpm-lock*
+*.lock
+.idea/
+.vscode/
+build/
+dist/
+public/
