@@ -4,23 +4,23 @@ import { Heading } from '@/components/Heading'
 const guides = [
   {
     href: '/protocol',
-    name: 'Authentication',
+    name: 'Protocol',
     description: 'Learn how to authenticate your API requests.',
   },
   {
     href: '/infrastructure',
-    name: 'Pagination',
+    name: 'Infrastructure',
     description: 'Understand how to work with paginated responses.',
   },
   {
     href: '/rulebook',
-    name: 'Errors',
+    name: 'Rulebook',
     description:
-      'Read about the different types of rulebook returned by the API.',
+      'Our Rulebook defines our market structure and terms',
   },
   {
     href: '/metrics',
-    name: 'Webhooks',
+    name: 'Metrics',
     description:
       'Learn how to programmatically configure metrics for your app.',
   },

@@ -1,28 +1,33 @@
-# Protocol
+# `mevETH Documentation`
 
-Protocol is a [Tailwind UI](https://tailwindui.com) site template built using [Tailwind CSS](https://tailwindcss.com) and [Next.js](https://nextjs.org).
+## Developers
 
-## Getting started
+>**Warning**    
+> Follow the setup instructions correctly    
 
-To get started with this template, first install the npm dependencies:
+### Installing
 
-```bash
-npm install
-```
-
-Next, run the development server:
+> Use Volta - we do not use nvm!
 
 ```bash
-npm run dev
+curl https://get.volta.sh | bash
+volta install node@18
+```
+### Building
+
+```bash
+npm ci
 ```
 
-Finally, open [http://localhost:3000](http://localhost:3000) in your browser to view the website.
+```bash
+npm run build
+```
 
-## Customizing
+## Configuration
 
-You can start editing this template by modifying the files in the `/src` folder. The site will auto-update as you edit these files.
+> TODO
 
-## Global search
+### Global search
 
 This template includes a global search that's powered by the [FlexSearch](https://github.com/nextapps-de/flexsearch) library. It's available by clicking the search input or by using the `⌘K` shortcut.
 

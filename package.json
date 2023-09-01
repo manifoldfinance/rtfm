@@ -1,6 +1,6 @@
 {
   "name": "@meveth/docs",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "scripts": {
     "dev": "NEXT_TELEMETRY_DISABLED=1 next dev",
@@ -8,6 +8,8 @@
     "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
+    "fmt": "npx prettier --config .prettierrc.js --write '**/*.{js,jsx,ts,tsx,mdx}'",
+    "debug": "NODE_OPTIONS='--inspect' next dev",
     "baseline": "npx tsc --extendedDiagnostics",
     "explain": "npx tsc --explainFiles > explanation.txt",
     "trace": "npx tsc --traceResolution > resolution.txt",
