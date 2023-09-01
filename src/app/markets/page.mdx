@@ -92,7 +92,7 @@ The message model contains all the information about the messages and attachment
     client.messages.list()
     ```
 
-    ```php
+    ```solidity
     $client = new \Protocol\ApiClient($token);
 
     $client->messages->list();
@@ -195,7 +195,7 @@ The message model contains all the information about the messages and attachment
     )
     ```
 
-    ```php
+    ```solidity
     $client = new \Protocol\ApiClient($token);
 
     $client->messages->send([
@@ -265,7 +265,7 @@ The message model contains all the information about the messages and attachment
     client.messages.get("SIuAFUNKdSYHZF2w")
     ```
 
-    ```php
+    ```solidity
     $client = new \Protocol\ApiClient($token);
 
     $client->messages->get('SIuAFUNKdSYHZF2w');
@@ -352,7 +352,7 @@ The message model contains all the information about the messages and attachment
         reactions={"red_angry_face": ["KateMcCallister"]})
     ```
 
-    ```php
+    ```solidity
     $client = new \Protocol\ApiClient($token);
 
     $client->messages->update('SIuAFUNKdSYHZF2w', [
@@ -429,7 +429,7 @@ The message model contains all the information about the messages and attachment
     client.messages.delete("SIuAFUNKdSYHZF2w")
     ```
 
-    ```php
+    ```solidity
     $client = new \Protocol\ApiClient($token);
 
     $client->messages->delete('SIuAFUNKdSYHZF2w');

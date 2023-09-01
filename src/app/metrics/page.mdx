@@ -159,7 +159,7 @@ else:
     # Request could not be verified
 ```
 
-```php
+```solidity
 $signature = $request['headers']['x-protocol-signature'];
 $hash = hash_hmac('sha256', $payload, $secret);
 
