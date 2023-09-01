@@ -1,12 +1,12 @@
-import Image from 'next/image'
+import Image from 'next/image';
 
-import { Button } from '@/components/Button'
-import { Heading } from '@/components/Heading'
-import logoGo from '@/images/logos/go.svg'
-import logoNode from '@/images/logos/node.svg'
-import logoPhp from '@/images/logos/php.svg'
-import logoPython from '@/images/logos/python.svg'
-import logoRuby from '@/images/logos/ruby.svg'
+import { Button } from '@/components/Button';
+import { Heading } from '@/components/Heading';
+import logoGo from '@/images/logos/go.svg';
+import logoNode from '@/images/logos/node.svg';
+import logoPhp from '@/images/logos/php.svg';
+import logoPython from '@/images/logos/python.svg';
+import logoRuby from '@/images/logos/ruby.svg';
 
 const libraries = [
   {
@@ -26,8 +26,7 @@ const libraries = [
   {
     href: '#',
     name: 'Node.js',
-    description:
-      'Node.js® is an open-source, cross-platform JavaScript runtime environment.',
+    description: 'Node.js® is an open-source, cross-platform JavaScript runtime environment.',
     logo: logoNode,
   },
   {
@@ -44,7 +43,7 @@ const libraries = [
       'An open-source programming language supported by Google with built-in concurrency.',
     logo: logoGo,
   },
-]
+];
 
 export function Libraries() {
   return (
@@ -59,24 +58,17 @@ export function Libraries() {
               <h3 className="text-sm font-semibold text-zinc-900 dark:text-white">
                 {library.name}
               </h3>
-              <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
-                {library.description}
-              </p>
+              <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">{library.description}</p>
               <p className="mt-4">
                 <Button href={library.href} variant="text" arrow="right">
                   Read more
                 </Button>
               </p>
             </div>
-            <Image
-              src={library.logo}
-              alt=""
-              className="h-12 w-12"
-              unoptimized
-            />
+            <Image src={library.logo} alt="" className="h-12 w-12" unoptimized />
           </div>
         ))}
       </div>
     </div>
-  )
+  );
 }

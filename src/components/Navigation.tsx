@@ -1,37 +1,31 @@
-'use client'
+'use client';
 
-import { useRef } from 'react'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import clsx from 'clsx'
-import { AnimatePresence, motion, useIsPresent } from 'framer-motion'
+import { useRef } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import clsx from 'clsx';
+import { AnimatePresence, motion, useIsPresent } from 'framer-motion';
 
-import { Button } from '@/components/Button'
-import { useIsInsideMobileNavigation } from '@/components/MobileNavigation'
-import { useSectionStore } from '@/components/SectionProvider'
-import { Tag } from '@/components/Tag'
-import { remToPx } from '@/lib/remToPx'
+import { Button } from '@/components/Button';
+import { useIsInsideMobileNavigation } from '@/components/MobileNavigation';
+import { useSectionStore } from '@/components/SectionProvider';
+import { Tag } from '@/components/Tag';
+import { remToPx } from '@/lib/remToPx';
 
 interface NavGroup {
-  title: string
+  title: string;
   links: Array<{
-    title: string
-    href: string
-  }>
+    title: string;
+    href: string;
+  }>;
 }
 
 function useInitialValue<T>(value: T, condition = true) {
-  let initialValue = useRef(value).current
-  return condition ? initialValue : value
+  let initialValue = useRef(value).current;
+  return condition ? initialValue : value;
 }
 
-function TopLevelNavItem({
-  href,
-  children,
-}: {
-  href: string
-  children: React.ReactNode
-}) {
+function TopLevelNavItem({ href, children }: { href: string; children: React.ReactNode }) {
   return (
     <li className="md:hidden">
       <Link
@@ -41,7 +35,7 @@ function TopLevelNavItem({
         {children}
       </Link>
     </li>
-  )
+  );
 }
 
 function NavLink({
@@ -51,11 +45,11 @@ function NavLink({
   active = false,
   isAnchorLink = false,
 }: {
-  href: string
-  children: React.ReactNode
-  tag?: string
-  active?: boolean
-  isAnchorLink?: boolean
+  href: string;
+  children: React.ReactNode;
+  tag?: string;
+  active?: boolean;
+  isAnchorLink?: boolean;
 }) {
   return (
     <Link
@@ -76,38 +70,25 @@ function NavLink({
         </Tag>
       )}
     </Link>
-  )
+  );
 }
 
-function VisibleSectionHighlight({
-  group,
-  pathname,
-}: {
-  group: NavGroup
-  pathname: string
-}) {
+function VisibleSectionHighlight({ group, pathname }: { group: NavGroup; pathname: string }) {
   let [sections, visibleSections] = useInitialValue(
-    [
-      useSectionStore((s) => s.sections),
-      useSectionStore((s) => s.visibleSections),
-    ],
+    [useSectionStore((s) => s.sections), useSectionStore((s) => s.visibleSections)],
     useIsInsideMobileNavigation(),
-  )
+  );
 
-  let isPresent = useIsPresent()
+  let isPresent = useIsPresent();
   let firstVisibleSectionIndex = Math.max(
     0,
-    [{ id: '_top' }, ...sections].findIndex(
-      (section) => section.id === visibleSections[0],
-    ),
-  )
-  let itemHeight = remToPx(2)
-  let height = isPresent
-    ? Math.max(1, visibleSections.length) * itemHeight
-    : itemHeight
+    [{ id: '_top' }, ...sections].findIndex((section) => section.id === visibleSections[0]),
+  );
+  let itemHeight = remToPx(2);
+  let height = isPresent ? Math.max(1, visibleSections.length) * itemHeight : itemHeight;
   let top =
     group.links.findIndex((link) => link.href === pathname) * itemHeight +
-    firstVisibleSectionIndex * itemHeight
+    firstVisibleSectionIndex * itemHeight;
 
   return (
     <motion.div
@@ -118,20 +99,14 @@ function VisibleSectionHighlight({
       className="absolute inset-x-0 top-0 bg-zinc-800/2.5 will-change-transform dark:bg-white/2.5"
       style={{ borderRadius: 8, height, top }}
     />
-  )
+  );
 }
 
-function ActivePageMarker({
-  group,
-  pathname,
-}: {
-  group: NavGroup
-  pathname: string
-}) {
-  let itemHeight = remToPx(2)
-  let offset = remToPx(0.25)
-  let activePageIndex = group.links.findIndex((link) => link.href === pathname)
-  let top = offset + activePageIndex * itemHeight
+function ActivePageMarker({ group, pathname }: { group: NavGroup; pathname: string }) {
+  let itemHeight = remToPx(2);
+  let offset = remToPx(0.25);
+  let activePageIndex = group.links.findIndex((link) => link.href === pathname);
+  let top = offset + activePageIndex * itemHeight;
 
   return (
     <motion.div
@@ -142,50 +117,36 @@ function ActivePageMarker({
       exit={{ opacity: 0 }}
       style={{ top }}
     />
-  )
+  );
 }
 
-function NavigationGroup({
-  group,
-  className,
-}: {
-  group: NavGroup
-  className?: string
-}) {
+function NavigationGroup({ group, className }: { group: NavGroup; className?: string }) {
   // If this is the mobile navigation then we always render the initial
   // state, so that the state does not change during the close animation.
   // The state will still update when we re-open (re-render) the navigation.
-  let isInsideMobileNavigation = useIsInsideMobileNavigation()
+  let isInsideMobileNavigation = useIsInsideMobileNavigation();
   let [pathname, sections] = useInitialValue(
     [usePathname(), useSectionStore((s) => s.sections)],
     isInsideMobileNavigation,
-  )
+  );
 
-  let isActiveGroup =
-    group.links.findIndex((link) => link.href === pathname) !== -1
+  let isActiveGroup = group.links.findIndex((link) => link.href === pathname) !== -1;
 
   return (
     <li className={clsx('relative mt-6', className)}>
-      <motion.h2
-        layout="position"
-        className="text-xs font-semibold text-zinc-900 dark:text-white"
-      >
+      <motion.h2 layout="position" className="text-xs font-semibold text-zinc-900 dark:text-white">
         {group.title}
       </motion.h2>
       <div className="relative mt-3 pl-2">
         <AnimatePresence initial={!isInsideMobileNavigation}>
-          {isActiveGroup && (
-            <VisibleSectionHighlight group={group} pathname={pathname} />
-          )}
+          {isActiveGroup && <VisibleSectionHighlight group={group} pathname={pathname} />}
         </AnimatePresence>
         <motion.div
           layout
           className="absolute inset-y-0 left-2 w-px bg-zinc-900/10 dark:bg-white/5"
         />
         <AnimatePresence initial={false}>
-          {isActiveGroup && (
-            <ActivePageMarker group={group} pathname={pathname} />
-          )}
+          {isActiveGroup && <ActivePageMarker group={group} pathname={pathname} />}
         </AnimatePresence>
         <ul role="list" className="border-l border-transparent">
           {group.links.map((link) => (
@@ -209,11 +170,7 @@ function NavigationGroup({
                   >
                     {sections.map((section) => (
                       <li key={section.id}>
-                        <NavLink
-                          href={`${link.href}#${section.id}`}
-                          tag={section.tag}
-                          isAnchorLink
-                        >
+                        <NavLink href={`${link.href}#${section.id}`} tag={section.tag} isAnchorLink>
                           {section.title}
                         </NavLink>
                       </li>
@@ -226,7 +183,7 @@ function NavigationGroup({
         </ul>
       </div>
     </li>
-  )
+  );
 }
 
 export const navigation: Array<NavGroup> = [
@@ -252,7 +209,7 @@ export const navigation: Array<NavGroup> = [
       { title: 'Attachments', href: '/relay' },
     ],
   },
-]
+];
 
 export function Navigation(props: React.ComponentPropsWithoutRef<'nav'>) {
   return (
@@ -275,5 +232,5 @@ export function Navigation(props: React.ComponentPropsWithoutRef<'nav'>) {
         </li>
       </ul>
     </nav>
-  )
+  );
 }

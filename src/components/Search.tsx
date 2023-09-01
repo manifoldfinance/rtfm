@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import {
   forwardRef,
@@ -9,67 +9,59 @@ import {
   useId,
   useRef,
   useState,
-} from 'react'
-import Highlighter from 'react-highlight-words'
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+} from 'react';
+import Highlighter from 'react-highlight-words';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import {
   type AutocompleteApi,
   createAutocomplete,
   type AutocompleteState,
   type AutocompleteCollection,
-} from '@algolia/autocomplete-core'
-import { Dialog, Transition } from '@headlessui/react'
-import clsx from 'clsx'
+} from '@algolia/autocomplete-core';
+import { Dialog, Transition } from '@headlessui/react';
+import clsx from 'clsx';
 
-import { navigation } from '@/components/Navigation'
-import { type Result } from '@/mdx/search.mjs'
+import { navigation } from '@/components/Navigation';
+import { type Result } from '@/mdx/search.mjs';
 
-type EmptyObject = Record<string, never>
+type EmptyObject = Record<string, never>;
 
 type Autocomplete = AutocompleteApi<
   Result,
   React.SyntheticEvent,
   React.MouseEvent,
   React.KeyboardEvent
->
+>;
 
 function useAutocomplete({ close }: { close: () => void }) {
-  let id = useId()
-  let router = useRouter()
-  let [autocompleteState, setAutocompleteState] = useState<
-    AutocompleteState<Result> | EmptyObject
-  >({})
+  let id = useId();
+  let router = useRouter();
+  let [autocompleteState, setAutocompleteState] = useState<AutocompleteState<Result> | EmptyObject>(
+    {},
+  );
 
   function navigate({ itemUrl }: { itemUrl?: string }) {
     if (!itemUrl) {
-      return
+      return;
     }
 
-    router.push(itemUrl)
+    router.push(itemUrl);
 
-    if (
-      itemUrl ===
-      window.location.pathname + window.location.search + window.location.hash
-    ) {
-      close()
+    if (itemUrl === window.location.pathname + window.location.search + window.location.hash) {
+      close();
     }
   }
 
   let [autocomplete] = useState<Autocomplete>(() =>
-    createAutocomplete<
-      Result,
-      React.SyntheticEvent,
-      React.MouseEvent,
-      React.KeyboardEvent
-    >({
+    createAutocomplete<Result, React.SyntheticEvent, React.MouseEvent, React.KeyboardEvent>({
       id,
       placeholder: '🔎',
       defaultActiveItemId: 0,
       onStateChange({ state }) {
-        setAutocompleteState(state)
+        setAutocompleteState(state);
       },
       shouldPanelOpen({ state }) {
-        return state.query !== ''
+        return state.query !== '';
       },
       navigator: {
         navigate,
@@ -80,20 +72,20 @@ function useAutocomplete({ close }: { close: () => void }) {
             {
               sourceId: 'documentation',
               getItems() {
-                return search(query, { limit: 5 })
+                return search(query, { limit: 5 });
               },
               getItemUrl({ item }) {
-                return item.url
+                return item.url;
               },
               onSelect: navigate,
             },
-          ]
-        })
+          ];
+        });
       },
     }),
-  )
+  );
 
-  return { autocomplete, autocompleteState }
+  return { autocomplete, autocompleteState };
 }
 
 function SearchIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
@@ -105,7 +97,7 @@ function SearchIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
         d="M12.01 12a4.25 4.25 0 1 0-6.02-6 4.25 4.25 0 0 0 6.02 6Zm0 0 3.24 3.25"
       />
     </svg>
-  )
+  );
 }
 
 function NoResultsIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
@@ -117,11 +109,11 @@ function NoResultsIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
         d="M12.01 12a4.237 4.237 0 0 0 1.24-3c0-.62-.132-1.207-.37-1.738M12.01 12A4.237 4.237 0 0 1 9 13.25c-.635 0-1.237-.14-1.777-.388M12.01 12l3.24 3.25m-3.715-9.661a4.25 4.25 0 0 0-5.975 5.908M4.5 15.5l11-11"
       />
     </svg>
-  )
+  );
 }
 
 function LoadingIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
-  let id = useId()
+  let id = useId();
 
   return (
     <svg viewBox="0 0 20 20" fill="none" aria-hidden="true" {...props}>
@@ -133,20 +125,13 @@ function LoadingIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
         d="M15.5 10a5.5 5.5 0 1 0-5.5 5.5"
       />
       <defs>
-        <linearGradient
-          id={id}
-          x1="13"
-          x2="9.5"
-          y1="9"
-          y2="15"
-          gradientUnits="userSpaceOnUse"
-        >
+        <linearGradient id={id} x1="13" x2="9.5" y1="9" y2="15" gradientUnits="userSpaceOnUse">
           <stop stopColor="currentColor" />
           <stop offset="1" stopColor="currentColor" stopOpacity="0" />
         </linearGradient>
       </defs>
     </svg>
-  )
+  );
 }
 
 function HighlightQuery({ text, query }: { text: string; query: string }) {
@@ -157,7 +142,7 @@ function HighlightQuery({ text, query }: { text: string; query: string }) {
       autoEscape={true}
       textToHighlight={text}
     />
-  )
+  );
 }
 
 function SearchResult({
@@ -167,20 +152,20 @@ function SearchResult({
   collection,
   query,
 }: {
-  result: Result
-  resultIndex: number
-  autocomplete: Autocomplete
-  collection: AutocompleteCollection<Result>
-  query: string
+  result: Result;
+  resultIndex: number;
+  autocomplete: Autocomplete;
+  collection: AutocompleteCollection<Result>;
+  query: string;
 }) {
-  let id = useId()
+  let id = useId();
 
   let sectionTitle = navigation.find((section) =>
     section.links.find((link) => link.href === result.url.split('#')[0]),
-  )?.title
+  )?.title;
   let hierarchy = [sectionTitle, result.pageTitle].filter(
     (x): x is string => typeof x === 'string',
-  )
+  );
 
   return (
     <li
@@ -224,7 +209,7 @@ function SearchResult({
         </div>
       )}
     </li>
-  )
+  );
 }
 
 function SearchResults({
@@ -232,9 +217,9 @@ function SearchResults({
   query,
   collection,
 }: {
-  autocomplete: Autocomplete
-  query: string
-  collection: AutocompleteCollection<Result>
+  autocomplete: Autocomplete;
+  query: string;
+  collection: AutocompleteCollection<Result>;
 }) {
   if (collection.items.length === 0) {
     return (
@@ -248,7 +233,7 @@ function SearchResults({
           . Please try again.
         </p>
       </div>
-    )
+    );
   }
 
   return (
@@ -264,18 +249,18 @@ function SearchResults({
         />
       ))}
     </ul>
-  )
+  );
 }
 
 const SearchInput = forwardRef<
   React.ElementRef<'input'>,
   {
-    autocomplete: Autocomplete
-    autocompleteState: AutocompleteState<Result> | EmptyObject
-    onClose: () => void
+    autocomplete: Autocomplete;
+    autocompleteState: AutocompleteState<Result> | EmptyObject;
+    onClose: () => void;
   }
 >(function SearchInput({ autocomplete, autocompleteState, onClose }, inputRef) {
-  let inputProps = autocomplete.getInputProps({ inputElement: null })
+  let inputProps = autocomplete.getInputProps({ inputElement: null });
 
   return (
     <div className="group relative flex h-12">
@@ -296,12 +281,12 @@ const SearchInput = forwardRef<
             // In Safari, closing the dialog with the escape key can sometimes cause the scroll position to jump to the
             // bottom of the page. This is a workaround for that until we can figure out a proper fix in Headless UI.
             if (document.activeElement instanceof HTMLElement) {
-              document.activeElement.blur()
+              document.activeElement.blur();
             }
 
-            onClose()
+            onClose();
           } else {
-            inputProps.onKeyDown(event)
+            inputProps.onKeyDown(event);
           }
         }}
       />
@@ -311,62 +296,55 @@ const SearchInput = forwardRef<
         </div>
       )}
     </div>
-  )
-})
+  );
+});
 
 function SearchDialog({
   open,
   setOpen,
   className,
 }: {
-  open: boolean
-  setOpen: (open: boolean) => void
-  className?: string
+  open: boolean;
+  setOpen: (open: boolean) => void;
+  className?: string;
 }) {
-  let formRef = useRef<React.ElementRef<'form'>>(null)
-  let panelRef = useRef<React.ElementRef<'div'>>(null)
-  let inputRef = useRef<React.ElementRef<typeof SearchInput>>(null)
+  let formRef = useRef<React.ElementRef<'form'>>(null);
+  let panelRef = useRef<React.ElementRef<'div'>>(null);
+  let inputRef = useRef<React.ElementRef<typeof SearchInput>>(null);
   let { autocomplete, autocompleteState } = useAutocomplete({
     close() {
-      setOpen(false)
+      setOpen(false);
     },
-  })
-  let pathname = usePathname()
-  let searchParams = useSearchParams()
+  });
+  let pathname = usePathname();
+  let searchParams = useSearchParams();
 
   useEffect(() => {
-    setOpen(false)
-  }, [pathname, searchParams, setOpen])
+    setOpen(false);
+  }, [pathname, searchParams, setOpen]);
 
   useEffect(() => {
     if (open) {
-      return
+      return;
     }
 
     function onKeyDown(event: KeyboardEvent) {
       if (event.key === 'k' && (event.metaKey || event.ctrlKey)) {
-        event.preventDefault()
-        setOpen(true)
+        event.preventDefault();
+        setOpen(true);
       }
     }
 
-    window.addEventListener('keydown', onKeyDown)
+    window.addEventListener('keydown', onKeyDown);
 
     return () => {
-      window.removeEventListener('keydown', onKeyDown)
-    }
-  }, [open, setOpen])
+      window.removeEventListener('keydown', onKeyDown);
+    };
+  }, [open, setOpen]);
 
   return (
-    <Transition.Root
-      show={open}
-      as={Fragment}
-      afterLeave={() => autocomplete.setQuery('')}
-    >
-      <Dialog
-        onClose={setOpen}
-        className={clsx('fixed inset-0 z-50', className)}
-      >
+    <Transition.Root show={open} as={Fragment} afterLeave={() => autocomplete.setQuery('')}>
+      <Dialog onClose={setOpen} className={clsx('fixed inset-0 z-50', className)}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -423,45 +401,42 @@ function SearchDialog({
         </div>
       </Dialog>
     </Transition.Root>
-  )
+  );
 }
 
 function useSearchProps() {
-  let buttonRef = useRef<React.ElementRef<'button'>>(null)
-  let [open, setOpen] = useState(false)
+  let buttonRef = useRef<React.ElementRef<'button'>>(null);
+  let [open, setOpen] = useState(false);
 
   return {
     buttonProps: {
       ref: buttonRef,
       onClick() {
-        setOpen(true)
+        setOpen(true);
       },
     },
     dialogProps: {
       open,
       setOpen: useCallback(
         (open: boolean) => {
-          let { width = 0, height = 0 } =
-            buttonRef.current?.getBoundingClientRect() ?? {}
+          let { width = 0, height = 0 } = buttonRef.current?.getBoundingClientRect() ?? {};
           if (!open || (width !== 0 && height !== 0)) {
-            setOpen(open)
+            setOpen(open);
           }
         },
         [setOpen],
       ),
     },
-  }
+  };
 }
 
 export function Search() {
-  let [modifierKey, setModifierKey] = useState<string>()
-  let { buttonProps, dialogProps } = useSearchProps()
+  let [modifierKey, setModifierKey] = useState<string>();
+  let { buttonProps, dialogProps } = useSearchProps();
 
   useEffect(() => {
-    setModifierKey(
-      /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform) ? '⌘' : 'Ctrl ',
-    )
-  }, [])
+    setModifierKey(/(Mac|iPhone|iPod|iPad)/i.test(navigator.platform) ? '⌘' : 'Ctrl ');
+  }, []);
 
   return (
     <div className="hidden lg:block lg:max-w-md lg:flex-auto">
@@ -481,11 +456,11 @@ export function Search() {
         <SearchDialog className="hidden lg:block" {...dialogProps} />
       </Suspense>
     </div>
-  )
+  );
 }
 
 export function MobileSearch() {
-  let { buttonProps, dialogProps } = useSearchProps()
+  let { buttonProps, dialogProps } = useSearchProps();
 
   return (
     <div className="contents lg:hidden">
@@ -501,5 +476,5 @@ export function MobileSearch() {
         <SearchDialog className="lg:hidden" {...dialogProps} />
       </Suspense>
     </div>
-  )
+  );
 }
