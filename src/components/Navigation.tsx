@@ -1,5 +1,8 @@
 'use client';
 
+import PropTypes from 'prop-types';
+import { useCallback } from 'react';
+
 import { useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -11,6 +14,7 @@ import { useIsInsideMobileNavigation } from '@/components/MobileNavigation';
 import { useSectionStore } from '@/components/SectionProvider';
 import { Tag } from '@/components/Tag';
 import { remToPx } from '@/lib/remToPx';
+import React from 'react';
 
 interface NavGroup {
   title: string;
@@ -43,7 +47,7 @@ function TopLevelNavItem({
   );
 }
 
-function NavLink({
+const NavLink = React.memo(function NavLink({
   href,
   children,
   tag,
@@ -56,26 +60,45 @@ function NavLink({
   active?: boolean;
   isAnchorLink?: boolean;
 }) {
-  return (
-    <Link
-      href={href}
-      aria-current={active ? 'page' : undefined}
-      className={clsx(
+  const className = useCallback(
+    () =>
+      clsx(
         'flex justify-between gap-2 py-1 pr-3 text-sm transition',
         isAnchorLink ? 'pl-7' : 'pl-4',
         active
           ? 'text-zinc-900 dark:text-white'
           : 'text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white',
-      )}>
-      <span className="truncate">{children}</span>
-      {tag && (
-        <Tag variant="small" color="zinc">
-          {tag}
-        </Tag>
-      )}
+      ),
+    [isAnchorLink, active]
+  );
+
+  return (
+    <Link href={href} passHref>
+      <a
+        aria-current={active ? 'page' : undefined}
+        className={className()}
+      >
+        <span className="truncate">{children}</span>
+        {tag && (
+          <Tag variant="small" color="zinc">
+            {tag}
+          </Tag>
+        )}
+      </a>
     </Link>
   );
-}
+});
+
+// @ts-ignore
+NavLink.propTypes = {
+  href: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+  tag: PropTypes.string,
+  active: PropTypes.bool,
+  isAnchorLink: PropTypes.bool,
+};
+
+export default NavLink;
 
 function VisibleSectionHighlight({
   group,
