@@ -243,7 +243,7 @@ export const navigation: Array<NavGroup> = [
       { title: 'SDKs', href: '/sdks' },
       { title: 'Protocol', href: '/protocol' },
       { title: 'Infrastructure', href: '/infrastructure' },
-      { title: 'Rulebook', href: '/rulebook' },
+      { title: 'Vaults', href: '/vaults' },
       { title: 'Metrics API', href: '/metrics' },
     ],
   },
