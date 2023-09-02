@@ -4,11 +4,10 @@
  */
 
 module.exports = {
-  siteUrl: 'https://docs.meveth.org',
+  siteUrl: 'https://meveth-docs.vercel.app',
   generateRobotsTxt: true,
   // optional
   robotsTxtOptions: {
-    additionalSitemaps: [
-    ],
+    additionalSitemaps: [],
   },
-}
+};

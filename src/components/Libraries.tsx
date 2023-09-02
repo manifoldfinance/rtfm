@@ -4,17 +4,17 @@ import { Button } from '@/components/Button';
 import { Heading } from '@/components/Heading';
 import logoGo from '@/images/logos/go.svg';
 import logoNode from '@/images/logos/node.svg';
-import logoPhp from '@/images/logos/php.svg';
+import LogoSolidity from '@/images/logos/solidity.svg';
 import logoPython from '@/images/logos/python.svg';
 import logoRuby from '@/images/logos/ruby.svg';
 
 const libraries = [
   {
     href: '#',
-    name: 'PHP',
+    name: 'Solidity',
     description:
-      'A popular general-purpose scripting language that is especially suited to web development.',
-    logo: logoPhp,
+      'Solidity is an object-oriented, high-level language for implementing smart contracts.',
+    logo: LogoSolidity,
   },
   {
     href: '#',

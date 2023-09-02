@@ -3,7 +3,7 @@
  * @description The Guides component for the documentation.
  *    - Protocol
  *    - Infrastructure
- *    - Rulebook
+ *    - Vaults
  *    - Metrics
  *
  * @see {@link https://github.com/manifoldfinance/rtfm/}
@@ -39,9 +39,9 @@ const guides = [
     description: 'Understand how we manage and secure our infrastructure.',
   },
   {
-    href: '/rulebook',
-    name: 'Rulebook',
-    description: 'Our Rulebook defines our market structure and terms',
+    href: '/vaults',
+    name: 'Vaults',
+    description: 'Our Vaults defines our market structure and terms',
   },
   {
     href: '/metrics',
