@@ -4,34 +4,117 @@ export const metadata = {
     'In this guide, we’ll look at how the protocol works. We will cover error handling, rewards, and integrations.',
 };
 
-# Protocol Errors and debugging
+# mevETH Protocol
 
 In this guide, we will talk about what happens when something goes wrong while you work with the API. Mistakes happen, and mostly they will be yours, not ours. Let's look at some status codes and error types you might encounter. {{ className: 'lead' }}
 
 You can tell if your request was successful by checking the status code when receiving an API response. If a response comes back unsuccessful, you can use the error type and error message to figure out what has gone wrong and do some rudimentary debugging (before contacting support).
 
-<Note>
-  Before reaching out to support with an error, please be aware that 99% of all
-  reported errors are, in fact, user errors. Therefore, please carefully check
-  your code before contacting Protocol support.
-</Note>
+<Note>Never share your private key with anyone, ever.</Note>
 
 ---
 
-## Status codes
+## WagyuStaker
+
+> Beacon Chain Staking
+
+The WagyuStaker contract enables the seamless staking of Ether on the Beacon Chain. By directly interfacing with the BeaconChainDepositContract, this contract empowers users to register validators and earn rewards within the Ethereum 2.0 ecosystem.
+
+### Core Functionality
+
+The WagyuStaker contract offers the following key features:
+
+- **Validator Registration**: Users can deposit Ether and initiate the registration of a validator on the Beacon Chain.
+
+- **Oracle Integration**: Updates the contract's balance and validator count based on real-time data from the MevEth contract.
+
+- **Reward Distribution**: Facilitates the distribution of rewards to the MevEth contract, enhancing overall yield opportunities.
+
+- **Token Recovery**: Allows the recovery of mistakenly sent tokens to the contract.
+
+- **Beneficiary Management**: Enables the assignment of a beneficiary address for fund recovery in case of unforeseen issues.
+
+### Contract Details
+
+- **State Variables**:
+
+  - `balance`: The total amount of staked Ether on the Beacon Chain.
+  - `beneficiary`: The address designated to manage fund recovery.
+  - `validators`: The count of validators registered under this contract.
+  - `MEV_ETH`: The address of the MevEth contract.
+  - `BEACON_CHAIN_DEPOSIT_CONTRACT`: The address of the BeaconChainDepositContract.
+
+- **Events**:
+
+  - `NewValidator`: Emitted upon successful registration of a new validator, providing key registration data.
+  - `TokenRecovered`: Emitted when tokens are recovered from the contract.
+  - `RewardsPaid`: Emitted when rewards are distributed to the MevEth contract.
+  - `ValidatorWithdraw`: Emitted when funds representing a validator withdrawal are sent to the MevEth contract.
+  - `BeneficiaryUpdated`: Emitted when the beneficiary address is updated.
+
+- **Constructor**:
+  - Initializes the contract with the addresses of the MevEth contract and BeaconChainDepositContract. Assigns the initial beneficiary as the contract's owner.
+
+### Functionality
+
+- `deposit(IStakingModule.ValidatorData calldata data, bytes32 latestDepositRoot) external payable`: Allows the MevEth contract to initiate validator registration by depositing the required Ether. Validates deposit amount and ensures data integrity before initiating the deposit process.
+
+- `oracleUpdate(uint256 newBalance, uint256 newValidators) external`: Allows the MevEth contract to update the contract's balance and validator count based on oracle data.
+
+- `payRewards() external`: Allows the MevEth contract's operator to distribute rewards to the MevEth contract. In case of error, secures funds to the beneficiary for manual allocation.
+
+- `payValidatorWithdraw(uint256 amount) external`: Enables the admin to distribute MevEth when withdrawing funds from a validator.
+
+- `recoverToken(address token, address recipient, uint256 amount) external`: Allows the admin to recover mistakenly sent tokens to the contract.
+
+- `setNewBeneficiary(address newBeneficiary) external`: Allows the admin to update the beneficiary address for fund recovery.
+
+- `receive() external payable`: Receives Ether sent to the contract.
+
+### Security Considerations
+
+The contract leverages role-based access control to ensure proper authorization for key functions. The ability to recover tokens and set a new beneficiary is restricted to the contract's admin.
+
+### Future Enhancements
+
+The WagyuStaker contract is expected to undergo further development to enhance functionality, improve security, and optimize rewards distribution.
+
+---
+
+## Transaction Status codes
+
+| Block Tags | Description                                                                                                                         |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| earliest   | The lowest numbered block the client has available                                                                                  |
+| finalized  | The most recent crypto-economically secure block cannot be re-orged outside of manual intervention driven by community coordination |
+| safe       | The most recent block that is safe from re-orgs under honest majority and certain synchronicity assumptions                         |
+| unsafe     | The most recent block in the canonical chain observed by the client this block can be re-orged out of the canonical chain           |
+| pending    | A sample next block built by the client on top of unsafe and containing the set of transactions usually taken from local mempool    |
+| latest     | DEPRECATED Currently an alias for unsafe will be removed at some point in the future                                                |
 
 Here is a list of the different categories of status codes returned by the Protocol API. Use these to understand if a request was successful.
 
 <Properties>
-  <Property name="2xx">
-    A 2xx status code indicates a successful response.
+  <Property name="UNCHECKED">
+    A UNCHECKED status code indicates transaction status has not been checked
+    and there's no information about it.
   </Property>
-  <Property name="4xx">
-    A 4xx status code indicates a client error — this means it's a _you_
-    problem.
+  <Property name="PROCESSING">
+    A PROCESSING status code indicates Tx checks are in place until a resolution
+    happens: RESULT/OK, INDETERMINATE, ERROR. problem.
   </Property>
-  <Property name="5xx">
-    A 5xx status code indicates a server error — you won't be seeing these.
+  <Property name="INDETERMINATE">
+    A INDETERMINATE status code indicates Services received correctly the Tx && at
+    least one miner accepted the TX && TX potentially mineable
+  </Property>
+  <Property name="RESULT">
+    A Result status code indicates Success/OK. Services received the transaction
+    all downstream validators have accepted without issue. Transaction has been
+    included successfully & receipt is included in response.
+  </Property>
+  <Property name="ERROR">
+    A ERROR status code indicates that the services haven't received the TX || none
+    of the miners accepted the Tx || Tx was not mined successfully
   </Property>
 </Properties>
 
@@ -47,24 +130,211 @@ Here is a list of the different categories of status codes returned by the Proto
     Here is a list of the two error types supported by the Protocol API — use these to understand what you have done wrong.
 
     <Properties>
-      <Property name="api_error">
-        This means that we made an error, which is highly speculative and unlikely.
+      <Property name="invariant_false">
+        Invariant Violation: Protocol returns falsy
       </Property>
       <Property name="invalid_request">
-        This means that you made an error, which is much more likely.
+        Invalid Request: This means that you made an error, may be related to a value or permissions.
       </Property>
     </Properties>
 
   </Col>
   <Col>
 
-    ```bash {{ title: "Error response" }}
-    {
-      "type": "api_error",
-      "message": "No way this is happening!?",
-      "documentation_url": "https://protocol.chat/docs/errors/api_error"
-    }
+    ```typescript {{ title: "Parse Transaction Error response" }}
+    export const parseReasonCode = (messageData: string): string => {
+      // Get the length of the revert reason
+      const strLen = parseInt(messageData.slice(8 + 64, 8 + 128), 16);
+      // Using the length and known offset, extract and convert the revert reason
+      const reasonCodeHex = messageData.slice(8 + 128, 8 + 128 + strLen * 2);
+      // Convert reason from hex to string
+      const reason = toUtf8String('0x' + reasonCodeHex);
+
+      return reason;
+    };
     ```
 
   </Col>
 </Row>
+
+---
+
+## Error Code Appendix
+
+### StakingPaused
+
+Errors
+
+```solidity
+error StakingPaused();
+```
+
+### NotEnoughEth
+
+```solidity
+error NotEnoughEth();
+```
+
+### ZeroValue
+
+```solidity
+error ZeroValue();
+```
+
+### InvalidOperator
+
+```solidity
+error InvalidOperator();
+```
+
+### DepositTooSmall
+
+```solidity
+error DepositTooSmall();
+```
+
+### InvalidSender
+
+```solidity
+error InvalidSender();
+```
+
+### PrematureStakingModuleUpdateFinalization
+
+```solidity
+error PrematureStakingModuleUpdateFinalization();
+```
+
+### PrematureMevEthShareVaultUpdateFinalization
+
+```solidity
+error PrematureMevEthShareVaultUpdateFinalization();
+```
+
+### InvalidPendingStakingModule
+
+```solidity
+error InvalidPendingStakingModule();
+```
+
+### InvalidPendingMevEthShareVault
+
+```solidity
+error InvalidPendingMevEthShareVault();
+```
+
+### TransferExceedsAllowance
+
+```solidity
+error TransferExceedsAllowance();
+```
+
+### TransferFailed
+
+```solidity
+error TransferFailed();
+```
+
+### ZeroAddress
+
+```solidity
+error ZeroAddress();
+```
+
+### AlreadyInitialized
+
+```solidity
+error AlreadyInitialized();
+```
+
+### SendError
+
+```solidity
+error SendError();
+```
+
+### FeesTooHigh
+
+```solidity
+error FeesTooHigh();
+```
+
+### WrongDepositAmount
+
+```solidity
+error WrongDepositAmount();
+```
+
+### WrongWithdrawAmount
+
+```solidity
+error WrongWithdrawAmount();
+```
+
+### UnAuthorizedCaller
+
+```solidity
+error UnAuthorizedCaller();
+```
+
+### WithdrawTooSmall
+
+```solidity
+error WithdrawTooSmall();
+```
+
+### NotFinalised
+
+```solidity
+error NotFinalised();
+```
+
+### AlreadyClaimed
+
+```solidity
+error AlreadyClaimed();
+```
+
+### AlreadyFinalised
+
+```solidity
+error AlreadyFinalised();
+```
+
+### IndexExceedsQueueLength
+
+```solidity
+error IndexExceedsQueueLength();
+```
+
+### DepositWasFrontrun
+
+```solidity
+error DepositWasFrontrun();
+```
+
+### SandwichProtection
+
+```solidity
+error SandwichProtection();
+```
+
+### NonZeroVaultBalance
+
+```solidity
+error NonZeroVaultBalance();
+```
+
+## Unusual Error Codes
+
+### DepositWasFrontrun
+
+```solidity
+error DepositWasFrontrun();
+```
+
+### SandwichProtection
+
+```solidity
+error SandwichProtection();
+```

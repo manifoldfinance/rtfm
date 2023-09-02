@@ -10,7 +10,7 @@ Messages are what conversations are made of in Protocol — they are the basic b
 
 ## The message model
 
-The message model contains all the information about the messages and attachments you send to your contacts and groups, including how your contacts have reacted to them.
+The message model contains all the information about the messages and mev you send to your contacts and groups, including how your contacts have reacted to them.
 
 ### Properties
 
@@ -30,7 +30,7 @@ The message model contains all the information about the messages and attachment
   <Property name="reactions" type="array">
     An array of reaction objects associated with the message.
   </Property>
-  <Property name="attachments" type="array">
+  <Property name="mev" type="array">
     An array of attachment objects associated with the message.
   </Property>
   <Property name="read_at" type="timestamp">
@@ -70,7 +70,7 @@ The message model contains all the information about the messages and attachment
     <CodeGroup title="Request" tag="GET" label="/v1/messages">
 
     ```bash {{ title: 'cURL' }}
-    curl -G https://api.protocol.chat/v1/messages \
+    curl -G https://docs.meveth.org/v1/messages \
       -H "Authorization: Bearer {token}" \
       -d conversation_id=xgQQXg3hrtjh7AvZ \
       -d limit=10
@@ -92,7 +92,7 @@ The message model contains all the information about the messages and attachment
     client.messages.list()
     ```
 
-    ```php
+    ```solidity
     $client = new \Protocol\ApiClient($token);
 
     $client->messages->list();
@@ -117,7 +117,7 @@ The message model contains all the information about the messages and attachment
           },
           "message": "It’s a nice night for a neck injury.",
           "reactions": [],
-          "attachments": [],
+          "mev": [],
           "read_at": 705103200,
           "created_at": 692233200,
           "updated_at": 692233200
@@ -156,7 +156,7 @@ The message model contains all the information about the messages and attachment
     ### Optional attributes
 
     <Properties>
-      <Property name="attachments" type="array">
+      <Property name="mev" type="array">
         An array of attachment objects associated with the message.
       </Property>
     </Properties>
@@ -167,7 +167,7 @@ The message model contains all the information about the messages and attachment
     <CodeGroup title="Request" tag="POST" label="/v1/messages">
 
     ```bash {{ title: 'cURL' }}
-    curl https://api.protocol.chat/v1/messages \
+    curl https://docs.meveth.org/v1/messages \
       -H "Authorization: Bearer {token}" \
       -d conversation_id="xgQQXg3hrtjh7AvZ" \
       -d message="You’re what the French call ‘les incompetents.’"
@@ -195,7 +195,7 @@ The message model contains all the information about the messages and attachment
     )
     ```
 
-    ```php
+    ```solidity
     $client = new \Protocol\ApiClient($token);
 
     $client->messages->send([
@@ -220,7 +220,7 @@ The message model contains all the information about the messages and attachment
       },
       "message": "You’re what the French call ‘les incompetents.’",
       "reactions": [],
-      "attachments": [],
+      "mev": [],
       "read_at": null,
       "created_at": 692233200,
       "updated_at": null
@@ -245,7 +245,7 @@ The message model contains all the information about the messages and attachment
     <CodeGroup title="Request" tag="GET" label="/v1/messages/SIuAFUNKdSYHZF2w">
 
     ```bash {{ title: 'cURL' }}
-    curl https://api.protocol.chat/v1/messages/SIuAFUNKdSYHZF2w \
+    curl https://docs.meveth.org/v1/messages/SIuAFUNKdSYHZF2w \
       -H "Authorization: Bearer {token}"
     ```
 
@@ -265,7 +265,7 @@ The message model contains all the information about the messages and attachment
     client.messages.get("SIuAFUNKdSYHZF2w")
     ```
 
-    ```php
+    ```solidity
     $client = new \Protocol\ApiClient($token);
 
     $client->messages->get('SIuAFUNKdSYHZF2w');
@@ -287,7 +287,7 @@ The message model contains all the information about the messages and attachment
       },
       "message": "I’m traveling with my dad. He’s at a meeting. I hate meetings.",
       "reactions": [],
-      "attachments": [],
+      "mev": [],
       "read_at": 705103200,
       "created_at": 692233200,
       "updated_at": 692233200
@@ -315,7 +315,7 @@ The message model contains all the information about the messages and attachment
       <Property name="reactions" type="array">
         An array of reaction objects associated with the message.
       </Property>
-      <Property name="attachments" type="array">
+      <Property name="mev" type="array">
         An array of attachment objects associated with the message.
       </Property>
     </Properties>
@@ -326,7 +326,7 @@ The message model contains all the information about the messages and attachment
     <CodeGroup title="Request" tag="PUT" label="/v1/messages/SIuAFUNKdSYHZF2w">
 
     ```bash {{ title: 'cURL' }}
-    curl -X PUT https://api.protocol.chat/v1/messages/SIuAFUNKdSYHZF2w \
+    curl -X PUT https://docs.meveth.org/v1/messages/SIuAFUNKdSYHZF2w \
       -H "Authorization: Bearer {token}" \
       -d reactions[red_angry_face][]="KateMcCallister"
     ```
@@ -352,7 +352,7 @@ The message model contains all the information about the messages and attachment
         reactions={"red_angry_face": ["KateMcCallister"]})
     ```
 
-    ```php
+    ```solidity
     $client = new \Protocol\ApiClient($token);
 
     $client->messages->update('SIuAFUNKdSYHZF2w', [
@@ -384,7 +384,7 @@ The message model contains all the information about the messages and attachment
           ]
         }
       ],
-      "attachments": [],
+      "mev": [],
       "read_at": 705103200,
       "created_at": 692233200,
       "updated_at": 692233200
@@ -409,7 +409,7 @@ The message model contains all the information about the messages and attachment
     <CodeGroup title="Request" tag="DELETE" label="/v1/messages/SIuAFUNKdSYHZF2w">
 
     ```bash {{ title: 'cURL' }}
-    curl -X DELETE https://api.protocol.chat/v1/messages/SIuAFUNKdSYHZF2w \
+    curl -X DELETE https://docs.meveth.org/v1/messages/SIuAFUNKdSYHZF2w \
       -H "Authorization: Bearer {token}"
     ```
 
@@ -429,7 +429,7 @@ The message model contains all the information about the messages and attachment
     client.messages.delete("SIuAFUNKdSYHZF2w")
     ```
 
-    ```php
+    ```solidity
     $client = new \Protocol\ApiClient($token);
 
     $client->messages->delete('SIuAFUNKdSYHZF2w');

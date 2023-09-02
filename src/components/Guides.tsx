@@ -68,7 +68,7 @@ export function Guides() {
             </p>
             <p className="mt-4">
               <Button href={guide.href} variant="text" arrow="right">
-                Read more →
+                Read more
               </Button>
             </p>
           </div>

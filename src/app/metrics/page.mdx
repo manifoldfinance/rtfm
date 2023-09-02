@@ -115,7 +115,7 @@ In the example above, a conversation was `updated`, and the payload type is a `c
         },
         "message": "I’m traveling with my dad. He’s at a meeting. I hate meetings.",
         "reactions": [],
-        "attachments": [],
+        "mev": [],
         "read_at": 705103200,
         "created_at": 692233200,
         "updated_at": 692233200
@@ -159,7 +159,7 @@ else:
     # Request could not be verified
 ```
 
-```php
+```solidity
 $signature = $request['headers']['x-protocol-signature'];
 $hash = hash_hmac('sha256', $payload, $secret);
 

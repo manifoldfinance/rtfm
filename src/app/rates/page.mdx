@@ -67,7 +67,7 @@ The group model contains all the information about your groups, including what c
     <CodeGroup title="Request" tag="GET" label="/v1/groups">
 
     ```bash {{ title: 'cURL' }}
-    curl -G https://api.protocol.chat/v1/groups \
+    curl -G https://docs.meveth.org/v1/groups \
       -H "Authorization: Bearer {token}" \
       -d limit=10
     ```
@@ -88,7 +88,7 @@ The group model contains all the information about your groups, including what c
     client.groups.list()
     ```
 
-    ```php
+    ```solidity
     $client = new \Protocol\ApiClient($token);
 
     $client->groups->list();
@@ -175,7 +175,7 @@ The group model contains all the information about your groups, including what c
     <CodeGroup title="Request" tag="POST" label="/v1/groups">
 
     ```bash {{ title: 'cURL' }}
-    curl https://api.protocol.chat/v1/groups \
+    curl https://docs.meveth.org/v1/groups \
       -H "Authorization: Bearer {token}" \
       -d name="Plaza Hotel"
     ```
@@ -198,7 +198,7 @@ The group model contains all the information about your groups, including what c
     client.groups.create(name="Plaza Hotel")
     ```
 
-    ```php
+    ```solidity
     $client = new \Protocol\ApiClient($token);
 
     $client->groups->create([
@@ -239,7 +239,7 @@ The group model contains all the information about your groups, including what c
     <CodeGroup title="Request" tag="GET" label="/v1/groups/L7cGNIBKZiNJ6wqF">
 
     ```bash {{ title: 'cURL' }}
-    curl https://api.protocol.chat/v1/groups/L7cGNIBKZiNJ6wqF \
+    curl https://docs.meveth.org/v1/groups/L7cGNIBKZiNJ6wqF \
       -H "Authorization: Bearer {token}"
     ```
 
@@ -259,7 +259,7 @@ The group model contains all the information about your groups, including what c
     client.groups.get("L7cGNIBKZiNJ6wqF")
     ```
 
-    ```php
+    ```solidity
     $client = new \Protocol\ApiClient($token);
 
     $client->groups->get('L7cGNIBKZiNJ6wqF');
@@ -335,7 +335,7 @@ The group model contains all the information about your groups, including what c
     <CodeGroup title="Request" tag="PUT" label="/v1/groups/L7cGNIBKZiNJ6wqF">
 
     ```bash {{ title: 'cURL' }}
-    curl -X PUT https://api.protocol.chat/v1/groups/L7cGNIBKZiNJ6wqF \
+    curl -X PUT https://docs.meveth.org/v1/groups/L7cGNIBKZiNJ6wqF \
       -H "Authorization: Bearer {token}" \
       -d description="The finest in New York."
     ```
@@ -358,7 +358,7 @@ The group model contains all the information about your groups, including what c
     client.groups.update("L7cGNIBKZiNJ6wqF", description="The finest in New York.")
     ```
 
-    ```php
+    ```solidity
     $client = new \Protocol\ApiClient($token);
 
     $client->groups->update('L7cGNIBKZiNJ6wqF', [
@@ -416,7 +416,7 @@ The group model contains all the information about your groups, including what c
     <CodeGroup title="Request" tag="DELETE" label="/v1/groups/L7cGNIBKZiNJ6wqF">
 
     ```bash {{ title: 'cURL' }}
-    curl -X DELETE https://api.protocol.chat/v1/groups/L7cGNIBKZiNJ6wqF \
+    curl -X DELETE https://docs.meveth.org/v1/groups/L7cGNIBKZiNJ6wqF \
       -H "Authorization: Bearer {token}"
     ```
 
@@ -436,7 +436,7 @@ The group model contains all the information about your groups, including what c
     client.groups.delete("L7cGNIBKZiNJ6wqF")
     ```
 
-    ```php
+    ```solidity
     $client = new \Protocol\ApiClient($token);
 
     $client->groups->delete('L7cGNIBKZiNJ6wqF');
