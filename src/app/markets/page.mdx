@@ -10,7 +10,7 @@ Messages are what conversations are made of in Protocol — they are the basic b
 
 ## The message model
 
-The message model contains all the information about the messages and attachments you send to your contacts and groups, including how your contacts have reacted to them.
+The message model contains all the information about the messages and mev you send to your contacts and groups, including how your contacts have reacted to them.
 
 ### Properties
 
@@ -30,7 +30,7 @@ The message model contains all the information about the messages and attachment
   <Property name="reactions" type="array">
     An array of reaction objects associated with the message.
   </Property>
-  <Property name="attachments" type="array">
+  <Property name="mev" type="array">
     An array of attachment objects associated with the message.
   </Property>
   <Property name="read_at" type="timestamp">
@@ -117,7 +117,7 @@ The message model contains all the information about the messages and attachment
           },
           "message": "It’s a nice night for a neck injury.",
           "reactions": [],
-          "attachments": [],
+          "mev": [],
           "read_at": 705103200,
           "created_at": 692233200,
           "updated_at": 692233200
@@ -156,7 +156,7 @@ The message model contains all the information about the messages and attachment
     ### Optional attributes
 
     <Properties>
-      <Property name="attachments" type="array">
+      <Property name="mev" type="array">
         An array of attachment objects associated with the message.
       </Property>
     </Properties>
@@ -220,7 +220,7 @@ The message model contains all the information about the messages and attachment
       },
       "message": "You’re what the French call ‘les incompetents.’",
       "reactions": [],
-      "attachments": [],
+      "mev": [],
       "read_at": null,
       "created_at": 692233200,
       "updated_at": null
@@ -287,7 +287,7 @@ The message model contains all the information about the messages and attachment
       },
       "message": "I’m traveling with my dad. He’s at a meeting. I hate meetings.",
       "reactions": [],
-      "attachments": [],
+      "mev": [],
       "read_at": 705103200,
       "created_at": 692233200,
       "updated_at": 692233200
@@ -315,7 +315,7 @@ The message model contains all the information about the messages and attachment
       <Property name="reactions" type="array">
         An array of reaction objects associated with the message.
       </Property>
-      <Property name="attachments" type="array">
+      <Property name="mev" type="array">
         An array of attachment objects associated with the message.
       </Property>
     </Properties>
@@ -384,7 +384,7 @@ The message model contains all the information about the messages and attachment
           ]
         }
       ],
-      "attachments": [],
+      "mev": [],
       "read_at": 705103200,
       "created_at": 692233200,
       "updated_at": 692233200

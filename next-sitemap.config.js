@@ -8,7 +8,6 @@ module.exports = {
   generateRobotsTxt: true,
   // optional
   robotsTxtOptions: {
-    additionalSitemaps: [
-    ],
+    additionalSitemaps: [],
   },
-}
+};

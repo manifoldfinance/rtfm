@@ -69,15 +69,12 @@ const NavLink = React.memo(function NavLink({
           ? 'text-zinc-900 dark:text-white'
           : 'text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white',
       ),
-    [isAnchorLink, active]
+    [isAnchorLink, active],
   );
 
   return (
     <Link href={href} passHref>
-      <a
-        aria-current={active ? 'page' : undefined}
-        className={className()}
-      >
+      <a aria-current={active ? 'page' : undefined} className={className()}>
         <span className="truncate">{children}</span>
         {tag && (
           <Tag variant="small" color="zinc">
@@ -277,7 +274,7 @@ export const navigation: Array<NavGroup> = [
       { title: 'Lending', href: '/lending' },
       { title: 'Markets', href: '/markets' },
       { title: 'Rates', href: '/rates' },
-      { title: 'Relay', href: '/relay' },
+      { title: 'Services', href: '/services' },
     ],
   },
 ];
