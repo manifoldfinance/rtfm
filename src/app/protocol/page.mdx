@@ -104,16 +104,16 @@ Here is a list of the different categories of status codes returned by the Proto
     happens: RESULT/OK, INDETERMINATE, ERROR. problem.
   </Property>
   <Property name="INDETERMINATE">
-    A INDETERMINATE status code indicates Relay received correctly the Tx && at
+    A INDETERMINATE status code indicates Services received correctly the Tx && at
     least one miner accepted the TX && TX potentially mineable
   </Property>
   <Property name="RESULT">
-    A Result status code indicates Success/OK. Relay received the transaction
+    A Result status code indicates Success/OK. Services received the transaction
     all downstream validators have accepted without issue. Transaction has been
     included successfully & receipt is included in response.
   </Property>
   <Property name="ERROR">
-    A ERROR status code indicates that the relay haven't received the TX || none
+    A ERROR status code indicates that the services haven't received the TX || none
     of the miners accepted the Tx || Tx was not mined successfully
   </Property>
 </Properties>
