@@ -3,7 +3,7 @@ import { Libraries } from '@/components/Libraries';
 export const metadata = {
   title: 'Protocol SDKs',
   description:
-    'Protocol offers fine-tuned JavaScript, Ruby, PHP, Python, and Go libraries to make your life easier and give you the best experience when consuming the API.',
+    'Protocol offers fine-tuned JavaScript, Ruby, Solidity, Python, and Go libraries to make your life easier and give you the best experience when consuming the API.',
 };
 
 export const sections = [
@@ -19,7 +19,7 @@ You'll need to authenticate your requests to access any of the endpoints in the 
 With basic authentication, you use your username and password to authenticate your HTTP requests. Unless you have a very good reason, you probably shouldn't use basic auth. Here's how to authenticate using cURL:
 
 ```bash {{ title: 'Example request with basic auth' }}
-curl https://api.protocol.chat/v1/conversations \
+curl https://docs.meveth.org/v1/conversations \
   -u username:password
 ```
 
@@ -30,7 +30,7 @@ Please don't commit your Protocol password to GitHub!
 The recommended way to authenticate with the Protocol API is by using OAuth2. When establishing a connection using OAuth2, you will need your access token — you will find it in the [Protocol dashboard](#) under API settings. Here's how to add the token to the request header using cURL:
 
 ```bash {{ title: 'Example request with bearer token' }}
-curl https://api.protocol.chat/v1/conversations \
+curl https://docs.meveth.org/v1/conversations \
   -H "Authorization: Bearer {token}"
 ```
 
@@ -38,7 +38,7 @@ Always keep your token safe and reset it if you suspect it has been compromised.
 
 # Protocol SDKs
 
-The recommended way to interact with the Protocol API is by using one of our official SDKs. Today, Protocol offers fine-tuned JavaScript, Ruby, PHP, Python, and Go libraries to make your life easier and give you the best experience when consuming the API. {{ className: 'lead' }}
+The recommended way to interact with the Protocol API is by using one of our official SDKs. Today, Protocol offers fine-tuned JavaScript, Ruby, Solidity, Python, and Go libraries to make your life easier and give you the best experience when consuming the API. {{ className: 'lead' }}
 
 <Libraries />
 
@@ -57,7 +57,7 @@ If you use one of our official SDKs, you won't have to worry about any of the ab
 
 ## Choose your client
 
-Before making your first API request, you need to pick which API client you will use. In addition to good ol' cURL HTTP requests, Protocol offers clients for JavaScript, Python, and PHP. In the following example, you can see how to install each client.
+Before making your first API request, you need to pick which API client you will use. In addition to good ol' cURL HTTP requests, Protocol offers clients for JavaScript, Python, and Solidity. In the following example, you can see how to install each client.
 
 <CodeGroup>
 
@@ -76,8 +76,8 @@ npm install @example/protocol-api --save
 pip install protocol_api
 ```
 
-```bash {{ language: 'php' }}
-# Install the Protocol PHP SDK
+```bash {{ language: 'solidity' }}
+# Install the Protocol Solidity SDK
 composer require protocol/sdk
 ```
 
@@ -99,7 +99,7 @@ After picking your preferred client, you are ready to make your first call to th
 <CodeGroup tag="GET" label="/v1/conversations">
 
 ```bash {{ title: 'cURL' }}
-curl -G https://api.protocol.chat/v1/conversations \
+curl -G https://docs.meveth.org/v1/conversations \
   -H "Authorization: Bearer {token}" \
   -d limit=10
 ```
@@ -120,7 +120,7 @@ client = ApiClient(token)
 client.conversations.list()
 ```
 
-```php
+```solidity
 $client = new \Protocol\ApiClient($token);
 
 $client->conversations->list();

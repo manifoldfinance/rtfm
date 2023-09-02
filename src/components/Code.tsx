@@ -20,7 +20,7 @@ const languageNames: Record<string, string> = {
   ts: 'TypeScript',
   javascript: 'JavaScript',
   typescript: 'TypeScript',
-  php: 'PHP',
+  solidity: 'Solidity',
   python: 'Python',
   ruby: 'Ruby',
   go: 'Go',
