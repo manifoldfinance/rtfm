@@ -19,7 +19,7 @@ You'll need to authenticate your requests to access any of the endpoints in the 
 With basic authentication, you use your username and password to authenticate your HTTP requests. Unless you have a very good reason, you probably shouldn't use basic auth. Here's how to authenticate using cURL:
 
 ```bash {{ title: 'Example request with basic auth' }}
-curl https://api.protocol.chat/v1/conversations \
+curl https://docs.meveth.org/v1/conversations \
   -u username:password
 ```
 
@@ -30,7 +30,7 @@ Please don't commit your Protocol password to GitHub!
 The recommended way to authenticate with the Protocol API is by using OAuth2. When establishing a connection using OAuth2, you will need your access token — you will find it in the [Protocol dashboard](#) under API settings. Here's how to add the token to the request header using cURL:
 
 ```bash {{ title: 'Example request with bearer token' }}
-curl https://api.protocol.chat/v1/conversations \
+curl https://docs.meveth.org/v1/conversations \
   -H "Authorization: Bearer {token}"
 ```
 
@@ -99,7 +99,7 @@ After picking your preferred client, you are ready to make your first call to th
 <CodeGroup tag="GET" label="/v1/conversations">
 
 ```bash {{ title: 'cURL' }}
-curl -G https://api.protocol.chat/v1/conversations \
+curl -G https://docs.meveth.org/v1/conversations \
   -H "Authorization: Bearer {token}" \
   -d limit=10
 ```
