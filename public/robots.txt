@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://docs.meveth.org
+Host: https://meveth-docs.vercel.app
 
 # Sitemaps
-Sitemap: https://docs.meveth.org/sitemap.xml
+Sitemap: https://meveth-docs.vercel.app/sitemap.xml

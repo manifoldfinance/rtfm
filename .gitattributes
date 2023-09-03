@@ -1,7 +1,9 @@
 # -*- mode: gitattributes; -*-
 
-dist/**		linguist-vendored
-
+dist/**			linguist-vendored
+public/sitemap-0.xml 	linguist-vendored
+public/*.xml		linguist-vendored
+public/robots.txt 	linguist-vendored
 
 # git archive ignore 
 /.github            export-ignore

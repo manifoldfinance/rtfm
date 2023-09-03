@@ -22,6 +22,24 @@ const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
+ swcMinify: true,
+    compiler: {
+      reactRemoveProperties: process.env.INSTRUMENT_COVERAGE !== 'true',
+      removeConsole:
+        process.env.NODE_ENV === 'production'
+          ? { exclude: ['error', 'warn'] }
+          : false,
+    },
+    productionBrowserSourceMaps: process.env.SOURCE_MAPS === 'true',
+    output: 'standalone',
+    experimental: {
+      swcPlugins: [
+        process.env.INSTRUMENT_COVERAGE === 'true' && [
+          'swc-plugin-coverage-instrument',
+          {},
+        ],
+      ],
+    },
 };
 
 export default withSearch(withMDX(nextConfig));
