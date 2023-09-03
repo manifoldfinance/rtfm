@@ -13,6 +13,17 @@ import withSearch from './src/mdx/search.mjs';
 const withMDX = nextMDX({
   options: {
     remarkPlugins,
+
+    /**
+     @dev this is a false-positive warning.
+        Fixing the typecheck error using `rehypePlugins: [],` will result in a runtime error.
+
+    // ```console
+    //  requires a `code` prop, or a child with a `code` prop.
+    // ```
+    */
+
+    // @ts-ignore
     rehypePlugins,
     recmaPlugins,
   },
