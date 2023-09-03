@@ -28,7 +28,27 @@ npm run build
 
 ## Configuration
 
-## Writing Content
+### Writing Content
+
+#### `page.mdx` template
+
+```mdx
+
+export const metadata = {
+  title: '{{#title}}',
+  description:
+    '{{#title}}',
+};
+
+
+# {{#title}}
+
+{{#admonitions}}
+> `{{{admonitions}}}`
+
+{{/admonitions}}
+
+```
 
 [see https://github.com/sambacha/dappspec/tree/master/rules](https://github.com/sambacha/dappspec/tree/master/rules) 
 

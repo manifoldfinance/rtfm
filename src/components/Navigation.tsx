@@ -251,7 +251,7 @@ function NavigationGroup({
  *    The Guides group is always visible, while the Resources group
  *    is only visible on desktop.
  *
- * @version August 31, 2023
+ * @version September 02, 2023
  */
 
 export const navigation: Array<NavGroup> = [
@@ -270,6 +270,7 @@ export const navigation: Array<NavGroup> = [
   {
     title: 'Resources',
     links: [
+      { title: 'Specification', href: '/specification' },
       { title: 'Staking', href: '/staking' },
       { title: 'Lending', href: '/lending' },
       { title: 'Markets', href: '/markets' },
@@ -288,7 +289,7 @@ export const navigation: Array<NavGroup> = [
  *   - MEV Integrators
  *   - Ecosystem
  *
- *  @version August 31, 2023
+ *  @version September 02, 2023
  */
 export function Navigation(props: React.ComponentPropsWithoutRef<'nav'>) {
   return (
@@ -306,7 +307,7 @@ export function Navigation(props: React.ComponentPropsWithoutRef<'nav'>) {
         ))}
         <li className="sticky bottom-0 z-10 mt-6 min-[416px]:hidden">
           <Button href="#" variant="filled" className="w-full">
-            Sign in
+            Dashboard
           </Button>
         </li>
       </ul>
