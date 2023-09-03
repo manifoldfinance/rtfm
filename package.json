@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@algolia/autocomplete-core": "^1.11.0",
+    "@ducanh2912/next-pwa": "^9.5.0",
     "@headlessui/react": "^1.7.17",
     "@headlessui/tailwindcss": "^0.2.0",
     "@mdx-js/loader": "^2.3.0",
@@ -33,6 +34,7 @@
     "acorn": "^8.8.1",
     "autoprefixer": "^10.4.7",
     "clsx": "^2.0.0",
+    "critters": "^0.0.20",
     "cssnano": "^6.0.1",
     "fast-glob": "^3.3.1",
     "flexsearch": "^0.7.31",
@@ -57,6 +59,7 @@
     "zustand": "^4.4.1"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^13.4.19",
     "@typescript-eslint/eslint-plugin": "^6.5.0",
     "@typescript-eslint/parser": "^6.5.0",
     "@typescript/analyze-trace": "^0.10.0",
@@ -67,10 +70,12 @@
     "prettier-plugin-tailwindcss": "^0.5.4",
     "process-tracing": "^1.0.2",
     "sharp": "^0.32.0",
+    "swc-plugin-coverage-instrument": "^0.0.20",
     "ts-jest": "^29.1.1",
     "tsutils": "^3.21.0",
     "typecheck.macro": "^0.7.3",
-    "typescript-eslint-language-service": "^5.0.5"
+    "typescript-eslint-language-service": "^5.0.5",
+    "webpack": "^5.88.2"
   },
   "browserslist": {
     "production": [

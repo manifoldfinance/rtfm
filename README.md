@@ -28,6 +28,28 @@ npm run build
 
 ## Configuration
 
+### Navigation 
+
+ | *Description*          | **Tutorials**            | **How-to guides**         | **Reference**               | **Explanation**        |
+|------------------------|--------------------------|---------------------------|-----------------------------|------------------------|
+| what they do           | "introduce               | educate                   |                             |                        |
+| lead"                  | "guide, demonstrate"     | "state, describe, inform" | "explain, clarify, discuss" |                        |
+| "answers the           |                          |                           |                             |                        |
+| question"              | "Can you teach me        |                           |                             |                        |
+| to...?"                | """How do I...?"""       | """What is...?"""         | """Why...?"""               |                        |
+| oriented to            | learning                 | tasks                     | information                 | understanding          |
+| purpose                | "to allow the newcomer   |                           |                             |                        |
+| to get started"        | "to show how to solve a  |                           |                             |                        |
+| specific problem"      | "to describe the         |                           |                             |                        |
+| machinery"             | to explain               |                           |                             |                        |
+| form                   | a lesson                 | a series of steps         | dry description             | discursive explanation |
+| analogy                | "teaching a child how to |                           |                             |                        |
+| cook"                  | "a recipe in a cookery   |                           |                             |                        |
+| book"                  | "a reference             |                           |                             |                        |
+| encyclopaedia article" | "an article on culinary  |                           |                             |                        |
+| social history"        |                          |                           |                             |                        |
+
+
 ### Writing Content
 
 #### `page.mdx` template

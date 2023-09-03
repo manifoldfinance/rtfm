@@ -4,11 +4,23 @@
  */
 
 import nextMDX from '@next/mdx';
+import withPWAInit from "@ducanh2912/next-pwa";
 
 import { recmaPlugins } from './src/mdx/recma.mjs';
 import { rehypePlugins } from './src/mdx/rehype.mjs';
 import { remarkPlugins } from './src/mdx/remark.mjs';
 import withSearch from './src/mdx/search.mjs';
+
+const withPWA = withPWAInit({
+  dest: "public",
+//  runtimeCaching: import ('./pwa/runtime'),
+  disable:
+    process.env.NODE_ENV !== 'production' || process.env.DISABLE_SW === 'true',
+  register: false,
+//  skipWaiting: false,
+  cacheStartUrl: true,
+  dynamicStartUrl: false,
+});
 
 const withMDX = nextMDX({
   options: {
@@ -33,6 +45,17 @@ const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
+experimental: {
+optimizeCss: true,
+swcMinify: true,
+cpus: 4,
+      swcPlugins: [
+        process.env.INSTRUMENT_COVERAGE === 'true' && [
+          'swc-plugin-coverage-instrument',
+          {},
+        ],
+      ],
+}
 };
 
-export default withSearch(withMDX(nextConfig));
+export default withPWA(withSearch(withMDX(nextConfig)));
