@@ -298,7 +298,6 @@ export const navigation: Array<NavGroup> = [
   {
     title: 'Resources',
     links: [
-      { title: 'Specification', href: '/specification' },
       { title: 'Staking', href: '/staking' },
       { title: 'Lending', href: '/lending' },
       { title: 'Markets', href: '/markets' },
@@ -310,11 +309,11 @@ export const navigation: Array<NavGroup> = [
     title: 'Reference',
     links: [
       { title: 'Specification', href: '/specification' },
-      { title: 'Staking', href: '/staking' },
-      { title: 'Lending', href: '/lending' },
-      { title: 'Markets', href: '/markets' },
-      { title: 'Rates', href: '/rates' },
-      { title: 'Services', href: '/services' },
+      { title: 'API', href: '/api' },
+      { title: 'Audits', href: '/audits' },
+      { title: 'Deployments', href: '/deployments' },
+      { title: 'Security', href: '/security' },
+      { title: 'Legal', href: '/legal' },
     ],
   },
 ];
