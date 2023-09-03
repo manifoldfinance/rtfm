@@ -20,6 +20,8 @@ const withPWA = withPWAInit({
 //  skipWaiting: false,
   cacheStartUrl: true,
   dynamicStartUrl: false,
+  extendDefaultRuntimeCaching: true,
+swcMinify: true
 });
 
 const withMDX = nextMDX({

@@ -292,7 +292,7 @@ export const navigation: Array<NavGroup> = [
       { title: 'Protocol', href: '/protocol' },
       { title: 'Infrastructure', href: '/infrastructure' },
       { title: 'Vaults', href: '/vaults' },
-      { title: 'Metrics API', href: '/metrics' },
+      { title: 'Metrics', href: '/metrics' },
     ],
   },
   {

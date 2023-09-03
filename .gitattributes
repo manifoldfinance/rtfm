@@ -1,7 +1,7 @@
 # -*- mode: gitattributes; -*-
 
 dist/**		linguist-vendored
-
+public/**	linguist-vendored
 
 # git archive ignore 
 /.github            export-ignore
