@@ -14,3 +14,4 @@ pnpm-lock*
 build/
 dist/
 public/
+package-lock.json

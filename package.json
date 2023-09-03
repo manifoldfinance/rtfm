@@ -14,7 +14,8 @@
     "explain": "npx tsc --explainFiles > explanation.txt",
     "trace": "npx tsc --traceResolution > resolution.txt",
     "profile": "node --trace-ic ./node_modules/typescript/lib/tsc.js --generateCpuProfile profile.cpuprofile -p tsconfig.json",
-    "tracer": "mkdir -p tmp_folder/ && npx tsc -p ./tsconfig.json --generateTrace tmp_folder"
+    "tracer": "mkdir -p tmp_folder/ && npx tsc -p ./tsconfig.json --generateTrace tmp_folder",
+    "analyze": "SOURCE_MAPS=true ANALYZE=true next build --profile"
   },
   "dependencies": {
     "@algolia/autocomplete-core": "^1.11.0",
@@ -31,7 +32,7 @@
     "@types/react-highlight-words": "^0.16.4",
     "@vercel/analytics": "^1.0.2",
     "acorn": "^8.8.1",
-    "autoprefixer": "^10.4.7",
+    "autoprefixer": "^10.4.15",
     "clsx": "^2.0.0",
     "fast-glob": "^3.3.0",
     "flexsearch": "^0.7.31",
@@ -62,7 +63,7 @@
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.16",
     "prettier": "^3.0.1",
-    "prettier-plugin-tailwindcss": "^0.5.2",
+    "prettier-plugin-tailwindcss": "^0.5.4",
     "process-tracing": "^1.0.2",
     "sharp": "^0.32.0",
     "ts-jest": "^29.1.1",
