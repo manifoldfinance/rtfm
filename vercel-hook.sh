@@ -4,7 +4,7 @@ echo "$BUILD_HASH_VERSION"
 
 export NODE_ENV=production
 export NEXT_TELEMETRY_DISABLED=1
-  echo "Deploying to Vercel..."
+echo "Deploying to Vercel..."
 vercel deploy --prod
 sleep 3
 echo "Deployment Finished..."

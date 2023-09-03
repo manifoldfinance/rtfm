@@ -16,28 +16,26 @@ echo "$BUILD_HASH_VERSION"
 echo "VERCEL_ENV: $VERCEL_ENV"
 
 vercel() {
-if [[ "$VERCEL_ENV" == "production" ]] ; then
-  # Proceed with the build
-  echo "✅ - Build can proceed"
+  if [[ "$VERCEL_ENV" == "production" ]]; then
+    # Proceed with the build
+    echo "✅ - Build can proceed"
     npx next build
     sleep 1
     npm run postbuild
     sleep 1
-  exit 0;
+    exit 0
 
-else
-  # Don't build
-  echo "🛑 - Build cancelled"
-  exit 1;
-fi
-};
+  else
+    # Don't build
+    echo "🛑 - Build cancelled"
+    exit 1
+  fi
+}
 
-if [ "$1" = "production" ]
-then
+if [ "$1" = "production" ]; then
   vercel
 fi
 
 "$1"
 echo "🆘 - ERROR: Command not found"
 exit 127
-
