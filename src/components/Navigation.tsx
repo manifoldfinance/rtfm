@@ -282,6 +282,10 @@ function NavigationGroup({
 
  */
 
+
+/**
+ * @version September 02, 2023
+ */
 export const navigation: Array<NavGroup> = [
   {
     title: 'Guides',
@@ -298,6 +302,7 @@ export const navigation: Array<NavGroup> = [
   {
     title: 'Resources',
     links: [
+      { title: 'Rewards', href: '/rewards' },
       { title: 'Staking', href: '/staking' },
       { title: 'Lending', href: '/lending' },
       { title: 'Markets', href: '/markets' },
@@ -309,6 +314,7 @@ export const navigation: Array<NavGroup> = [
     title: 'Reference',
     links: [
       { title: 'Specification', href: '/specification' },
+      { title: 'Interfaces', href: '/interfaces' },
       { title: 'API', href: '/api' },
       { title: 'Audits', href: '/audits' },
       { title: 'Deployments', href: '/deployments' },
@@ -329,6 +335,8 @@ export const navigation: Array<NavGroup> = [
  *
  *  @version September 02, 2023
  */
+
+// TODO: Add a link to the dashboard.
 export function Navigation(props: React.ComponentPropsWithoutRef<'nav'>) {
   return (
     <nav {...props}>
