@@ -251,7 +251,35 @@ function NavigationGroup({
  *    The Guides group is always visible, while the Resources group
  *    is only visible on desktop.
  *
- * @version August 31, 2023
+ * @version September 02, 2023
+ */
+
+
+/**
+ *
+
+@tutorial Navigation
+@description The navigation component for the documentation.
+
+| *Description*          | **Tutorials**            | **How-to guides**         | **Reference**               | **Explanation**        |
+|------------------------|--------------------------|---------------------------|-----------------------------|------------------------|
+| what they do           | "introduce               | educate                   |                             |                        |
+| lead"                  | "guide, demonstrate"     | "state, describe, inform" | "explain, clarify, discuss" |                        |
+| "answers the           |                          |                           |                             |                        |
+| question"              | "Can you teach me        |                           |                             |                        |
+| to...?"                | """How do I...?"""       | """What is...?"""         | """Why...?"""               |                        |
+| oriented to            | learning                 | tasks                     | information                 | understanding          |
+| purpose                | "to allow the newcomer   |                           |                             |                        |
+| to get started"        | "to show how to solve a  |                           |                             |                        |
+| specific problem"      | "to describe the         |                           |                             |                        |
+| machinery"             | to explain               |                           |                             |                        |
+| form                   | a lesson                 | a series of steps         | dry description             | discursive explanation |
+| analogy                | "teaching a child how to |                           |                             |                        |
+| cook"                  | "a recipe in a cookery   |                           |                             |                        |
+| book"                  | "a reference             |                           |                             |                        |
+| encyclopaedia article" | "an article on culinary  |                           |                             |                        |
+| social history"        |                          |                           |                             |                        |
+
  */
 
 export const navigation: Array<NavGroup> = [
@@ -264,12 +292,24 @@ export const navigation: Array<NavGroup> = [
       { title: 'Protocol', href: '/protocol' },
       { title: 'Infrastructure', href: '/infrastructure' },
       { title: 'Vaults', href: '/vaults' },
-      { title: 'Metrics API', href: '/metrics' },
+      { title: 'Metrics', href: '/metrics' },
     ],
   },
   {
     title: 'Resources',
     links: [
+      { title: 'Specification', href: '/specification' },
+      { title: 'Staking', href: '/staking' },
+      { title: 'Lending', href: '/lending' },
+      { title: 'Markets', href: '/markets' },
+      { title: 'Rates', href: '/rates' },
+      { title: 'Services', href: '/services' },
+    ],
+  },
+  {
+    title: 'Reference',
+    links: [
+      { title: 'Specification', href: '/specification' },
       { title: 'Staking', href: '/staking' },
       { title: 'Lending', href: '/lending' },
       { title: 'Markets', href: '/markets' },
@@ -288,7 +328,7 @@ export const navigation: Array<NavGroup> = [
  *   - MEV Integrators
  *   - Ecosystem
  *
- *  @version August 31, 2023
+ *  @version September 02, 2023
  */
 export function Navigation(props: React.ComponentPropsWithoutRef<'nav'>) {
   return (
@@ -306,7 +346,7 @@ export function Navigation(props: React.ComponentPropsWithoutRef<'nav'>) {
         ))}
         <li className="sticky bottom-0 z-10 mt-6 min-[416px]:hidden">
           <Button href="#" variant="filled" className="w-full">
-            Sign in
+            Dashboard
           </Button>
         </li>
       </ul>

@@ -2,11 +2,10 @@
 
 [https://docs.meveth.org](https://docs.meveth.org)
 
-
 ## Developers
 
->**Warning**    
-> Follow the setup instructions correctly    
+> **Warning**  
+> Follow the setup instructions correctly
 
 ### Installing
 
@@ -16,6 +15,7 @@
 curl https://get.volta.sh | bash
 volta install node@18
 ```
+
 ### Building
 
 ```bash
@@ -28,9 +28,48 @@ npm run build
 
 ## Configuration
 
-## Writing Content
+### Navigation 
 
-[see https://github.com/sambacha/dappspec/tree/master/rules](https://github.com/sambacha/dappspec/tree/master/rules) 
+ | *Description*          | **Tutorials**            | **How-to guides**         | **Reference**               | **Explanation**        |
+|------------------------|--------------------------|---------------------------|-----------------------------|------------------------|
+| what they do           | "introduce               | educate                   |                             |                        |
+| lead"                  | "guide, demonstrate"     | "state, describe, inform" | "explain, clarify, discuss" |                        |
+| "answers the           |                          |                           |                             |                        |
+| question"              | "Can you teach me        |                           |                             |                        |
+| to...?"                | """How do I...?"""       | """What is...?"""         | """Why...?"""               |                        |
+| oriented to            | learning                 | tasks                     | information                 | understanding          |
+| purpose                | "to allow the newcomer   |                           |                             |                        |
+| to get started"        | "to show how to solve a  |                           |                             |                        |
+| specific problem"      | "to describe the         |                           |                             |                        |
+| machinery"             | to explain               |                           |                             |                        |
+| form                   | a lesson                 | a series of steps         | dry description             | discursive explanation |
+| analogy                | "teaching a child how to |                           |                             |                        |
+| cook"                  | "a recipe in a cookery   |                           |                             |                        |
+| book"                  | "a reference             |                           |                             |                        |
+| encyclopaedia article" | "an article on culinary  |                           |                             |                        |
+| social history"        |                          |                           |                             |                        |
+
+
+### Writing Content
+
+#### `page.mdx` template
+
+```mdx
+export const metadata = {
+  title: '{{#title}}',
+  description: '{{#title}}',
+};
+
+# {{#title}}
+
+{{#admonitions}}
+
+> `{{{admonitions}}}`
+
+{{/admonitions}}
+```
+
+[see https://github.com/sambacha/dappspec/tree/master/rules](https://github.com/sambacha/dappspec/tree/master/rules)
 
 ### Styling
 
@@ -47,12 +86,10 @@ npm run build
 
 > see `src/components/Tag.tsx`
 
-  GET: 'emerald',
-  POST: 'sky',
-  PUT: 'amber',
-  DELETE: 'rose',
-
-
+GET: 'emerald',
+POST: 'sky',
+PUT: 'amber',
+DELETE: 'rose',
 
 ### Global search
 
@@ -72,7 +109,6 @@ To learn more about the technologies used in this site template, see the followi
 - [Algolia Autocomplete](https://www.algolia.com/doc/ui-libraries/autocomplete/introduction/what-is-autocomplete/) - the official Algolia Autocomplete documentation
 - [FlexSearch](https://github.com/nextapps-de/flexsearch) - the official FlexSearch documentation
 - [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction) - the official Zustand documentation
-
 
 ## License
 
