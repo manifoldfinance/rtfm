@@ -1,14 +1,85 @@
 export const metadata = {
-  title: 'Webhooks',
+  title: 'Metrics',
   description:
-    'In this guide, we will look at how to register and consume webhooks to integrate your app with Protocol.',
+    'In this guide, we will look at how to consume the Metrics API for mevETH.',
 };
 
-# Webhooks
+# Metrics
 
-In this guide, we will look at how to register and consume webhooks to integrate your app with Protocol. With webhooks, your app can know when something happens in Protocol, such as someone sending a message or adding a contact. {{ className: 'lead' }}
+In this guide, we will look at how to register and consume webhooks to integrate your app with the mevETH Protocol Infrastructure.
+
+We provide a RESTful API for you to interact with the mevETH Protocol Infrastructure. You can use this API to retrieve information about validators, performance, and  You can also use it to send messages and attachments.
+
+With webhooks, you can know when something happens on chain, such as fees being earned or when the protocol upgrades a contact. {{ className: 'lead' }}
+
+## Overview
+
+
+## API Reference
+
+The Index Map corresponds only to mevETH with `feeRecipeent` defined to the current MultiSig. In the future with our proposed smoothing pool this map will be updated to reflect different participating pools.
+
+| **metric name**                | **API URI**    | **Metric Tracking**  | **Description**                                                                                                                                                                 | **units** |
+|--------------------------------|----------------|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
+| earnings                       | /effectiveness | rewards              | Net consensus rewards for the day that apply to said index. This is a validator balance difference between the last epoch in the day and the last epoch in the previous day     | gwei      |
+| estimatedRewards               | /effectiveness | rewards              | Estimated gross validator consensus rewards that apply to said index. Those are protocol rewards without protocol penalties accrued accounted for.                              | gwei      |
+| estimatedPenalties             | /effectiveness | rewards              | Estimated protocol penalties accrued that apply to said index.                                                                                                                  | gwei      |
+| sumPriorityFees                | /effectiveness | rewards              | Priority fees accrued from succesfully producing blocks that apply to said index.                                                                                               | gwei      |
+| sumBaselineMev                 | /effectiveness | rewards              | Our attempt to separate MEV from priority fees, for blocks procured from MEV Relays by said index. Read more about the methodlogy in our documentation.                         | gwei      |
+| sumMissedExecutionRewards      | /effectiveness | rewards              | Estimated execution rewards in case the validator missed a block proposal that apply to said index. Read more about the methodology in our documentation.                       | gwei      |
+| sumConsensusBlockRewards       | /effectiveness | rewards              | Consensus rewards earned by said index for successfully producing a block.                                                                                                      | gwei      |
+| sumMissedConsensusBlockRewards | /effectiveness | rewards              | Estimated value of missed consensus block rewards in cases of missed block proposals, that apply to said index. Read more about the methodology in our documentation.           | gwei      |
+| sumAllRewards                  | /effectiveness | rewards              | All net consensus and execution rewards, that apply to said index. This should be the reflection of the net gain (or loss) a validator has recorded the period in question.     | gwei      |
+| sumSyncCommitteePenalties      | /effectiveness | rewards              | Penalties for missed sync committee signatures, that apply to said index.                                                                                                       | gwei      |
+| sumWrongTargetPenalties        | /effectiveness | rewards              | Penalties for wrong target vote penalties, that apply to said index.                                                                                                            | gwei      |
+| sumLateTargetPenalties         | /effectiveness | rewards              | Penalties for late target vote penalties, that apply to said index.                                                                                                             | gwei      |
+| sumMissedAttestationPenalties  | /effectiveness | rewards              | All penalties accrued for missed attestations, that apply to said index.                                                                                                        | gwei      |
+| sumWrongHeadPenalties          | /effectiveness | rewards              | Wrong head penalties, that apply to said index. Only applicable pre-Altair.                                                                                                     | gwei      |
+| sumAttestationRewards          | /effectiveness | rewards              | All aggregated attestation rewards, that apply to said index.                                                                                                                   | gwei      |
+| sumLateSourcePenalties         | /effectiveness | rewards              | The sum of all late source penalties for the period, that apply to said index.                                                                                                  | gwei      |
+| sumMissedAttestationRewards    | /effectiveness | rewards              | Estimated missed rewards in cases of missed attestations, that apply to said index. Read more about the methodology in our documentation.                                       | gwei      |
+| sumMissedSyncCommitteeRewards  | /effectiveness | rewards              | Estimated missed rewards in cases of missed sync committee signatures, that apply to said index. Read more about the methodology in our documentation.                          | gwei      |
+| avgInclusionDelay              | /effectiveness | performance          | The average inclusion delay over the requested time period, that applies to said index. Read more about the methodology in our documentation.                                   | float     |
+| uptime                         | /effectiveness | performance          | The average uptime (or participation rate) over the requested time period, that applies to said index. Read more about the methodology in our documentation.                    | float     |
+| attesterEffectiveness          | /effectiveness | performance          | The aggregate attester effectiveness over the requested time period, that applies to said index. Read more about the methodology in our documentation.                          | float     |
+| proposerEffectiveness          | /effectiveness | performance          | The aggregate proposer effectiveness over the requested time period, that applies to said index. Read more about the methodology in our documentation.                          | float     |
+| validatorEffectiveness         | /effectiveness | metadata,performance | The aggregate validator effectiveness over the requested time period, that applies to said index. Read more about the methodology in our documentation.                         | float     |
+| totalAttestations              | /effectiveness | performance          | The total number of attestations included in blocks. Note: an attestation can be included multiple times.                                                                       | int       |
+| totalUniqueAttestations        | /effectiveness | performance          | The total number of unique attestations.                                                                                                                                        | int       |
+| sumInclusionDelay              | /effectiveness | performance          | The total inclusion delay for a period. Useful when computing the average inclusion delay of arbitrary periods.                                                                 | int       |
+| proposedCount                  | /effectiveness | performance          | The number of successful block proposals that said index has been party to.                                                                                                     | int       |
+| proposerDutiesCount            | /effectiveness | performance          | The number of block slots that said index has been awarded. proposerDutiesCount minus proposedCount should give you the number of blocks missed by said index.                  | int       |
+| slashesReceived                | /effectiveness | metadata,performance | The number of times said index has been slashed.                                                                                                                                | int       |
+| executionProposedEmptyCount    | /effectiveness | performance          | The number of empty blocks that said index has proposed.                                                                                                                        | int       |
+| sumCorrectHead                 | /effectiveness | performance          | The number of correct head votes found in said index’s attestations. This is a component of @attesterEffectiveness                                                              | int       |
+| sumCorrectTarget               | /effectiveness | performance          | The number of correct target votes found in said index’s attestations. This is a component of @attesterEffectiveness                                                            | int       |
+| totalAttestationAssignments    | /effectiveness | performance          | The total number attestation slots the pubkeys that map back to said index have been awarded attestation duties.                                                                | int       |
+| slashesCollected               | /effectiveness | metadata             | The total number of blocks proposed by said index, containing slashing proofs.                                                                                                  | int       |
+| pool                           | /validators    | metadata             | The pool that said index maps to.                                                                                                                                               | string    |                                                                                                                                | string    |
+| nodeOperators                  | /validators    | metadata             | The node operator that said index maps to.                                                                                                                                      | string    |
+| validatorCount                 | /operators     | metadata             | The number of validator keys that map to said index.                                                                                                                            | int       |
+| clientPercentages              | /operators     | metadata             | The consensus client distribution of a given index.                                                                                                                             | float     |
+| networkPenetration             | /operators     | metadata             | The percentage of overall network stake that said index maps to.                                                                                                                | float     |
+| relayerPercentages             | /operators     | metadata             | The distribution of post-merge block space of a given index. This tracks which MEV Relays said entity is procuring blocks from, on part with how many blocks are locally built. | float     |
+| rank                           | /percentiles   | metadata             | The percentile bucket that said index slots in, in terms of validator effectiveness. Learn more about how we compute percentile ranks in our docs.                              | int       |
+| value                          | /percentiles   | metadata             | Said indices validator effectiveness value.                                                                                                                                     | float     |
+| parentEntity                   | /operators     | metadata             | The parent entity or entities that said index maps back to.                                                                                                                     | string    |
+| tags                           | /operators     | metadata             | The quality tag that maps back to said index. Read more about tags in our blog.                                                                                                 | string    |
+| aprType                        | /operators     | metadata             | The APR% calculation type in question. At the moment Rated only supports backward looking APR%. Read more about the methodology that underlies it in our docs.                  | string    |
+| percentage                     | /operators     | metadata             | The actual APR% value.                                                                                                                                                          | float     |
+| percentageConsensus            | /operators     | metadata             | The proportion of APR% attributed to consensus rewards.                                                                                                                         | float     |
+| percentageExecution            | /operators     | metadata             | The proportion of APR% attributed to execution rewards.                                                                                                                         | float     |
+| activeStake                    | /operators     | metadata             | The batches of 32 ETH that map back to said index. This is the denominator in APR%                                                                                              | int       |
+| activeValidators               | /operators     | metadata             | The number of active validator pubkeys that map to said entity.                                                                                                                 | int       |
+| avgUptime                      | /network       | metadata             | The aggregate participation rate accross all active validators in the network.                                                                                                  | float     |
+| avgInclusionDelay              | /network       | metadata             | The aggregate inclusion delay accross all active validators in the network.                                                                                                     | float     |
+| avgCorrectness                 | /network       | metadata             | The aggregate attestation correctness accross all active validators in the network.                                                                                             | float     |
+| avgValidatorEffectiveness      | /network       | metadata             | The aggregate validator effectiveness accross all active validators in the network.                                                                                             | float     |
+
 
 ## Registering webhooks
+
+WEBHOOKS SERVICE IS NOT LIVE YET - WIP.
 
 To register a new webhook, you need to have a URL in your app that Protocol can call. You can configure a new webhook from the Protocol dashboard under [API settings](#). Give your webhook a name, pick the [events](#event-types) you want to listen for, and add your URL.
 
@@ -173,3 +244,13 @@ if (hash_equals($hash, $signature)) {
 </CodeGroup>
 
 If your generated signature matches the `x-protocol-signature` header, you can be sure that the request was truly coming from Protocol. It's essential to keep your secret webhook key safe — otherwise, you can no longer be sure that a given webhook was sent by Protocol. Don't commit your secret webhook key to GitHub!
+
+
+## Normative
+
+| **Symbol** | **Operator Action**          |
+|------------|------------------------------|
+| (:=)       | Replace                      |
+| (−=)(+=)   | date arithmetically          |
+| (%=)       | Update according to function |
+| (?=))      | Insert into ma               |
