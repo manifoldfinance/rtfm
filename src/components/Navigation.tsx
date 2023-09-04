@@ -333,22 +333,7 @@ export const navigation: Array<NavGroup> = [
   {
     title: 'Resources',
     links: [
-<<<<<<< HEAD
       { title: 'Rewards', href: '/rewards' },
-=======
-      { title: 'Specification', href: '/specification' },
-      { title: 'Staking', href: '/staking' },
-      { title: 'Lending', href: '/lending' },
-      { title: 'Markets', href: '/markets' },
-      { title: 'Rates', href: '/rates' },
-      { title: 'Services', href: '/services' },
-    ],
-  },
-  {
-    title: 'Reference',
-    links: [
-      { title: 'Specification', href: '/specification' },
->>>>>>> master
       { title: 'Staking', href: '/staking' },
       { title: 'Lending', href: '/lending' },
       { title: 'Markets', href: '/markets' },
