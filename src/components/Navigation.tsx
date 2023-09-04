@@ -256,7 +256,6 @@ function NavigationGroup({
 =======
  */
 
-
 /**
  *
 
@@ -285,7 +284,6 @@ function NavigationGroup({
 >>>>>>> master
  */
 
-
 /**
  *
 
@@ -312,7 +310,6 @@ function NavigationGroup({
 | social history"        |                          |                           |                             |                        |
 
  */
-
 
 /**
  * @version September 02, 2023
