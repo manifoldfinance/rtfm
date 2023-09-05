@@ -6,58 +6,89 @@ export const metadata = {
 
 # Infrastructure
 
-In this guide, we will look at how to work with paginated responses when querying the Protocol API. By default, all responses limit results to ten. However, you can go as high as 100 by adding a `limit` parameter to your requests. If you are using one of the official Protocol API client libraries, you don't need to worry about pagination, as it's all being taken care of behind the scenes. {{ className: 'lead' }}
+CommodityStream optimizes the content delivery path to users based on a number of metrics, including observed network path latency and quality of experience for the end user.
 
-When an API response returns a list of objects, no matter the amount, pagination is supported. In paginated responses, objects are nested in a `data` attribute and have a `has_more` attribute that indicates whether you have reached the end of the last page. You can use the `starting_after` and `endding_before` query parameters to browse pages.
+Our Backbone Interconnect service provides additional connection options for Validator Pools using Backbone Platform by utilizing CommodityStream's validator infrastructure and our provider ecosystem.
 
-## Example using cursors
+## Latency Benchmarking
 
-<Row>
-  <Col>
+> Why is "ping time to CommodityStream" (or packet drop rate) not a good measure of the performance of CommodityStream services?
 
-    In this example, we request the page that starts after the conversation with id `s4WycXedwhQrEFuM`. As a result, we get a list of three conversations and can tell by the `has_more` attribute that we have reached the end of the resultset.
+CommodityStream optimizes the content delivery path to users based on a number of metrics, including observed network path latency and quality of experience for the end user.
 
-    <Properties>
-      <Property name="starting_after" type="string">
-        The last ID on the page you're currently on when you want to fetch the next page.
-      </Property>
-      <Property name="ending_before" type="string">
-        The first ID on the page you're currently on when you want to fetch the previous page.
-      </Property>
-      <Property name="limit" type="integer">
-        Limit the number of items returned.
-      </Property>
-    </Properties>
+CommodityStream does not recommend using ping time to rpc.securerpc.com (or any other CommodityStream service, including OpenMEV RPC Gateaway) as a measure of the actual performance of CommodityStream services for the following reasons:
 
-  </Col>
-  <Col>
+-   CommodityStream services, are not designed as ICMP network testing services
+-   Many networks, including CommodityStream, rate limit ICMP
+-   ICMP ping or traceroute traffic can be discarded or delayed en-route to CommodityStream
+-   The termination point of the TCP/UDP session with CommodityStream may not represent the full network path between a user and the service
+-   User requests may be served from locations other than the destination of the initial IP termination point
 
-    ```bash {{ title: 'Manual pagination using cURL' }}
-    curl -G https://docs.meveth.org/v1/conversations \
-      -H "Authorization: Bearer {token}" \
-      -d starting_after="s4WycXedwhQrEFuM" \
-      -d limit=10
-    ```
+Even a complete lack of response to ICMP traffic may not reflect any sort of issue with CommodityStream service performance.
 
-    ```json {{ title: 'Paginated response' }}
-    {
-      "has_more": false,
-      "data": [
-        {
-          "id": "WAz8eIbvDR60rouK",
-          // ...
-        },
-        {
-          "id": "hSIhXBhNe8X1d8Et"
-          // ...
-        },
-        {
-          "id": "fbwYwpi9C2ybt6Yb"
-          // ...
-        }
-      ]
-    }
-    ```
+#### What is the content delivery path that CommodityStream optimizes?
 
-  </Col>
-</Row>
+CommodityStream is interested in the entire latency between the end-user node and the part of our infrastructure serving the traffic.
+
+This will include segments of CommodityStream’s internal network beyond where the session is terminated. It might also include network paths that are closer to the user than the initial session termination point.
+
+Individual RPC requests or responses may have content served from a number of different parts of CommodityStream’s serving infrastructure.
+
+#### Will CommodityStream offer validator nodes in all countries and regions?
+
+We face certain legal limitations to providing validator nodes in some countries, Generally, if a network operator or ISP meets our policies and operates in a country where we don’t face restrictions, we can deploy validator nodes.
+
+
+## Features
+
+- CDN: CDN like block propagation network that utilizes optimizations for filtering and connecting nodes, i.e. using eth2 bitvector attrs for node connectivity
+
+- Front-running protection: transactions will not be seen by generalized bots in the public mempool.
+
+- No failed transactions: transactions will only be mined if it doesn't include any reverts, so users don't pay for failed transactions. Note: transactions could be included in uncle blocks, emitted to the mempool, and then included on-chain.
+
+- Priority in blocks: transactions sent via SecureRPC are mined either at the top OR bottom of blocks, giving end users flexability in their use caes.
+
+- Transaction Status integration: users can see the status of their transactions on either Etherscan or via our API.
+
+- Backfilling
+
+## Mempool behavior
+
+When OpenMEV is disabled, every sent transaction is added to the mempool, which contains all the transactions that could be mined in the future. By default, Backbone Network's mempool follows the same rules as Geth. This means, among other things, that:
+
+Transactions with a higher gas price are included first
+
+If two transactions can be included and both are offering the miner the same total fees, the one that was received first is included first
+
+If a transaction is invalid (for example, its nonce is lower than the nonce of the address that sent it), the transaction is dropped.
+
+You can get the list of pending transactions that will be included in the next block by using the "pending" block tag:
+
+```typescript
+const pendingBlock = await network.provider.send("eth_getBlockByNumber", [
+  "pending",
+  false,
+]);
+    const pendingBlock = await ethers.provider.send('eth_getBlockByNumber', [
+    'latest',
+    false
+  ]);
+    blockGasLimit = BigNumber.from(pendingBlock.gasLimit);
+```
+
+### Transaction ordering
+
+Backbone Network can sort mempool transactions in two different ways. How they are sorted will alter which transactions from the mempool get included in the next block, and in which order.
+
+The first ordering mode, called "priority", mimics Geth's behavior. This means that it prioritizes transactions based on the fees paid to the miner. This is the default.
+
+The second ordering mode, called "fifo", keeps the mempool transactions sorted in the order they arrive.
+
+
+## Referenes
+
+RFC2622 - “Routing Policy Specification Language (RPSL)”: Describes the basic RPSL object syntax
+RFC4012 - “Routing Policy Specification Language next generation (RPSLng)”: Describes useful additions to the RPSL language such as IPv6 route6 objects
+RFC2650 - “Using RPSL in Practice”: A tutorial on generating RPSL objects, much like this article
+RFC7682 - “Considerations for Internet Routing Registries (IRRs) and Routing Policy Configuration: Some of the problems and lessons learned about the IRR system

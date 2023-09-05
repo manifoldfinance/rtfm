@@ -1,0 +1,105 @@
+export const metadata = {
+  title: 'RPC',
+  description:
+    'RPC for MEV Builders and Searchers. These endpoints let you access our MEV services programmatically.',
+};
+
+# RPC
+
+
+
+# RPC Methods
+
+## `eth_simulateTransaction`
+
+### Rationale
+The request parameters are the same as eth_sendTransaction, and the response is a subset of a transaction receipt object you can obtain using eth_getTransactionReceipt, for consistency and familiarity.
+
+Note that it does not require a signed transaction (raw tx), as the motivation is to provide more information to the user before signing happens.
+
+### Implementation
+There is an existing method eth_estimateGas that already performs transaction dry runs, but the method only returns the amount of gas used by the transaction. The code for eth_estimateGas may be reusable for the implementation of eth_simulateTransaction.
+
+
+## `eth_getTransactionBySenderAndNonce`
+
+### Rationale
+
+### Implementation
+
+## `eth_submitRawBlock`
+
+### Rationale
+
+### Implementation
+
+## `eth_watchCall`
+
+### Rationale
+
+### Implementation
+
+
+## Cached RPC Responses
+
+- eth_getBlockByHash
+- eth_getBlockByNumber
+- eth_getBlockTransactionCountByHash
+- eth_getBlockTransactionCountByNumber
+- eth_getTransactionByBlockHashAndIndex
+- eth_getTransactionByBlockNumberAndIndex
+- eth_getTransactionByHash
+- eth_getTransactionReceipt
+
+Additionally, there's calls have a potential for being cached for a specific amount of time or assuming the future existence of an invalidation event (as e.g. the existence of a new transaction or block):
+
+- eth_estimateGas
+- eth_getStorageAt
+
+## Error Codes
+
+| **errorValues**     | **ErrorCode** | **message**                      |
+|---------------------|---------------|----------------------------------|
+| invalidInput        | -32_000       |                                  |
+| resourceNotFound    | -32_001       |                                  |
+| resourceUnavailable | -32_002       | ACCOUNT_ACCESS_ALREADY_REQUESTED |
+| transactionRejected | -32_003       |                                  |
+| methodNotSupported  | -32_004       |                                  |
+| limitExceeded       | -32_005       |                                  |
+| parse               | -32_700       |                                  |
+| invalidRequest      | -32_600       |                                  |
+| methodNotFound      | -32_601       |                                  |
+| invalidParams       | -32_602       | DOES_NOT_EXIST                   |
+| internal            | -32_603       |                                  |
+| userRejectedRequest | 4001          |                                  |
+| unauthorized        | 4100          |                                  |
+| unsupportedMethod   | 4200          |                                  |
+| disconnected        | 4900          |                                  |
+| chainDisconnected   | 4901          |                                  |
+| invalidInput        | -32_000       |                                  |
+| resourceNotFound    | -32_001       |                                  |
+| resourceUnavailable | -32_002       |                                  |
+| transactionRejected | -32_003       |                                  |
+| methodNotSupported  | -32_004       |                                  |
+| limitExceeded       | -32_005       | LIMIT_EXCEEDED                   |
+| parse               | -32_700       |                                  |
+| invalidRequest      | -32_600       |                                  |
+| methodNotFound      | -32_601       | METHOD_NOTFOUND                  |
+| invalidParams       | -32_602       | INVALID_PARAMS                   |
+| internal            | -32_603       | INTERNAL                         |
+| userRejectedRequest | 4001          | USER_REJECTEDREQUEST             |
+| unauthorized        | 4100          | UNAUTHORIZED                     |
+| unsupportedMethod   | 4200          | UNSUPPORTEDMETHOD                |
+| disconnected        | 4900          |                                  |
+| chainDisconnected   | 4901          |                                  |
+
+### Transaction Error Codes
+
+
+| **statusCode** | **Description**                                                                |
+|----------------|--------------------------------------------------------------------------------|
+| PENDING        | The transaction was received and is currently being submitted to miners        |
+| INCLUDED       | The transaction was included on-chain                                          |
+| FAILED         | The transaction was submitted for 25 blocks and failed to be included on-chain |
+| CANCELLED      | The transaction was canceled by the user and not included on-chain             |
+| UNKNOWN        | The transaction was not received                                               |

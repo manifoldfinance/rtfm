@@ -342,8 +342,9 @@ export const navigation: Array<NavGroup> = [
     title: 'Reference',
     links: [
       { title: 'Specification', href: '/specification' },
-      { title: 'Interfaces', href: '/interfaces' },
+      { title: 'Testing', href: '/testing' },
       { title: 'API', href: '/api' },
+      { title: 'RPC', href: '/rpc' },
       { title: 'Audits', href: '/audits' },
       { title: 'Deployments', href: '/deployments' },
       { title: 'Security', href: '/security' },
