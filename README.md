@@ -28,8 +28,21 @@ npm run build
 
 ## Configuration
 
+<<<<<<< HEAD
+### Creating Pages
+
+```console
+$ ./mkpage.sh deployments
+Directory 'deployments' created successfully.
+File 'page.mdx' created inside 'deployments'.
+```
+
 ### Navigation 
 
+=======
+### Navigation 
+
+>>>>>>> master
  | *Description*          | **Tutorials**            | **How-to guides**         | **Reference**               | **Explanation**        |
 |------------------------|--------------------------|---------------------------|-----------------------------|------------------------|
 | what they do           | "introduce               | educate                   |                             |                        |

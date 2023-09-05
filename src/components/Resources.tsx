@@ -1,3 +1,7 @@
+/**
+ * @filename Resources.tsx
+ * @see {@link resources}
+ */
 'use client';
 
 import Link from 'next/link';

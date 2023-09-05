@@ -252,8 +252,37 @@ function NavigationGroup({
  *    is only visible on desktop.
  *
  * @version September 02, 2023
+<<<<<<< HEAD
+=======
  */
 
+/**
+ *
+
+@tutorial Navigation
+@description The navigation component for the documentation.
+
+| *Description*          | **Tutorials**            | **How-to guides**         | **Reference**               | **Explanation**        |
+|------------------------|--------------------------|---------------------------|-----------------------------|------------------------|
+| what they do           | "introduce               | educate                   |                             |                        |
+| lead"                  | "guide, demonstrate"     | "state, describe, inform" | "explain, clarify, discuss" |                        |
+| "answers the           |                          |                           |                             |                        |
+| question"              | "Can you teach me        |                           |                             |                        |
+| to...?"                | """How do I...?"""       | """What is...?"""         | """Why...?"""               |                        |
+| oriented to            | learning                 | tasks                     | information                 | understanding          |
+| purpose                | "to allow the newcomer   |                           |                             |                        |
+| to get started"        | "to show how to solve a  |                           |                             |                        |
+| specific problem"      | "to describe the         |                           |                             |                        |
+| machinery"             | to explain               |                           |                             |                        |
+| form                   | a lesson                 | a series of steps         | dry description             | discursive explanation |
+| analogy                | "teaching a child how to |                           |                             |                        |
+| cook"                  | "a recipe in a cookery   |                           |                             |                        |
+| book"                  | "a reference             |                           |                             |                        |
+| encyclopaedia article" | "an article on culinary  |                           |                             |                        |
+| social history"        |                          |                           |                             |                        |
+
+>>>>>>> master
+ */
 
 /**
  *
@@ -282,6 +311,9 @@ function NavigationGroup({
 
  */
 
+/**
+ * @version September 02, 2023
+ */
 export const navigation: Array<NavGroup> = [
   {
     title: 'Guides',
@@ -298,7 +330,7 @@ export const navigation: Array<NavGroup> = [
   {
     title: 'Resources',
     links: [
-      { title: 'Specification', href: '/specification' },
+      { title: 'Rewards', href: '/rewards' },
       { title: 'Staking', href: '/staking' },
       { title: 'Lending', href: '/lending' },
       { title: 'Markets', href: '/markets' },
@@ -310,11 +342,12 @@ export const navigation: Array<NavGroup> = [
     title: 'Reference',
     links: [
       { title: 'Specification', href: '/specification' },
-      { title: 'Staking', href: '/staking' },
-      { title: 'Lending', href: '/lending' },
-      { title: 'Markets', href: '/markets' },
-      { title: 'Rates', href: '/rates' },
-      { title: 'Services', href: '/services' },
+      { title: 'Interfaces', href: '/interfaces' },
+      { title: 'API', href: '/api' },
+      { title: 'Audits', href: '/audits' },
+      { title: 'Deployments', href: '/deployments' },
+      { title: 'Security', href: '/security' },
+      { title: 'Legal', href: '/legal' },
     ],
   },
 ];
@@ -330,6 +363,8 @@ export const navigation: Array<NavGroup> = [
  *
  *  @version September 02, 2023
  */
+
+// TODO: Add a link to the dashboard.
 export function Navigation(props: React.ComponentPropsWithoutRef<'nav'>) {
   return (
     <nav {...props}>
