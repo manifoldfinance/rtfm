@@ -8,19 +8,18 @@ export const metadata = {
 
 In this guide, we will look at how to register and consume webhooks to integrate your app with the mevETH Protocol Infrastructure.
 
-We provide a RESTful API for you to interact with the mevETH Protocol Infrastructure. You can use this API to retrieve information about validators, performance, and  You can also use it to send messages and attachments.
+We provide a RESTful API for you to interact with the mevETH Protocol Infrastructure. You can use this API to retrieve information about validators, performance, and You can also use it to send messages and attachments.
 
 With webhooks, you can know when something happens on chain, such as fees being earned or when the protocol upgrades a contact. {{ className: 'lead' }}
 
 ## Overview
-
 
 ## API Reference
 
 The Index Map corresponds only to mevETH with `feeRecipeent` defined to the current MultiSig. In the future with our proposed smoothing pool this map will be updated to reflect different participating pools.
 
 | **metric name**                | **API URI**    | **Metric Tracking**  | **Description**                                                                                                                                                                 | **units** |
-|--------------------------------|----------------|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
+| ------------------------------ | -------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | --- | ------ |
 | earnings                       | /effectiveness | rewards              | Net consensus rewards for the day that apply to said index. This is a validator balance difference between the last epoch in the day and the last epoch in the previous day     | gwei      |
 | estimatedRewards               | /effectiveness | rewards              | Estimated gross validator consensus rewards that apply to said index. Those are protocol rewards without protocol penalties accrued accounted for.                              | gwei      |
 | estimatedPenalties             | /effectiveness | rewards              | Estimated protocol penalties accrued that apply to said index.                                                                                                                  | gwei      |
@@ -55,7 +54,7 @@ The Index Map corresponds only to mevETH with `feeRecipeent` defined to the curr
 | sumCorrectTarget               | /effectiveness | performance          | The number of correct target votes found in said index’s attestations. This is a component of @attesterEffectiveness                                                            | int       |
 | totalAttestationAssignments    | /effectiveness | performance          | The total number attestation slots the pubkeys that map back to said index have been awarded attestation duties.                                                                | int       |
 | slashesCollected               | /effectiveness | metadata             | The total number of blocks proposed by said index, containing slashing proofs.                                                                                                  | int       |
-| pool                           | /validators    | metadata             | The pool that said index maps to.                                                                                                                                               | string    |                                                                                                                                | string    |
+| pool                           | /validators    | metadata             | The pool that said index maps to.                                                                                                                                               | string    |     | string |
 | nodeOperators                  | /validators    | metadata             | The node operator that said index maps to.                                                                                                                                      | string    |
 | validatorCount                 | /operators     | metadata             | The number of validator keys that map to said index.                                                                                                                            | int       |
 | clientPercentages              | /operators     | metadata             | The consensus client distribution of a given index.                                                                                                                             | float     |
@@ -75,7 +74,6 @@ The Index Map corresponds only to mevETH with `feeRecipeent` defined to the curr
 | avgInclusionDelay              | /network       | metadata             | The aggregate inclusion delay accross all active validators in the network.                                                                                                     | float     |
 | avgCorrectness                 | /network       | metadata             | The aggregate attestation correctness accross all active validators in the network.                                                                                             | float     |
 | avgValidatorEffectiveness      | /network       | metadata             | The aggregate validator effectiveness accross all active validators in the network.                                                                                             | float     |
-
 
 ## Registering webhooks
 
@@ -245,11 +243,10 @@ if (hash_equals($hash, $signature)) {
 
 If your generated signature matches the `x-protocol-signature` header, you can be sure that the request was truly coming from Protocol. It's essential to keep your secret webhook key safe — otherwise, you can no longer be sure that a given webhook was sent by Protocol. Don't commit your secret webhook key to GitHub!
 
-
 ## Normative
 
 | **Symbol** | **Operator Action**          |
-|------------|------------------------------|
+| ---------- | ---------------------------- |
 | (:=)       | Replace                      |
 | (−=)(+=)   | date arithmetically          |
 | (%=)       | Update according to function |
