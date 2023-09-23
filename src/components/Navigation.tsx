@@ -247,41 +247,11 @@ function NavigationGroup({
 /**
  * @const Navigation
  * @description The navigation component for the documentation.
- *    The navigation is split into two groups: Guides and Resources.
- *    The Guides group is always visible, while the Resources group
+ *    The navigation is split into two groups: Guides and Protocol.
+ *    The Guides group is always visible, while the Protocol group
  *    is only visible on desktop.
  *
  * @version September 02, 2023
-<<<<<<< HEAD
-=======
- */
-
-/**
- *
-
-@tutorial Navigation
-@description The navigation component for the documentation.
-
-| *Description*          | **Tutorials**            | **How-to guides**         | **Reference**               | **Explanation**        |
-|------------------------|--------------------------|---------------------------|-----------------------------|------------------------|
-| what they do           | "introduce               | educate                   |                             |                        |
-| lead"                  | "guide, demonstrate"     | "state, describe, inform" | "explain, clarify, discuss" |                        |
-| "answers the           |                          |                           |                             |                        |
-| question"              | "Can you teach me        |                           |                             |                        |
-| to...?"                | """How do I...?"""       | """What is...?"""         | """Why...?"""               |                        |
-| oriented to            | learning                 | tasks                     | information                 | understanding          |
-| purpose                | "to allow the newcomer   |                           |                             |                        |
-| to get started"        | "to show how to solve a  |                           |                             |                        |
-| specific problem"      | "to describe the         |                           |                             |                        |
-| machinery"             | to explain               |                           |                             |                        |
-| form                   | a lesson                 | a series of steps         | dry description             | discursive explanation |
-| analogy                | "teaching a child how to |                           |                             |                        |
-| cook"                  | "a recipe in a cookery   |                           |                             |                        |
-| book"                  | "a reference             |                           |                             |                        |
-| encyclopaedia article" | "an article on culinary  |                           |                             |                        |
-| social history"        |                          |                           |                             |                        |
-
->>>>>>> master
  */
 
 /**
@@ -328,14 +298,14 @@ export const navigation: Array<NavGroup> = [
     ],
   },
   {
-    title: 'Resources',
+    title: 'Protocol',
     links: [
-      { title: 'Rewards', href: '/rewards' },
-      { title: 'Staking', href: '/staking' },
-      { title: 'Lending', href: '/lending' },
-      { title: 'Markets', href: '/markets' },
+      { title: 'MevEth', href: '/protocol/MevEth' },
+      { title: 'MevEthShareVault', href: '/protocol/MevEthShareVault' },
+      { title: 'MevEthRateProvider', href: '/protocol/MevEthRateProvider' },
+      { title: 'WagyuStaker', href: '/protocol/WagyuStaker' },
       { title: 'Rates', href: '/rates' },
-      { title: 'Services', href: '/services' },
+      { title: 'Fees', href: '/fees' },
     ],
   },
   {
