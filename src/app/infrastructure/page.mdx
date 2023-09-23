@@ -6,58 +6,114 @@ export const metadata = {
 
 # Infrastructure
 
-In this guide, we will look at how to work with paginated responses when querying the Protocol API. By default, all responses limit results to ten. However, you can go as high as 100 by adding a `limit` parameter to your requests. If you are using one of the official Protocol API client libraries, you don't need to worry about pagination, as it's all being taken care of behind the scenes. {{ className: 'lead' }}
+In this guide, we will look at how to work with paginated responses when querying the Infrastructure API. 
+By default, all responses limit results to ten. However, you can go as high as 100 by adding a `limit` parameter to your requests {{ className: 'lead' }}
 
-When an API response returns a list of objects, no matter the amount, pagination is supported. In paginated responses, objects are nested in a `data` attribute and have a `has_more` attribute that indicates whether you have reached the end of the last page. You can use the `starting_after` and `endding_before` query parameters to browse pages.
+> When an API response returns a list of objects, no matter the amount, pagination is supported. In paginated responses, objects are nested in a `data` attribute and have a `has_more` attribute that indicates whether you have reached the end of the last page. You can use the `starting_after` and `endding_before` query parameters to browse pages.
 
-## Example using cursors
 
-<Row>
-  <Col>
+## Infrastructure API 
 
-    In this example, we request the page that starts after the conversation with id `s4WycXedwhQrEFuM`. As a result, we get a list of three conversations and can tell by the `has_more` attribute that we have reached the end of the resultset.
+| Method                                                              | HTTP request                                                | Description                                          |
+| ------------------------------------------------------------------- | ----------------------------------------------------------- | ---------------------------------------------------- |
+| [**getDeliveredPayloads**](DataApi.md#getDeliveredPayloads)         | **GET** /relay/v1/data/bidtraces/proposer_payload_delivered | Get payloads that were delivered to proposers.       |
+| [**getReceivedBids**](DataApi.md#getReceivedBids)                   | **GET** /relay/v1/data/bidtraces/builder_blocks_received    | Get builder bid submissions.                         |
+| [**getValidatorRegistration**](DataApi.md#getValidatorRegistration) | **GET** /relay/v1/data/validator_registration               | Check that a validator is registered with the relay. |
 
-    <Properties>
-      <Property name="starting_after" type="string">
-        The last ID on the page you're currently on when you want to fetch the next page.
-      </Property>
-      <Property name="ending_before" type="string">
-        The first ID on the page you're currently on when you want to fetch the previous page.
-      </Property>
-      <Property name="limit" type="integer">
-        Limit the number of items returned.
-      </Property>
-    </Properties>
+<a name="getDeliveredPayloads"></a>
 
-  </Col>
-  <Col>
+### **getDeliveredPayloads**
 
-    ```bash {{ title: 'Manual pagination using cURL' }}
-    curl -G https://docs.meveth.org/v1/conversations \
-      -H "Authorization: Bearer {token}" \
-      -d starting_after="s4WycXedwhQrEFuM" \
-      -d limit=10
-    ```
+> List getDeliveredPayloads(slot, cursor, limit, block_hash, block_number, proposer_pubkey, builder_pubkey, order_by)
 
-    ```json {{ title: 'Paginated response' }}
-    {
-      "has_more": false,
-      "data": [
-        {
-          "id": "WAz8eIbvDR60rouK",
-          // ...
-        },
-        {
-          "id": "hSIhXBhNe8X1d8Et"
-          // ...
-        },
-        {
-          "id": "fbwYwpi9C2ybt6Yb"
-          // ...
-        }
-      ]
-    }
-    ```
+Get payloads that were delivered to proposers.
 
-  </Col>
-</Row>
+    * Payloads become available after the relay responds to a &#x60;getPayload&#x60; request from the proposer.  * Query arguments are used as filters.
+
+### Parameters
+
+| Name                | Type                         | Description                           | Notes                                              |
+| ------------------- | ---------------------------- | ------------------------------------- | -------------------------------------------------- |
+| **slot**            | **String**                   | A specific slot.                      | [optional] [default to null]                       |
+| **cursor**          | **String**                   | A starting slot for multiple results. | [optional] [default to null]                       |
+| **limit**           | **String**                   | The number of results.                | [optional] [default to null]                       |
+| **block_hash**      | **String**                   | A specific block hash.                | [optional] [default to null]                       |
+| **block_number**    | **String**                   | A specific block number.              | [optional] [default to null]                       |
+| **proposer_pubkey** | **String**                   | A specific proposer public key.       | [optional] [default to null]                       |
+| **builder_pubkey**  | **String**                   | A specific builder public key.        | [optional] [default to null]                       |
+| **order_by**        | [**OrderBy**](../Models/.md) | Sort results in order of...           | [optional] [default to null] [enum: -value, value] |
+
+### Return type
+
+[**List**](../Models/BidTraceV2.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+<a name="getReceivedBids"></a>
+
+### **getReceivedBids**
+
+> List getReceivedBids(slot, block_hash, block_number, builder_pubkey, limit)
+
+Get builder bid submissions.
+
+    * Returns a list of builder bids without execution payloads.  * Only submissions that were successfully verified.
+
+### Parameters
+
+| Name               | Type       | Description                    | Notes                        |
+| ------------------ | ---------- | ------------------------------ | ---------------------------- |
+| **slot**           | **String** | A specific slot.               | [optional] [default to null] |
+| **block_hash**     | **String** | A specific block hash.         | [optional] [default to null] |
+| **block_number**   | **String** | A specific block number.       | [optional] [default to null] |
+| **builder_pubkey** | **String** | A specific builder public key. | [optional] [default to null] |
+| **limit**          | **String** | The number of results.         | [optional] [default to null] |
+
+### Return type
+
+[**List**](../Models/BidTraceV2WithTimestamp.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+<a name="getValidatorRegistration"></a>
+
+### **getValidatorRegistration**
+
+> SignedValidatorRegistration getValidatorRegistration(pubkey)
+
+Check that a validator is registered with the relay.
+
+    * Returns the latest validator registration for a given pubkey.  * Useful to check whether your own registration was successful.
+
+### Parameters
+
+| Name       | Type       | Description                     | Notes             |
+| ---------- | ---------- | ------------------------------- | ----------------- |
+| **pubkey** | **String** | The validator&#39;s public key. | [default to null] |
+
+### Return type
+
+[**SignedValidatorRegistration**](../Models/SignedValidatorRegistration.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
