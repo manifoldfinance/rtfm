@@ -6,6 +6,7 @@
     "dev": "NEXT_TELEMETRY_DISABLED=1 npx next dev",
     "build": "NEXT_TELEMETRY_DISABLED=1 NODE_ENV=production npx next build",
     "postbuild": "next-sitemap",
+    "update": "npx browserslist@latest --update-db",
     "start": "next start",
     "lint": "next lint",
     "fmt": "npx prettier --config prettier.config.js --write '**/*.{js,jsx,ts,tsx,mjs}'",
