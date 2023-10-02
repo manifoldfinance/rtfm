@@ -1,117 +1,55 @@
 export const metadata = {
   title: 'Quickstart',
   description:
-    'This guide will get you all set up and ready to use the Protocol API. We’ll cover how to get started an API client and how to make your first API request.',
+    'Overview of the core protocol contracts',
 };
 
-# Quickstart
 
-This guide will get you all set up and ready to use the Protocol API. We'll cover how to get started using one of our API clients and how to make your first API request. We'll also look at where to go next to find all the information you need to take full advantage of our powerful REST API. {{ className: 'lead' }}
 
-<Note>
-  Before you can make requests to the Protocol API, you will need to grab your
-  API key from your dashboard. You find it under [Settings &raquo; API](#).
-</Note>
+### MevEth.sol
 
-## Using an SDK
+This is the core contract that brings together staking, rewards, and accounting.
 
-If you use one of our official SDKs, you won't have to worry about any of the above — fetch your access token from the [Protocol dashboard](#) under API settings, and the client library will take care of the rest. All the client libraries use OAuth2 behind the scenes.
+> Key features:
 
-<div className="not-prose">
-  <Button
-    href="/sdks"
-    variant="text"
-    arrow="right"
-    children="Check out our list of first-party SDKs"
-  />
-</div>
+Deposit ETH to mint MevEth shares
+Withdraw ETH by burning MevEth shares
+Permissioned functions to manage system
+Oracle integrations with staking and rewards
+Accounting to track shares and assets
+Admin functions to upgrade contracts
+ERC4626 integration for DeFi compatibility
 
-## Choose your client
+### WagyuStaker.sol
 
-Before making your first API request, you need to pick which API client you will use. In addition to good ol' cURL HTTP requests, Protocol offers clients for JavaScript, Python, and PHP. In the following example, you can see how to install each client.
+This contract enables Ether staking directly in the BeaconChainDepositContract. It allows users to register validators and earn staking rewards.
 
-<CodeGroup>
+> Key features:
 
-```bash {{ title: 'cURL' }}
-# cURL is most likely already installed on your machine
-curl --version
-```
+Deposit Ether to register validators
+Update balances and validator count from MevEth oracle
+Distribute rewards to MevEth
+Recover tokens sent by mistake
+Manage beneficiary address
 
-```bash {{ language: 'js' }}
-# Install the Protocol JavaScript SDK
-npm install @example/protocol-api --save
-```
+### MevEthRateProvider.sol
 
-```bash {{ language: 'python' }}
-# Install the Protocol Python SDK
-pip install protocol_api
-```
+> This contract provides the exchange rate between MevEth shares and ETH.
 
-```bash {{ language: 'php' }}
-# Install the Protocol PHP SDK
-composer require protocol/sdk
-```
+Key features:
 
-</CodeGroup>
+Gets MevEth total assets and total supply
+Calculates rate as total assets / total supply
+Rate updates when new deposits come in or rewards are added
 
-<div className="not-prose">
-  <Button
-    href="/sdks"
-    variant="text"
-    arrow="right"
-    children="Check out our list of first-party SDKs"
-  />
-</div>
+### MevEthShareVault.sol
 
-## Making your first API request
+> This contract manages the distribution of rewards to MevEth holders.
 
-After picking your preferred client, you are ready to make your first call to the Protocol API. Below, you can see how to send a GET request to the Conversations endpoint to get a list of all your conversations. In the cURL example, results are limited to ten conversations, the default page length for each client.
+Key features:
 
-<CodeGroup tag="GET" label="/v1/conversations">
-
-```bash {{ title: 'cURL' }}
-curl -G https://docs.meveth.org/v1/conversations \
-  -H "Authorization: Bearer {token}" \
-  -d limit=10
-```
-
-```js
-import ApiClient from '@example/protocol-api';
-
-const client = new ApiClient(token);
-
-await client.conversations.list();
-```
-
-```python
-from protocol_api import ApiClient
-
-client = ApiClient(token)
-
-client.conversations.list()
-```
-
-```php
-$client = new \Protocol\ApiClient($token);
-
-$client->conversations->list();
-```
-
-</CodeGroup>
-
-<div className="not-prose">
-  <Button
-    href="/conversations"
-    variant="text"
-    arrow="right"
-    children="Read the docs for the Conversations endpoint"
-  />
-</div>
-
-## What's next?
-
-Great, you're now set up with an API client and have made your first request to the API. Here are a few links that might be handy as you venture further into the Protocol API:
-
-- [Grab your API key from the Protocol dashboard](#)
-- [Check out the Conversations endpoint](/conversations)
-- [Learn about the different error messages in Protocol](/errors)
+Holds the MevEth shares
+Mints new shares when rewards are added
+Burns shares on withdrawal
+Manages access with permissioned functions
+Upgradable by the MevEth admin (i.e. the MultiSig)

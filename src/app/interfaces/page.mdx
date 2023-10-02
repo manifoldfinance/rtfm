@@ -6,10 +6,9 @@ export const metadata = {
 
 # Interfaces
 
-
 ## Functions
-### deposit
 
+### deposit
 
 ```solidity
 function deposit(ValidatorData calldata data, bytes32 latestDepositRoot) external payable;
@@ -17,13 +16,11 @@ function deposit(ValidatorData calldata data, bytes32 latestDepositRoot) externa
 
 ### validators
 
-
 ```solidity
 function validators() external view returns (uint256);
 ```
 
 ### mevEth
-
 
 ```solidity
 function mevEth() external view returns (address);
@@ -31,13 +28,11 @@ function mevEth() external view returns (address);
 
 ### VALIDATOR_DEPOSIT_SIZE
 
-
 ```solidity
 function VALIDATOR_DEPOSIT_SIZE() external view returns (uint256);
 ```
 
 ### payRewards
-
 
 ```solidity
 function payRewards(uint256 rewards) external;
@@ -45,13 +40,11 @@ function payRewards(uint256 rewards) external;
 
 ### payValidatorWithdraw
 
-
 ```solidity
 function payValidatorWithdraw() external;
 ```
 
 ### recoverToken
-
 
 ```solidity
 function recoverToken(address token, address recipient, uint256 amount) external;
@@ -59,13 +52,11 @@ function recoverToken(address token, address recipient, uint256 amount) external
 
 ### record
 
-
 ```solidity
 function record() external returns (uint128, uint128, uint128, uint128);
 ```
 
 ### registerExit
-
 
 ```solidity
 function registerExit() external;
@@ -73,15 +64,15 @@ function registerExit() external;
 
 ### batchMigrate
 
-
 ```solidity
 function batchMigrate(IStakingModule.ValidatorData[] calldata batchData) external;
 ```
 
 ## Structs
-### ValidatorData
-*Structure for passing information about the validator deposit data.*
 
+### ValidatorData
+
+_Structure for passing information about the validator deposit data._
 
 ```solidity
 struct ValidatorData {
@@ -92,8 +83,6 @@ struct ValidatorData {
     bytes32 deposit_data_root;
 }
 ```
-
-
 
 ### Properties
 
@@ -115,51 +104,51 @@ struct ValidatorData {
 
 #### Type declaration
 
-| Name | Type |
-| :------ | :------ |
-| `AdminAdded(address)` | `EventFragment` |
-| `AdminDeleted(address)` | `EventFragment` |
-| `Approval(address,address,uint256)` | `EventFragment` |
-| `CallOFTReceivedSuccess(uint16,bytes,uint64,bytes32)` | `EventFragment` |
-| `CreamRedeemed(address,uint256,uint256)` | `EventFragment` |
-| `Deposit(address,address,uint256,uint256)` | `EventFragment` |
-| `MessageFailed(uint16,bytes,uint64,bytes,bytes)` | `EventFragment` |
-| `MevEthInitialized(address,address)` | `EventFragment` |
-| `MevEthShareVaultUpdateCanceled(address,address)` | `EventFragment` |
-| `MevEthShareVaultUpdateCommitted(address,address,uint64)` | `EventFragment` |
-| `MevEthShareVaultUpdateFinalized(address,address)` | `EventFragment` |
-| `NonContractAddress(address)` | `EventFragment` |
-| `OperatorAdded(address)` | `EventFragment` |
-| `OperatorDeleted(address)` | `EventFragment` |
-| `ReceiveFromChain(uint16,address,uint256)` | `EventFragment` |
-| `RetryMessageSuccess(uint16,bytes,uint64,bytes32)` | `EventFragment` |
-| `Rewards(address,uint256)` | `EventFragment` |
-| `SendToChain(uint16,address,bytes32,uint256)` | `EventFragment` |
-| `SetDefaultFeeBp(uint16)` | `EventFragment` |
-| `SetFeeBp(uint16,bool,uint16)` | `EventFragment` |
-| `SetFeeOwner(address)` | `EventFragment` |
-| `SetMinDstGas(uint16,uint16,uint256)` | `EventFragment` |
-| `SetPrecrime(address)` | `EventFragment` |
-| `SetTrustedRemote(uint16,bytes)` | `EventFragment` |
-| `SetTrustedRemoteAddress(uint16,bytes)` | `EventFragment` |
-| `SetUseCustomAdapterParams(bool)` | `EventFragment` |
-| `StakingModuleUpdateCanceled(address,address)` | `EventFragment` |
-| `StakingModuleUpdateCommitted(address,address,uint64)` | `EventFragment` |
-| `StakingModuleUpdateFinalized(address,address)` | `EventFragment` |
-| `StakingPaused()` | `EventFragment` |
-| `StakingUnpaused()` | `EventFragment` |
-| `Transfer(address,address,uint256)` | `EventFragment` |
+| Name                                                              | Type            |
+| :---------------------------------------------------------------- | :-------------- |
+| `AdminAdded(address)`                                             | `EventFragment` |
+| `AdminDeleted(address)`                                           | `EventFragment` |
+| `Approval(address,address,uint256)`                               | `EventFragment` |
+| `CallOFTReceivedSuccess(uint16,bytes,uint64,bytes32)`             | `EventFragment` |
+| `CreamRedeemed(address,uint256,uint256)`                          | `EventFragment` |
+| `Deposit(address,address,uint256,uint256)`                        | `EventFragment` |
+| `MessageFailed(uint16,bytes,uint64,bytes,bytes)`                  | `EventFragment` |
+| `MevEthInitialized(address,address)`                              | `EventFragment` |
+| `MevEthShareVaultUpdateCanceled(address,address)`                 | `EventFragment` |
+| `MevEthShareVaultUpdateCommitted(address,address,uint64)`         | `EventFragment` |
+| `MevEthShareVaultUpdateFinalized(address,address)`                | `EventFragment` |
+| `NonContractAddress(address)`                                     | `EventFragment` |
+| `OperatorAdded(address)`                                          | `EventFragment` |
+| `OperatorDeleted(address)`                                        | `EventFragment` |
+| `ReceiveFromChain(uint16,address,uint256)`                        | `EventFragment` |
+| `RetryMessageSuccess(uint16,bytes,uint64,bytes32)`                | `EventFragment` |
+| `Rewards(address,uint256)`                                        | `EventFragment` |
+| `SendToChain(uint16,address,bytes32,uint256)`                     | `EventFragment` |
+| `SetDefaultFeeBp(uint16)`                                         | `EventFragment` |
+| `SetFeeBp(uint16,bool,uint16)`                                    | `EventFragment` |
+| `SetFeeOwner(address)`                                            | `EventFragment` |
+| `SetMinDstGas(uint16,uint16,uint256)`                             | `EventFragment` |
+| `SetPrecrime(address)`                                            | `EventFragment` |
+| `SetTrustedRemote(uint16,bytes)`                                  | `EventFragment` |
+| `SetTrustedRemoteAddress(uint16,bytes)`                           | `EventFragment` |
+| `SetUseCustomAdapterParams(bool)`                                 | `EventFragment` |
+| `StakingModuleUpdateCanceled(address,address)`                    | `EventFragment` |
+| `StakingModuleUpdateCommitted(address,address,uint64)`            | `EventFragment` |
+| `StakingModuleUpdateFinalized(address,address)`                   | `EventFragment` |
+| `StakingPaused()`                                                 | `EventFragment` |
+| `StakingUnpaused()`                                               | `EventFragment` |
+| `Transfer(address,address,uint256)`                               | `EventFragment` |
 | `ValidatorCreated(address,(address,bytes,bytes32,bytes,bytes32))` | `EventFragment` |
-| `ValidatorWithdraw(address,uint256)` | `EventFragment` |
-| `Withdraw(address,address,address,uint256,uint256)` | `EventFragment` |
-| `WithdrawalQueueClosed(address,uint256,uint256)` | `EventFragment` |
-| `WithdrawalQueueOpened(address,uint256,uint256)` | `EventFragment` |
+| `ValidatorWithdraw(address,uint256)`                              | `EventFragment` |
+| `Withdraw(address,address,address,uint256,uint256)`               | `EventFragment` |
+| `WithdrawalQueueClosed(address,uint256,uint256)`                  | `EventFragment` |
+| `WithdrawalQueueOpened(address,uint256,uint256)`                  | `EventFragment` |
 
 #### Defined in
 
 types/ethers-contracts/MevEth.ts:1036
 
-___
+---
 
 ### functions
 
@@ -167,119 +156,119 @@ ___
 
 #### Type declaration
 
-| Name | Type |
-| :------ | :------ |
-| `BP_DENOMINATOR()` | `FunctionFragment` |
-| `CREAM_TO_MEV_ETH_PERCENT()` | `FunctionFragment` |
-| `DEFAULT_PAYLOAD_SIZE_LIMIT()` | `FunctionFragment` |
-| `DOMAIN_SEPARATOR()` | `FunctionFragment` |
-| `MIN_DEPOSIT()` | `FunctionFragment` |
-| `NO_EXTRA_GAS()` | `FunctionFragment` |
-| `PT_SEND()` | `FunctionFragment` |
-| `PT_SEND_AND_CALL()` | `FunctionFragment` |
-| `WETH9()` | `FunctionFragment` |
-| `addAdmin(address)` | `FunctionFragment` |
-| `addOperator(address)` | `FunctionFragment` |
-| `admins(address)` | `FunctionFragment` |
-| `allowance(address,address)` | `FunctionFragment` |
-| `approve(address,uint256)` | `FunctionFragment` |
-| `asset()` | `FunctionFragment` |
-| `balanceOf(address)` | `FunctionFragment` |
-| `calculateNeededEtherBuffer()` | `FunctionFragment` |
+| Name                                                                           | Type               |
+| :----------------------------------------------------------------------------- | :----------------- |
+| `BP_DENOMINATOR()`                                                             | `FunctionFragment` |
+| `CREAM_TO_MEV_ETH_PERCENT()`                                                   | `FunctionFragment` |
+| `DEFAULT_PAYLOAD_SIZE_LIMIT()`                                                 | `FunctionFragment` |
+| `DOMAIN_SEPARATOR()`                                                           | `FunctionFragment` |
+| `MIN_DEPOSIT()`                                                                | `FunctionFragment` |
+| `NO_EXTRA_GAS()`                                                               | `FunctionFragment` |
+| `PT_SEND()`                                                                    | `FunctionFragment` |
+| `PT_SEND_AND_CALL()`                                                           | `FunctionFragment` |
+| `WETH9()`                                                                      | `FunctionFragment` |
+| `addAdmin(address)`                                                            | `FunctionFragment` |
+| `addOperator(address)`                                                         | `FunctionFragment` |
+| `admins(address)`                                                              | `FunctionFragment` |
+| `allowance(address,address)`                                                   | `FunctionFragment` |
+| `approve(address,uint256)`                                                     | `FunctionFragment` |
+| `asset()`                                                                      | `FunctionFragment` |
+| `balanceOf(address)`                                                           | `FunctionFragment` |
+| `calculateNeededEtherBuffer()`                                                 | `FunctionFragment` |
 | `callOnOFTReceived(uint16,bytes,uint64,bytes32,address,uint256,bytes,uint256)` | `FunctionFragment` |
-| `cancelUpdateMevEthShareVault()` | `FunctionFragment` |
-| `cancelUpdateStakingModule()` | `FunctionFragment` |
-| `chainIdToFeeBps(uint16)` | `FunctionFragment` |
-| `circulatingSupply()` | `FunctionFragment` |
-| `claim(uint256)` | `FunctionFragment` |
-| `commitUpdateMevEthShareVault(address)` | `FunctionFragment` |
-| `commitUpdateStakingModule(address)` | `FunctionFragment` |
-| `convertToAssets(uint256)` | `FunctionFragment` |
-| `convertToShares(uint256)` | `FunctionFragment` |
-| `creamToken()` | `FunctionFragment` |
-| `createValidator((address,bytes,bytes32,bytes,bytes32),bytes32)` | `FunctionFragment` |
-| `creditedPackets(uint16,bytes,uint64)` | `FunctionFragment` |
-| `decimals()` | `FunctionFragment` |
-| `defaultFeeBp()` | `FunctionFragment` |
-| `deleteAdmin(address)` | `FunctionFragment` |
-| `deleteOperator(address)` | `FunctionFragment` |
-| `deposit(uint256,address)` | `FunctionFragment` |
-| `estimateSendFee(uint16,bytes32,uint256,bool,bytes)` | `FunctionFragment` |
-| `failedMessages(uint16,bytes,uint64)` | `FunctionFragment` |
-| `feeOwner()` | `FunctionFragment` |
-| `finalizeUpdateMevEthShareVault(bool)` | `FunctionFragment` |
-| `finalizeUpdateStakingModule()` | `FunctionFragment` |
-| `forceResumeReceive(uint16,bytes)` | `FunctionFragment` |
-| `fraction()` | `FunctionFragment` |
-| `getConfig(uint16,uint16,address,uint256)` | `FunctionFragment` |
-| `getTrustedRemoteAddress(uint16)` | `FunctionFragment` |
-| `grantRewards()` | `FunctionFragment` |
-| `grantValidatorWithdraw()` | `FunctionFragment` |
-| `init(address,address)` | `FunctionFragment` |
-| `initialized()` | `FunctionFragment` |
-| `isTrustedRemote(uint16,bytes)` | `FunctionFragment` |
-| `lzEndpoint()` | `FunctionFragment` |
-| `lzReceive(uint16,bytes,uint64,bytes)` | `FunctionFragment` |
-| `maxDeposit(address)` | `FunctionFragment` |
-| `maxMint(address)` | `FunctionFragment` |
-| `maxRedeem(address)` | `FunctionFragment` |
-| `maxWithdraw(address)` | `FunctionFragment` |
-| `mevEthShareVault()` | `FunctionFragment` |
-| `minDstGasLookup(uint16,uint16)` | `FunctionFragment` |
-| `mint(uint256,address)` | `FunctionFragment` |
-| `name()` | `FunctionFragment` |
-| `nonblockingLzReceive(uint16,bytes,uint64,bytes)` | `FunctionFragment` |
-| `nonces(address)` | `FunctionFragment` |
-| `operators(address)` | `FunctionFragment` |
-| `pauseStaking()` | `FunctionFragment` |
-| `payloadSizeLimitLookup(uint16)` | `FunctionFragment` |
-| `pendingMevEthShareVault()` | `FunctionFragment` |
-| `pendingMevEthShareVaultCommittedTimestamp()` | `FunctionFragment` |
-| `pendingStakingModule()` | `FunctionFragment` |
-| `pendingStakingModuleCommittedTimestamp()` | `FunctionFragment` |
-| `permit(address,address,uint256,uint256,uint8,bytes32,bytes32)` | `FunctionFragment` |
-| `precrime()` | `FunctionFragment` |
-| `previewDeposit(uint256)` | `FunctionFragment` |
-| `previewMint(uint256)` | `FunctionFragment` |
-| `previewRedeem(uint256)` | `FunctionFragment` |
-| `previewWithdraw(uint256)` | `FunctionFragment` |
-| `processWithdrawalQueue(uint256)` | `FunctionFragment` |
-| `queueLength()` | `FunctionFragment` |
-| `quoteOFTFee(uint16,uint256)` | `FunctionFragment` |
-| `redeem(uint256,address,address)` | `FunctionFragment` |
-| `redeemCream(uint256)` | `FunctionFragment` |
-| `requestsFinalisedUntil()` | `FunctionFragment` |
-| `retryMessage(uint16,bytes,uint64,bytes)` | `FunctionFragment` |
-| `sendFrom(address,uint16,bytes32,uint256,uint256,(address,address,bytes))` | `FunctionFragment` |
-| `setConfig(uint16,uint16,uint256,bytes)` | `FunctionFragment` |
-| `setDefaultFeeBp(uint16)` | `FunctionFragment` |
-| `setFeeBp(uint16,bool,uint16)` | `FunctionFragment` |
-| `setFeeOwner(address)` | `FunctionFragment` |
-| `setMinDstGas(uint16,uint16,uint256)` | `FunctionFragment` |
-| `setPayloadSizeLimit(uint16,uint256)` | `FunctionFragment` |
-| `setPrecrime(address)` | `FunctionFragment` |
-| `setReceiveVersion(uint16)` | `FunctionFragment` |
-| `setSendVersion(uint16)` | `FunctionFragment` |
-| `setTrustedRemote(uint16,bytes)` | `FunctionFragment` |
-| `setTrustedRemoteAddress(uint16,bytes)` | `FunctionFragment` |
-| `setUseCustomAdapterParams(bool)` | `FunctionFragment` |
-| `sharedDecimals()` | `FunctionFragment` |
-| `stakingModule()` | `FunctionFragment` |
-| `stakingPaused()` | `FunctionFragment` |
-| `supportsInterface(bytes4)` | `FunctionFragment` |
-| `symbol()` | `FunctionFragment` |
-| `token()` | `FunctionFragment` |
-| `totalAssets()` | `FunctionFragment` |
-| `totalSupply()` | `FunctionFragment` |
-| `transfer(address,uint256)` | `FunctionFragment` |
-| `transferFrom(address,address,uint256)` | `FunctionFragment` |
-| `trustedRemoteLookup(uint16)` | `FunctionFragment` |
-| `unpauseStaking()` | `FunctionFragment` |
-| `useCustomAdapterParams()` | `FunctionFragment` |
-| `withdraw(uint256,address,address)` | `FunctionFragment` |
-| `withdrawQueue(uint256,address,address)` | `FunctionFragment` |
-| `withdrawalAmountQueued()` | `FunctionFragment` |
-| `withdrawalQueue(uint256)` | `FunctionFragment` |
+| `cancelUpdateMevEthShareVault()`                                               | `FunctionFragment` |
+| `cancelUpdateStakingModule()`                                                  | `FunctionFragment` |
+| `chainIdToFeeBps(uint16)`                                                      | `FunctionFragment` |
+| `circulatingSupply()`                                                          | `FunctionFragment` |
+| `claim(uint256)`                                                               | `FunctionFragment` |
+| `commitUpdateMevEthShareVault(address)`                                        | `FunctionFragment` |
+| `commitUpdateStakingModule(address)`                                           | `FunctionFragment` |
+| `convertToAssets(uint256)`                                                     | `FunctionFragment` |
+| `convertToShares(uint256)`                                                     | `FunctionFragment` |
+| `creamToken()`                                                                 | `FunctionFragment` |
+| `createValidator((address,bytes,bytes32,bytes,bytes32),bytes32)`               | `FunctionFragment` |
+| `creditedPackets(uint16,bytes,uint64)`                                         | `FunctionFragment` |
+| `decimals()`                                                                   | `FunctionFragment` |
+| `defaultFeeBp()`                                                               | `FunctionFragment` |
+| `deleteAdmin(address)`                                                         | `FunctionFragment` |
+| `deleteOperator(address)`                                                      | `FunctionFragment` |
+| `deposit(uint256,address)`                                                     | `FunctionFragment` |
+| `estimateSendFee(uint16,bytes32,uint256,bool,bytes)`                           | `FunctionFragment` |
+| `failedMessages(uint16,bytes,uint64)`                                          | `FunctionFragment` |
+| `feeOwner()`                                                                   | `FunctionFragment` |
+| `finalizeUpdateMevEthShareVault(bool)`                                         | `FunctionFragment` |
+| `finalizeUpdateStakingModule()`                                                | `FunctionFragment` |
+| `forceResumeReceive(uint16,bytes)`                                             | `FunctionFragment` |
+| `fraction()`                                                                   | `FunctionFragment` |
+| `getConfig(uint16,uint16,address,uint256)`                                     | `FunctionFragment` |
+| `getTrustedRemoteAddress(uint16)`                                              | `FunctionFragment` |
+| `grantRewards()`                                                               | `FunctionFragment` |
+| `grantValidatorWithdraw()`                                                     | `FunctionFragment` |
+| `init(address,address)`                                                        | `FunctionFragment` |
+| `initialized()`                                                                | `FunctionFragment` |
+| `isTrustedRemote(uint16,bytes)`                                                | `FunctionFragment` |
+| `lzEndpoint()`                                                                 | `FunctionFragment` |
+| `lzReceive(uint16,bytes,uint64,bytes)`                                         | `FunctionFragment` |
+| `maxDeposit(address)`                                                          | `FunctionFragment` |
+| `maxMint(address)`                                                             | `FunctionFragment` |
+| `maxRedeem(address)`                                                           | `FunctionFragment` |
+| `maxWithdraw(address)`                                                         | `FunctionFragment` |
+| `mevEthShareVault()`                                                           | `FunctionFragment` |
+| `minDstGasLookup(uint16,uint16)`                                               | `FunctionFragment` |
+| `mint(uint256,address)`                                                        | `FunctionFragment` |
+| `name()`                                                                       | `FunctionFragment` |
+| `nonblockingLzReceive(uint16,bytes,uint64,bytes)`                              | `FunctionFragment` |
+| `nonces(address)`                                                              | `FunctionFragment` |
+| `operators(address)`                                                           | `FunctionFragment` |
+| `pauseStaking()`                                                               | `FunctionFragment` |
+| `payloadSizeLimitLookup(uint16)`                                               | `FunctionFragment` |
+| `pendingMevEthShareVault()`                                                    | `FunctionFragment` |
+| `pendingMevEthShareVaultCommittedTimestamp()`                                  | `FunctionFragment` |
+| `pendingStakingModule()`                                                       | `FunctionFragment` |
+| `pendingStakingModuleCommittedTimestamp()`                                     | `FunctionFragment` |
+| `permit(address,address,uint256,uint256,uint8,bytes32,bytes32)`                | `FunctionFragment` |
+| `precrime()`                                                                   | `FunctionFragment` |
+| `previewDeposit(uint256)`                                                      | `FunctionFragment` |
+| `previewMint(uint256)`                                                         | `FunctionFragment` |
+| `previewRedeem(uint256)`                                                       | `FunctionFragment` |
+| `previewWithdraw(uint256)`                                                     | `FunctionFragment` |
+| `processWithdrawalQueue(uint256)`                                              | `FunctionFragment` |
+| `queueLength()`                                                                | `FunctionFragment` |
+| `quoteOFTFee(uint16,uint256)`                                                  | `FunctionFragment` |
+| `redeem(uint256,address,address)`                                              | `FunctionFragment` |
+| `redeemCream(uint256)`                                                         | `FunctionFragment` |
+| `requestsFinalisedUntil()`                                                     | `FunctionFragment` |
+| `retryMessage(uint16,bytes,uint64,bytes)`                                      | `FunctionFragment` |
+| `sendFrom(address,uint16,bytes32,uint256,uint256,(address,address,bytes))`     | `FunctionFragment` |
+| `setConfig(uint16,uint16,uint256,bytes)`                                       | `FunctionFragment` |
+| `setDefaultFeeBp(uint16)`                                                      | `FunctionFragment` |
+| `setFeeBp(uint16,bool,uint16)`                                                 | `FunctionFragment` |
+| `setFeeOwner(address)`                                                         | `FunctionFragment` |
+| `setMinDstGas(uint16,uint16,uint256)`                                          | `FunctionFragment` |
+| `setPayloadSizeLimit(uint16,uint256)`                                          | `FunctionFragment` |
+| `setPrecrime(address)`                                                         | `FunctionFragment` |
+| `setReceiveVersion(uint16)`                                                    | `FunctionFragment` |
+| `setSendVersion(uint16)`                                                       | `FunctionFragment` |
+| `setTrustedRemote(uint16,bytes)`                                               | `FunctionFragment` |
+| `setTrustedRemoteAddress(uint16,bytes)`                                        | `FunctionFragment` |
+| `setUseCustomAdapterParams(bool)`                                              | `FunctionFragment` |
+| `sharedDecimals()`                                                             | `FunctionFragment` |
+| `stakingModule()`                                                              | `FunctionFragment` |
+| `stakingPaused()`                                                              | `FunctionFragment` |
+| `supportsInterface(bytes4)`                                                    | `FunctionFragment` |
+| `symbol()`                                                                     | `FunctionFragment` |
+| `token()`                                                                      | `FunctionFragment` |
+| `totalAssets()`                                                                | `FunctionFragment` |
+| `totalSupply()`                                                                | `FunctionFragment` |
+| `transfer(address,uint256)`                                                    | `FunctionFragment` |
+| `transferFrom(address,address,uint256)`                                        | `FunctionFragment` |
+| `trustedRemoteLookup(uint16)`                                                  | `FunctionFragment` |
+| `unpauseStaking()`                                                             | `FunctionFragment` |
+| `useCustomAdapterParams()`                                                     | `FunctionFragment` |
+| `withdraw(uint256,address,address)`                                            | `FunctionFragment` |
+| `withdrawQueue(uint256,address,address)`                                       | `FunctionFragment` |
+| `withdrawalAmountQueued()`                                                     | `FunctionFragment` |
+| `withdrawalQueue(uint256)`                                                     | `FunctionFragment` |
 
 #### Defined in
 
@@ -293,10 +282,10 @@ types/ethers-contracts/MevEth.ts:70
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"BP_DENOMINATOR"`` |
-| `data` | `BytesLike` |
+| Name               | Type               |
+| :----------------- | :----------------- |
+| `functionFragment` | `"BP_DENOMINATOR"` |
+| `data`             | `BytesLike`        |
 
 #### Returns
 
@@ -310,10 +299,10 @@ types/ethers-contracts/MevEth.ts:696
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"CREAM_TO_MEV_ETH_PERCENT"`` |
-| `data` | `BytesLike` |
+| Name               | Type                         |
+| :----------------- | :--------------------------- |
+| `functionFragment` | `"CREAM_TO_MEV_ETH_PERCENT"` |
+| `data`             | `BytesLike`                  |
 
 #### Returns
 
@@ -327,10 +316,10 @@ types/ethers-contracts/MevEth.ts:700
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"DEFAULT_PAYLOAD_SIZE_LIMIT"`` |
-| `data` | `BytesLike` |
+| Name               | Type                           |
+| :----------------- | :----------------------------- |
+| `functionFragment` | `"DEFAULT_PAYLOAD_SIZE_LIMIT"` |
+| `data`             | `BytesLike`                    |
 
 #### Returns
 
@@ -344,10 +333,10 @@ types/ethers-contracts/MevEth.ts:704
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"DOMAIN_SEPARATOR"`` |
-| `data` | `BytesLike` |
+| Name               | Type                 |
+| :----------------- | :------------------- |
+| `functionFragment` | `"DOMAIN_SEPARATOR"` |
+| `data`             | `BytesLike`          |
 
 #### Returns
 
@@ -361,10 +350,10 @@ types/ethers-contracts/MevEth.ts:708
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"MIN_DEPOSIT"`` |
-| `data` | `BytesLike` |
+| Name               | Type            |
+| :----------------- | :-------------- |
+| `functionFragment` | `"MIN_DEPOSIT"` |
+| `data`             | `BytesLike`     |
 
 #### Returns
 
@@ -378,10 +367,10 @@ types/ethers-contracts/MevEth.ts:712
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"NO_EXTRA_GAS"`` |
-| `data` | `BytesLike` |
+| Name               | Type             |
+| :----------------- | :--------------- |
+| `functionFragment` | `"NO_EXTRA_GAS"` |
+| `data`             | `BytesLike`      |
 
 #### Returns
 
@@ -395,10 +384,10 @@ types/ethers-contracts/MevEth.ts:716
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"PT_SEND"`` |
-| `data` | `BytesLike` |
+| Name               | Type        |
+| :----------------- | :---------- |
+| `functionFragment` | `"PT_SEND"` |
+| `data`             | `BytesLike` |
 
 #### Returns
 
@@ -412,10 +401,10 @@ types/ethers-contracts/MevEth.ts:720
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"PT_SEND_AND_CALL"`` |
-| `data` | `BytesLike` |
+| Name               | Type                 |
+| :----------------- | :------------------- |
+| `functionFragment` | `"PT_SEND_AND_CALL"` |
+| `data`             | `BytesLike`          |
 
 #### Returns
 
@@ -429,10 +418,10 @@ types/ethers-contracts/MevEth.ts:721
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"WETH9"`` |
-| `data` | `BytesLike` |
+| Name               | Type        |
+| :----------------- | :---------- |
+| `functionFragment` | `"WETH9"`   |
+| `data`             | `BytesLike` |
 
 #### Returns
 
@@ -446,10 +435,10 @@ types/ethers-contracts/MevEth.ts:725
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"addAdmin"`` |
-| `data` | `BytesLike` |
+| Name               | Type         |
+| :----------------- | :----------- |
+| `functionFragment` | `"addAdmin"` |
+| `data`             | `BytesLike`  |
 
 #### Returns
 
@@ -463,10 +452,10 @@ types/ethers-contracts/MevEth.ts:726
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"addOperator"`` |
-| `data` | `BytesLike` |
+| Name               | Type            |
+| :----------------- | :-------------- |
+| `functionFragment` | `"addOperator"` |
+| `data`             | `BytesLike`     |
 
 #### Returns
 
@@ -480,10 +469,10 @@ types/ethers-contracts/MevEth.ts:727
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"admins"`` |
-| `data` | `BytesLike` |
+| Name               | Type        |
+| :----------------- | :---------- |
+| `functionFragment` | `"admins"`  |
+| `data`             | `BytesLike` |
 
 #### Returns
 
@@ -497,10 +486,10 @@ types/ethers-contracts/MevEth.ts:731
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"allowance"`` |
-| `data` | `BytesLike` |
+| Name               | Type          |
+| :----------------- | :------------ |
+| `functionFragment` | `"allowance"` |
+| `data`             | `BytesLike`   |
 
 #### Returns
 
@@ -514,10 +503,10 @@ types/ethers-contracts/MevEth.ts:732
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"approve"`` |
-| `data` | `BytesLike` |
+| Name               | Type        |
+| :----------------- | :---------- |
+| `functionFragment` | `"approve"` |
+| `data`             | `BytesLike` |
 
 #### Returns
 
@@ -531,10 +520,10 @@ types/ethers-contracts/MevEth.ts:733
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"asset"`` |
-| `data` | `BytesLike` |
+| Name               | Type        |
+| :----------------- | :---------- |
+| `functionFragment` | `"asset"`   |
+| `data`             | `BytesLike` |
 
 #### Returns
 
@@ -548,10 +537,10 @@ types/ethers-contracts/MevEth.ts:734
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"balanceOf"`` |
-| `data` | `BytesLike` |
+| Name               | Type          |
+| :----------------- | :------------ |
+| `functionFragment` | `"balanceOf"` |
+| `data`             | `BytesLike`   |
 
 #### Returns
 
@@ -565,10 +554,10 @@ types/ethers-contracts/MevEth.ts:735
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"calculateNeededEtherBuffer"`` |
-| `data` | `BytesLike` |
+| Name               | Type                           |
+| :----------------- | :----------------------------- |
+| `functionFragment` | `"calculateNeededEtherBuffer"` |
+| `data`             | `BytesLike`                    |
 
 #### Returns
 
@@ -582,10 +571,10 @@ types/ethers-contracts/MevEth.ts:736
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"callOnOFTReceived"`` |
-| `data` | `BytesLike` |
+| Name               | Type                  |
+| :----------------- | :-------------------- |
+| `functionFragment` | `"callOnOFTReceived"` |
+| `data`             | `BytesLike`           |
 
 #### Returns
 
@@ -599,10 +588,10 @@ types/ethers-contracts/MevEth.ts:740
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"cancelUpdateMevEthShareVault"`` |
-| `data` | `BytesLike` |
+| Name               | Type                             |
+| :----------------- | :------------------------------- |
+| `functionFragment` | `"cancelUpdateMevEthShareVault"` |
+| `data`             | `BytesLike`                      |
 
 #### Returns
 
@@ -616,10 +605,10 @@ types/ethers-contracts/MevEth.ts:744
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"cancelUpdateStakingModule"`` |
-| `data` | `BytesLike` |
+| Name               | Type                          |
+| :----------------- | :---------------------------- |
+| `functionFragment` | `"cancelUpdateStakingModule"` |
+| `data`             | `BytesLike`                   |
 
 #### Returns
 
@@ -633,10 +622,10 @@ types/ethers-contracts/MevEth.ts:748
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"chainIdToFeeBps"`` |
-| `data` | `BytesLike` |
+| Name               | Type                |
+| :----------------- | :------------------ |
+| `functionFragment` | `"chainIdToFeeBps"` |
+| `data`             | `BytesLike`         |
 
 #### Returns
 
@@ -650,10 +639,10 @@ types/ethers-contracts/MevEth.ts:752
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"circulatingSupply"`` |
-| `data` | `BytesLike` |
+| Name               | Type                  |
+| :----------------- | :-------------------- |
+| `functionFragment` | `"circulatingSupply"` |
+| `data`             | `BytesLike`           |
 
 #### Returns
 
@@ -667,10 +656,10 @@ types/ethers-contracts/MevEth.ts:756
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"claim"`` |
-| `data` | `BytesLike` |
+| Name               | Type        |
+| :----------------- | :---------- |
+| `functionFragment` | `"claim"`   |
+| `data`             | `BytesLike` |
 
 #### Returns
 
@@ -684,10 +673,10 @@ types/ethers-contracts/MevEth.ts:760
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"commitUpdateMevEthShareVault"`` |
-| `data` | `BytesLike` |
+| Name               | Type                             |
+| :----------------- | :------------------------------- |
+| `functionFragment` | `"commitUpdateMevEthShareVault"` |
+| `data`             | `BytesLike`                      |
 
 #### Returns
 
@@ -701,10 +690,10 @@ types/ethers-contracts/MevEth.ts:761
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"commitUpdateStakingModule"`` |
-| `data` | `BytesLike` |
+| Name               | Type                          |
+| :----------------- | :---------------------------- |
+| `functionFragment` | `"commitUpdateStakingModule"` |
+| `data`             | `BytesLike`                   |
 
 #### Returns
 
@@ -718,10 +707,10 @@ types/ethers-contracts/MevEth.ts:765
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"convertToAssets"`` |
-| `data` | `BytesLike` |
+| Name               | Type                |
+| :----------------- | :------------------ |
+| `functionFragment` | `"convertToAssets"` |
+| `data`             | `BytesLike`         |
 
 #### Returns
 
@@ -735,10 +724,10 @@ types/ethers-contracts/MevEth.ts:769
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"convertToShares"`` |
-| `data` | `BytesLike` |
+| Name               | Type                |
+| :----------------- | :------------------ |
+| `functionFragment` | `"convertToShares"` |
+| `data`             | `BytesLike`         |
 
 #### Returns
 
@@ -752,10 +741,10 @@ types/ethers-contracts/MevEth.ts:773
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"creamToken"`` |
-| `data` | `BytesLike` |
+| Name               | Type           |
+| :----------------- | :------------- |
+| `functionFragment` | `"creamToken"` |
+| `data`             | `BytesLike`    |
 
 #### Returns
 
@@ -769,10 +758,10 @@ types/ethers-contracts/MevEth.ts:777
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"createValidator"`` |
-| `data` | `BytesLike` |
+| Name               | Type                |
+| :----------------- | :------------------ |
+| `functionFragment` | `"createValidator"` |
+| `data`             | `BytesLike`         |
 
 #### Returns
 
@@ -786,10 +775,10 @@ types/ethers-contracts/MevEth.ts:778
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"creditedPackets"`` |
-| `data` | `BytesLike` |
+| Name               | Type                |
+| :----------------- | :------------------ |
+| `functionFragment` | `"creditedPackets"` |
+| `data`             | `BytesLike`         |
 
 #### Returns
 
@@ -803,10 +792,10 @@ types/ethers-contracts/MevEth.ts:782
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"decimals"`` |
-| `data` | `BytesLike` |
+| Name               | Type         |
+| :----------------- | :----------- |
+| `functionFragment` | `"decimals"` |
+| `data`             | `BytesLike`  |
 
 #### Returns
 
@@ -820,10 +809,10 @@ types/ethers-contracts/MevEth.ts:786
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"defaultFeeBp"`` |
-| `data` | `BytesLike` |
+| Name               | Type             |
+| :----------------- | :--------------- |
+| `functionFragment` | `"defaultFeeBp"` |
+| `data`             | `BytesLike`      |
 
 #### Returns
 
@@ -837,10 +826,10 @@ types/ethers-contracts/MevEth.ts:787
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"deleteAdmin"`` |
-| `data` | `BytesLike` |
+| Name               | Type            |
+| :----------------- | :-------------- |
+| `functionFragment` | `"deleteAdmin"` |
+| `data`             | `BytesLike`     |
 
 #### Returns
 
@@ -854,10 +843,10 @@ types/ethers-contracts/MevEth.ts:791
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"deleteOperator"`` |
-| `data` | `BytesLike` |
+| Name               | Type               |
+| :----------------- | :----------------- |
+| `functionFragment` | `"deleteOperator"` |
+| `data`             | `BytesLike`        |
 
 #### Returns
 
@@ -871,10 +860,10 @@ types/ethers-contracts/MevEth.ts:795
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"deposit"`` |
-| `data` | `BytesLike` |
+| Name               | Type        |
+| :----------------- | :---------- |
+| `functionFragment` | `"deposit"` |
+| `data`             | `BytesLike` |
 
 #### Returns
 
@@ -888,10 +877,10 @@ types/ethers-contracts/MevEth.ts:799
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"estimateSendFee"`` |
-| `data` | `BytesLike` |
+| Name               | Type                |
+| :----------------- | :------------------ |
+| `functionFragment` | `"estimateSendFee"` |
+| `data`             | `BytesLike`         |
 
 #### Returns
 
@@ -905,10 +894,10 @@ types/ethers-contracts/MevEth.ts:800
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"failedMessages"`` |
-| `data` | `BytesLike` |
+| Name               | Type               |
+| :----------------- | :----------------- |
+| `functionFragment` | `"failedMessages"` |
+| `data`             | `BytesLike`        |
 
 #### Returns
 
@@ -922,10 +911,10 @@ types/ethers-contracts/MevEth.ts:804
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"feeOwner"`` |
-| `data` | `BytesLike` |
+| Name               | Type         |
+| :----------------- | :----------- |
+| `functionFragment` | `"feeOwner"` |
+| `data`             | `BytesLike`  |
 
 #### Returns
 
@@ -939,10 +928,10 @@ types/ethers-contracts/MevEth.ts:808
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"finalizeUpdateMevEthShareVault"`` |
-| `data` | `BytesLike` |
+| Name               | Type                               |
+| :----------------- | :--------------------------------- |
+| `functionFragment` | `"finalizeUpdateMevEthShareVault"` |
+| `data`             | `BytesLike`                        |
 
 #### Returns
 
@@ -956,10 +945,10 @@ types/ethers-contracts/MevEth.ts:809
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"finalizeUpdateStakingModule"`` |
-| `data` | `BytesLike` |
+| Name               | Type                            |
+| :----------------- | :------------------------------ |
+| `functionFragment` | `"finalizeUpdateStakingModule"` |
+| `data`             | `BytesLike`                     |
 
 #### Returns
 
@@ -973,10 +962,10 @@ types/ethers-contracts/MevEth.ts:813
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"forceResumeReceive"`` |
-| `data` | `BytesLike` |
+| Name               | Type                   |
+| :----------------- | :--------------------- |
+| `functionFragment` | `"forceResumeReceive"` |
+| `data`             | `BytesLike`            |
 
 #### Returns
 
@@ -990,10 +979,10 @@ types/ethers-contracts/MevEth.ts:817
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"fraction"`` |
-| `data` | `BytesLike` |
+| Name               | Type         |
+| :----------------- | :----------- |
+| `functionFragment` | `"fraction"` |
+| `data`             | `BytesLike`  |
 
 #### Returns
 
@@ -1007,10 +996,10 @@ types/ethers-contracts/MevEth.ts:821
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"getConfig"`` |
-| `data` | `BytesLike` |
+| Name               | Type          |
+| :----------------- | :------------ |
+| `functionFragment` | `"getConfig"` |
+| `data`             | `BytesLike`   |
 
 #### Returns
 
@@ -1024,10 +1013,10 @@ types/ethers-contracts/MevEth.ts:822
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"getTrustedRemoteAddress"`` |
-| `data` | `BytesLike` |
+| Name               | Type                        |
+| :----------------- | :-------------------------- |
+| `functionFragment` | `"getTrustedRemoteAddress"` |
+| `data`             | `BytesLike`                 |
 
 #### Returns
 
@@ -1041,10 +1030,10 @@ types/ethers-contracts/MevEth.ts:823
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"grantRewards"`` |
-| `data` | `BytesLike` |
+| Name               | Type             |
+| :----------------- | :--------------- |
+| `functionFragment` | `"grantRewards"` |
+| `data`             | `BytesLike`      |
 
 #### Returns
 
@@ -1058,10 +1047,10 @@ types/ethers-contracts/MevEth.ts:827
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"grantValidatorWithdraw"`` |
-| `data` | `BytesLike` |
+| Name               | Type                       |
+| :----------------- | :------------------------- |
+| `functionFragment` | `"grantValidatorWithdraw"` |
+| `data`             | `BytesLike`                |
 
 #### Returns
 
@@ -1075,10 +1064,10 @@ types/ethers-contracts/MevEth.ts:831
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"init"`` |
-| `data` | `BytesLike` |
+| Name               | Type        |
+| :----------------- | :---------- |
+| `functionFragment` | `"init"`    |
+| `data`             | `BytesLike` |
 
 #### Returns
 
@@ -1092,10 +1081,10 @@ types/ethers-contracts/MevEth.ts:835
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"initialized"`` |
-| `data` | `BytesLike` |
+| Name               | Type            |
+| :----------------- | :-------------- |
+| `functionFragment` | `"initialized"` |
+| `data`             | `BytesLike`     |
 
 #### Returns
 
@@ -1109,10 +1098,10 @@ types/ethers-contracts/MevEth.ts:836
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"isTrustedRemote"`` |
-| `data` | `BytesLike` |
+| Name               | Type                |
+| :----------------- | :------------------ |
+| `functionFragment` | `"isTrustedRemote"` |
+| `data`             | `BytesLike`         |
 
 #### Returns
 
@@ -1126,10 +1115,10 @@ types/ethers-contracts/MevEth.ts:840
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"lzEndpoint"`` |
-| `data` | `BytesLike` |
+| Name               | Type           |
+| :----------------- | :------------- |
+| `functionFragment` | `"lzEndpoint"` |
+| `data`             | `BytesLike`    |
 
 #### Returns
 
@@ -1143,10 +1132,10 @@ types/ethers-contracts/MevEth.ts:844
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"lzReceive"`` |
-| `data` | `BytesLike` |
+| Name               | Type          |
+| :----------------- | :------------ |
+| `functionFragment` | `"lzReceive"` |
+| `data`             | `BytesLike`   |
 
 #### Returns
 
@@ -1160,10 +1149,10 @@ types/ethers-contracts/MevEth.ts:845
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"maxDeposit"`` |
-| `data` | `BytesLike` |
+| Name               | Type           |
+| :----------------- | :------------- |
+| `functionFragment` | `"maxDeposit"` |
+| `data`             | `BytesLike`    |
 
 #### Returns
 
@@ -1177,10 +1166,10 @@ types/ethers-contracts/MevEth.ts:846
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"maxMint"`` |
-| `data` | `BytesLike` |
+| Name               | Type        |
+| :----------------- | :---------- |
+| `functionFragment` | `"maxMint"` |
+| `data`             | `BytesLike` |
 
 #### Returns
 
@@ -1194,10 +1183,10 @@ types/ethers-contracts/MevEth.ts:847
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"maxRedeem"`` |
-| `data` | `BytesLike` |
+| Name               | Type          |
+| :----------------- | :------------ |
+| `functionFragment` | `"maxRedeem"` |
+| `data`             | `BytesLike`   |
 
 #### Returns
 
@@ -1211,10 +1200,10 @@ types/ethers-contracts/MevEth.ts:848
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"maxWithdraw"`` |
-| `data` | `BytesLike` |
+| Name               | Type            |
+| :----------------- | :-------------- |
+| `functionFragment` | `"maxWithdraw"` |
+| `data`             | `BytesLike`     |
 
 #### Returns
 
@@ -1228,10 +1217,10 @@ types/ethers-contracts/MevEth.ts:849
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"mevEthShareVault"`` |
-| `data` | `BytesLike` |
+| Name               | Type                 |
+| :----------------- | :------------------- |
+| `functionFragment` | `"mevEthShareVault"` |
+| `data`             | `BytesLike`          |
 
 #### Returns
 
@@ -1245,10 +1234,10 @@ types/ethers-contracts/MevEth.ts:853
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"minDstGasLookup"`` |
-| `data` | `BytesLike` |
+| Name               | Type                |
+| :----------------- | :------------------ |
+| `functionFragment` | `"minDstGasLookup"` |
+| `data`             | `BytesLike`         |
 
 #### Returns
 
@@ -1262,10 +1251,10 @@ types/ethers-contracts/MevEth.ts:857
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"mint"`` |
-| `data` | `BytesLike` |
+| Name               | Type        |
+| :----------------- | :---------- |
+| `functionFragment` | `"mint"`    |
+| `data`             | `BytesLike` |
 
 #### Returns
 
@@ -1279,10 +1268,10 @@ types/ethers-contracts/MevEth.ts:861
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"name"`` |
-| `data` | `BytesLike` |
+| Name               | Type        |
+| :----------------- | :---------- |
+| `functionFragment` | `"name"`    |
+| `data`             | `BytesLike` |
 
 #### Returns
 
@@ -1296,10 +1285,10 @@ types/ethers-contracts/MevEth.ts:862
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"nonblockingLzReceive"`` |
-| `data` | `BytesLike` |
+| Name               | Type                     |
+| :----------------- | :----------------------- |
+| `functionFragment` | `"nonblockingLzReceive"` |
+| `data`             | `BytesLike`              |
 
 #### Returns
 
@@ -1313,10 +1302,10 @@ types/ethers-contracts/MevEth.ts:863
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"nonces"`` |
-| `data` | `BytesLike` |
+| Name               | Type        |
+| :----------------- | :---------- |
+| `functionFragment` | `"nonces"`  |
+| `data`             | `BytesLike` |
 
 #### Returns
 
@@ -1330,10 +1319,10 @@ types/ethers-contracts/MevEth.ts:867
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"operators"`` |
-| `data` | `BytesLike` |
+| Name               | Type          |
+| :----------------- | :------------ |
+| `functionFragment` | `"operators"` |
+| `data`             | `BytesLike`   |
 
 #### Returns
 
@@ -1347,10 +1336,10 @@ types/ethers-contracts/MevEth.ts:868
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"pauseStaking"`` |
-| `data` | `BytesLike` |
+| Name               | Type             |
+| :----------------- | :--------------- |
+| `functionFragment` | `"pauseStaking"` |
+| `data`             | `BytesLike`      |
 
 #### Returns
 
@@ -1364,10 +1353,10 @@ types/ethers-contracts/MevEth.ts:869
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"payloadSizeLimitLookup"`` |
-| `data` | `BytesLike` |
+| Name               | Type                       |
+| :----------------- | :------------------------- |
+| `functionFragment` | `"payloadSizeLimitLookup"` |
+| `data`             | `BytesLike`                |
 
 #### Returns
 
@@ -1381,10 +1370,10 @@ types/ethers-contracts/MevEth.ts:873
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"pendingMevEthShareVault"`` |
-| `data` | `BytesLike` |
+| Name               | Type                        |
+| :----------------- | :-------------------------- |
+| `functionFragment` | `"pendingMevEthShareVault"` |
+| `data`             | `BytesLike`                 |
 
 #### Returns
 
@@ -1398,10 +1387,10 @@ types/ethers-contracts/MevEth.ts:877
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"pendingMevEthShareVaultCommittedTimestamp"`` |
-| `data` | `BytesLike` |
+| Name               | Type                                          |
+| :----------------- | :-------------------------------------------- |
+| `functionFragment` | `"pendingMevEthShareVaultCommittedTimestamp"` |
+| `data`             | `BytesLike`                                   |
 
 #### Returns
 
@@ -1415,10 +1404,10 @@ types/ethers-contracts/MevEth.ts:881
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"pendingStakingModule"`` |
-| `data` | `BytesLike` |
+| Name               | Type                     |
+| :----------------- | :----------------------- |
+| `functionFragment` | `"pendingStakingModule"` |
+| `data`             | `BytesLike`              |
 
 #### Returns
 
@@ -1432,10 +1421,10 @@ types/ethers-contracts/MevEth.ts:885
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"pendingStakingModuleCommittedTimestamp"`` |
-| `data` | `BytesLike` |
+| Name               | Type                                       |
+| :----------------- | :----------------------------------------- |
+| `functionFragment` | `"pendingStakingModuleCommittedTimestamp"` |
+| `data`             | `BytesLike`                                |
 
 #### Returns
 
@@ -1449,10 +1438,10 @@ types/ethers-contracts/MevEth.ts:889
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"permit"`` |
-| `data` | `BytesLike` |
+| Name               | Type        |
+| :----------------- | :---------- |
+| `functionFragment` | `"permit"`  |
+| `data`             | `BytesLike` |
 
 #### Returns
 
@@ -1466,10 +1455,10 @@ types/ethers-contracts/MevEth.ts:893
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"precrime"`` |
-| `data` | `BytesLike` |
+| Name               | Type         |
+| :----------------- | :----------- |
+| `functionFragment` | `"precrime"` |
+| `data`             | `BytesLike`  |
 
 #### Returns
 
@@ -1483,10 +1472,10 @@ types/ethers-contracts/MevEth.ts:894
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"previewDeposit"`` |
-| `data` | `BytesLike` |
+| Name               | Type               |
+| :----------------- | :----------------- |
+| `functionFragment` | `"previewDeposit"` |
+| `data`             | `BytesLike`        |
 
 #### Returns
 
@@ -1500,10 +1489,10 @@ types/ethers-contracts/MevEth.ts:895
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"previewMint"`` |
-| `data` | `BytesLike` |
+| Name               | Type            |
+| :----------------- | :-------------- |
+| `functionFragment` | `"previewMint"` |
+| `data`             | `BytesLike`     |
 
 #### Returns
 
@@ -1517,10 +1506,10 @@ types/ethers-contracts/MevEth.ts:899
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"previewRedeem"`` |
-| `data` | `BytesLike` |
+| Name               | Type              |
+| :----------------- | :---------------- |
+| `functionFragment` | `"previewRedeem"` |
+| `data`             | `BytesLike`       |
 
 #### Returns
 
@@ -1534,10 +1523,10 @@ types/ethers-contracts/MevEth.ts:903
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"previewWithdraw"`` |
-| `data` | `BytesLike` |
+| Name               | Type                |
+| :----------------- | :------------------ |
+| `functionFragment` | `"previewWithdraw"` |
+| `data`             | `BytesLike`         |
 
 #### Returns
 
@@ -1551,10 +1540,10 @@ types/ethers-contracts/MevEth.ts:907
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"processWithdrawalQueue"`` |
-| `data` | `BytesLike` |
+| Name               | Type                       |
+| :----------------- | :------------------------- |
+| `functionFragment` | `"processWithdrawalQueue"` |
+| `data`             | `BytesLike`                |
 
 #### Returns
 
@@ -1568,10 +1557,10 @@ types/ethers-contracts/MevEth.ts:911
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"queueLength"`` |
-| `data` | `BytesLike` |
+| Name               | Type            |
+| :----------------- | :-------------- |
+| `functionFragment` | `"queueLength"` |
+| `data`             | `BytesLike`     |
 
 #### Returns
 
@@ -1585,10 +1574,10 @@ types/ethers-contracts/MevEth.ts:915
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"quoteOFTFee"`` |
-| `data` | `BytesLike` |
+| Name               | Type            |
+| :----------------- | :-------------- |
+| `functionFragment` | `"quoteOFTFee"` |
+| `data`             | `BytesLike`     |
 
 #### Returns
 
@@ -1602,10 +1591,10 @@ types/ethers-contracts/MevEth.ts:919
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"redeem"`` |
-| `data` | `BytesLike` |
+| Name               | Type        |
+| :----------------- | :---------- |
+| `functionFragment` | `"redeem"`  |
+| `data`             | `BytesLike` |
 
 #### Returns
 
@@ -1619,10 +1608,10 @@ types/ethers-contracts/MevEth.ts:923
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"redeemCream"`` |
-| `data` | `BytesLike` |
+| Name               | Type            |
+| :----------------- | :-------------- |
+| `functionFragment` | `"redeemCream"` |
+| `data`             | `BytesLike`     |
 
 #### Returns
 
@@ -1636,10 +1625,10 @@ types/ethers-contracts/MevEth.ts:924
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"requestsFinalisedUntil"`` |
-| `data` | `BytesLike` |
+| Name               | Type                       |
+| :----------------- | :------------------------- |
+| `functionFragment` | `"requestsFinalisedUntil"` |
+| `data`             | `BytesLike`                |
 
 #### Returns
 
@@ -1653,10 +1642,10 @@ types/ethers-contracts/MevEth.ts:928
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"retryMessage"`` |
-| `data` | `BytesLike` |
+| Name               | Type             |
+| :----------------- | :--------------- |
+| `functionFragment` | `"retryMessage"` |
+| `data`             | `BytesLike`      |
 
 #### Returns
 
@@ -1670,10 +1659,10 @@ types/ethers-contracts/MevEth.ts:932
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"sendFrom"`` |
-| `data` | `BytesLike` |
+| Name               | Type         |
+| :----------------- | :----------- |
+| `functionFragment` | `"sendFrom"` |
+| `data`             | `BytesLike`  |
 
 #### Returns
 
@@ -1687,10 +1676,10 @@ types/ethers-contracts/MevEth.ts:936
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"setConfig"`` |
-| `data` | `BytesLike` |
+| Name               | Type          |
+| :----------------- | :------------ |
+| `functionFragment` | `"setConfig"` |
+| `data`             | `BytesLike`   |
 
 #### Returns
 
@@ -1704,10 +1693,10 @@ types/ethers-contracts/MevEth.ts:937
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"setDefaultFeeBp"`` |
-| `data` | `BytesLike` |
+| Name               | Type                |
+| :----------------- | :------------------ |
+| `functionFragment` | `"setDefaultFeeBp"` |
+| `data`             | `BytesLike`         |
 
 #### Returns
 
@@ -1721,10 +1710,10 @@ types/ethers-contracts/MevEth.ts:938
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"setFeeBp"`` |
-| `data` | `BytesLike` |
+| Name               | Type         |
+| :----------------- | :----------- |
+| `functionFragment` | `"setFeeBp"` |
+| `data`             | `BytesLike`  |
 
 #### Returns
 
@@ -1738,10 +1727,10 @@ types/ethers-contracts/MevEth.ts:942
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"setFeeOwner"`` |
-| `data` | `BytesLike` |
+| Name               | Type            |
+| :----------------- | :-------------- |
+| `functionFragment` | `"setFeeOwner"` |
+| `data`             | `BytesLike`     |
 
 #### Returns
 
@@ -1755,10 +1744,10 @@ types/ethers-contracts/MevEth.ts:943
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"setMinDstGas"`` |
-| `data` | `BytesLike` |
+| Name               | Type             |
+| :----------------- | :--------------- |
+| `functionFragment` | `"setMinDstGas"` |
+| `data`             | `BytesLike`      |
 
 #### Returns
 
@@ -1772,10 +1761,10 @@ types/ethers-contracts/MevEth.ts:947
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"setPayloadSizeLimit"`` |
-| `data` | `BytesLike` |
+| Name               | Type                    |
+| :----------------- | :---------------------- |
+| `functionFragment` | `"setPayloadSizeLimit"` |
+| `data`             | `BytesLike`             |
 
 #### Returns
 
@@ -1789,10 +1778,10 @@ types/ethers-contracts/MevEth.ts:951
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"setPrecrime"`` |
-| `data` | `BytesLike` |
+| Name               | Type            |
+| :----------------- | :-------------- |
+| `functionFragment` | `"setPrecrime"` |
+| `data`             | `BytesLike`     |
 
 #### Returns
 
@@ -1806,10 +1795,10 @@ types/ethers-contracts/MevEth.ts:955
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"setReceiveVersion"`` |
-| `data` | `BytesLike` |
+| Name               | Type                  |
+| :----------------- | :-------------------- |
+| `functionFragment` | `"setReceiveVersion"` |
+| `data`             | `BytesLike`           |
 
 #### Returns
 
@@ -1823,10 +1812,10 @@ types/ethers-contracts/MevEth.ts:959
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"setSendVersion"`` |
-| `data` | `BytesLike` |
+| Name               | Type               |
+| :----------------- | :----------------- |
+| `functionFragment` | `"setSendVersion"` |
+| `data`             | `BytesLike`        |
 
 #### Returns
 
@@ -1840,10 +1829,10 @@ types/ethers-contracts/MevEth.ts:963
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"setTrustedRemote"`` |
-| `data` | `BytesLike` |
+| Name               | Type                 |
+| :----------------- | :------------------- |
+| `functionFragment` | `"setTrustedRemote"` |
+| `data`             | `BytesLike`          |
 
 #### Returns
 
@@ -1857,10 +1846,10 @@ types/ethers-contracts/MevEth.ts:967
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"setTrustedRemoteAddress"`` |
-| `data` | `BytesLike` |
+| Name               | Type                        |
+| :----------------- | :-------------------------- |
+| `functionFragment` | `"setTrustedRemoteAddress"` |
+| `data`             | `BytesLike`                 |
 
 #### Returns
 
@@ -1874,10 +1863,10 @@ types/ethers-contracts/MevEth.ts:971
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"setUseCustomAdapterParams"`` |
-| `data` | `BytesLike` |
+| Name               | Type                          |
+| :----------------- | :---------------------------- |
+| `functionFragment` | `"setUseCustomAdapterParams"` |
+| `data`             | `BytesLike`                   |
 
 #### Returns
 
@@ -1891,10 +1880,10 @@ types/ethers-contracts/MevEth.ts:975
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"sharedDecimals"`` |
-| `data` | `BytesLike` |
+| Name               | Type               |
+| :----------------- | :----------------- |
+| `functionFragment` | `"sharedDecimals"` |
+| `data`             | `BytesLike`        |
 
 #### Returns
 
@@ -1908,10 +1897,10 @@ types/ethers-contracts/MevEth.ts:979
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"stakingModule"`` |
-| `data` | `BytesLike` |
+| Name               | Type              |
+| :----------------- | :---------------- |
+| `functionFragment` | `"stakingModule"` |
+| `data`             | `BytesLike`       |
 
 #### Returns
 
@@ -1925,10 +1914,10 @@ types/ethers-contracts/MevEth.ts:983
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"stakingPaused"`` |
-| `data` | `BytesLike` |
+| Name               | Type              |
+| :----------------- | :---------------- |
+| `functionFragment` | `"stakingPaused"` |
+| `data`             | `BytesLike`       |
 
 #### Returns
 
@@ -1942,10 +1931,10 @@ types/ethers-contracts/MevEth.ts:987
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"supportsInterface"`` |
-| `data` | `BytesLike` |
+| Name               | Type                  |
+| :----------------- | :-------------------- |
+| `functionFragment` | `"supportsInterface"` |
+| `data`             | `BytesLike`           |
 
 #### Returns
 
@@ -1959,10 +1948,10 @@ types/ethers-contracts/MevEth.ts:991
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"symbol"`` |
-| `data` | `BytesLike` |
+| Name               | Type        |
+| :----------------- | :---------- |
+| `functionFragment` | `"symbol"`  |
+| `data`             | `BytesLike` |
 
 #### Returns
 
@@ -1976,10 +1965,10 @@ types/ethers-contracts/MevEth.ts:995
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"token"`` |
-| `data` | `BytesLike` |
+| Name               | Type        |
+| :----------------- | :---------- |
+| `functionFragment` | `"token"`   |
+| `data`             | `BytesLike` |
 
 #### Returns
 
@@ -1993,10 +1982,10 @@ types/ethers-contracts/MevEth.ts:996
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"totalAssets"`` |
-| `data` | `BytesLike` |
+| Name               | Type            |
+| :----------------- | :-------------- |
+| `functionFragment` | `"totalAssets"` |
+| `data`             | `BytesLike`     |
 
 #### Returns
 
@@ -2010,10 +1999,10 @@ types/ethers-contracts/MevEth.ts:997
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"totalSupply"`` |
-| `data` | `BytesLike` |
+| Name               | Type            |
+| :----------------- | :-------------- |
+| `functionFragment` | `"totalSupply"` |
+| `data`             | `BytesLike`     |
 
 #### Returns
 
@@ -2027,10 +2016,10 @@ types/ethers-contracts/MevEth.ts:1001
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"transfer"`` |
-| `data` | `BytesLike` |
+| Name               | Type         |
+| :----------------- | :----------- |
+| `functionFragment` | `"transfer"` |
+| `data`             | `BytesLike`  |
 
 #### Returns
 
@@ -2044,10 +2033,10 @@ types/ethers-contracts/MevEth.ts:1005
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"transferFrom"`` |
-| `data` | `BytesLike` |
+| Name               | Type             |
+| :----------------- | :--------------- |
+| `functionFragment` | `"transferFrom"` |
+| `data`             | `BytesLike`      |
 
 #### Returns
 
@@ -2061,10 +2050,10 @@ types/ethers-contracts/MevEth.ts:1006
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"trustedRemoteLookup"`` |
-| `data` | `BytesLike` |
+| Name               | Type                    |
+| :----------------- | :---------------------- |
+| `functionFragment` | `"trustedRemoteLookup"` |
+| `data`             | `BytesLike`             |
 
 #### Returns
 
@@ -2078,10 +2067,10 @@ types/ethers-contracts/MevEth.ts:1010
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"unpauseStaking"`` |
-| `data` | `BytesLike` |
+| Name               | Type               |
+| :----------------- | :----------------- |
+| `functionFragment` | `"unpauseStaking"` |
+| `data`             | `BytesLike`        |
 
 #### Returns
 
@@ -2095,10 +2084,10 @@ types/ethers-contracts/MevEth.ts:1014
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"useCustomAdapterParams"`` |
-| `data` | `BytesLike` |
+| Name               | Type                       |
+| :----------------- | :------------------------- |
+| `functionFragment` | `"useCustomAdapterParams"` |
+| `data`             | `BytesLike`                |
 
 #### Returns
 
@@ -2112,10 +2101,10 @@ types/ethers-contracts/MevEth.ts:1018
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"withdraw"`` |
-| `data` | `BytesLike` |
+| Name               | Type         |
+| :----------------- | :----------- |
+| `functionFragment` | `"withdraw"` |
+| `data`             | `BytesLike`  |
 
 #### Returns
 
@@ -2129,10 +2118,10 @@ types/ethers-contracts/MevEth.ts:1022
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"withdrawQueue"`` |
-| `data` | `BytesLike` |
+| Name               | Type              |
+| :----------------- | :---------------- |
+| `functionFragment` | `"withdrawQueue"` |
+| `data`             | `BytesLike`       |
 
 #### Returns
 
@@ -2146,10 +2135,10 @@ types/ethers-contracts/MevEth.ts:1023
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"withdrawalAmountQueued"`` |
-| `data` | `BytesLike` |
+| Name               | Type                       |
+| :----------------- | :------------------------- |
+| `functionFragment` | `"withdrawalAmountQueued"` |
+| `data`             | `BytesLike`                |
 
 #### Returns
 
@@ -2163,10 +2152,10 @@ types/ethers-contracts/MevEth.ts:1027
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"withdrawalQueue"`` |
-| `data` | `BytesLike` |
+| Name               | Type                |
+| :----------------- | :------------------ |
+| `functionFragment` | `"withdrawalQueue"` |
+| `data`             | `BytesLike`         |
 
 #### Returns
 
@@ -2176,7 +2165,7 @@ types/ethers-contracts/MevEth.ts:1027
 
 types/ethers-contracts/MevEth.ts:1031
 
-___
+---
 
 ### encodeFunctionData
 
@@ -2184,10 +2173,10 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"BP_DENOMINATOR"`` |
-| `values?` | `undefined` |
+| Name               | Type               |
+| :----------------- | :----------------- |
+| `functionFragment` | `"BP_DENOMINATOR"` |
+| `values?`          | `undefined`        |
 
 #### Returns
 
@@ -2201,10 +2190,10 @@ types/ethers-contracts/MevEth.ts:299
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"CREAM_TO_MEV_ETH_PERCENT"`` |
-| `values?` | `undefined` |
+| Name               | Type                         |
+| :----------------- | :--------------------------- |
+| `functionFragment` | `"CREAM_TO_MEV_ETH_PERCENT"` |
+| `values?`          | `undefined`                  |
 
 #### Returns
 
@@ -2218,10 +2207,10 @@ types/ethers-contracts/MevEth.ts:303
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"DEFAULT_PAYLOAD_SIZE_LIMIT"`` |
-| `values?` | `undefined` |
+| Name               | Type                           |
+| :----------------- | :----------------------------- |
+| `functionFragment` | `"DEFAULT_PAYLOAD_SIZE_LIMIT"` |
+| `values?`          | `undefined`                    |
 
 #### Returns
 
@@ -2235,10 +2224,10 @@ types/ethers-contracts/MevEth.ts:307
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"DOMAIN_SEPARATOR"`` |
-| `values?` | `undefined` |
+| Name               | Type                 |
+| :----------------- | :------------------- |
+| `functionFragment` | `"DOMAIN_SEPARATOR"` |
+| `values?`          | `undefined`          |
 
 #### Returns
 
@@ -2252,10 +2241,10 @@ types/ethers-contracts/MevEth.ts:311
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"MIN_DEPOSIT"`` |
-| `values?` | `undefined` |
+| Name               | Type            |
+| :----------------- | :-------------- |
+| `functionFragment` | `"MIN_DEPOSIT"` |
+| `values?`          | `undefined`     |
 
 #### Returns
 
@@ -2269,10 +2258,10 @@ types/ethers-contracts/MevEth.ts:315
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"NO_EXTRA_GAS"`` |
-| `values?` | `undefined` |
+| Name               | Type             |
+| :----------------- | :--------------- |
+| `functionFragment` | `"NO_EXTRA_GAS"` |
+| `values?`          | `undefined`      |
 
 #### Returns
 
@@ -2286,10 +2275,10 @@ types/ethers-contracts/MevEth.ts:319
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"PT_SEND"`` |
-| `values?` | `undefined` |
+| Name               | Type        |
+| :----------------- | :---------- |
+| `functionFragment` | `"PT_SEND"` |
+| `values?`          | `undefined` |
 
 #### Returns
 
@@ -2303,10 +2292,10 @@ types/ethers-contracts/MevEth.ts:323
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"PT_SEND_AND_CALL"`` |
-| `values?` | `undefined` |
+| Name               | Type                 |
+| :----------------- | :------------------- |
+| `functionFragment` | `"PT_SEND_AND_CALL"` |
+| `values?`          | `undefined`          |
 
 #### Returns
 
@@ -2320,10 +2309,10 @@ types/ethers-contracts/MevEth.ts:324
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"WETH9"`` |
-| `values?` | `undefined` |
+| Name               | Type        |
+| :----------------- | :---------- |
+| `functionFragment` | `"WETH9"`   |
+| `values?`          | `undefined` |
 
 #### Returns
 
@@ -2337,10 +2326,10 @@ types/ethers-contracts/MevEth.ts:328
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"addAdmin"`` |
-| `values` | [`string`] |
+| Name               | Type         |
+| :----------------- | :----------- |
+| `functionFragment` | `"addAdmin"` |
+| `values`           | [`string`]   |
 
 #### Returns
 
@@ -2354,10 +2343,10 @@ types/ethers-contracts/MevEth.ts:329
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"addOperator"`` |
-| `values` | [`string`] |
+| Name               | Type            |
+| :----------------- | :-------------- |
+| `functionFragment` | `"addOperator"` |
+| `values`           | [`string`]      |
 
 #### Returns
 
@@ -2371,10 +2360,10 @@ types/ethers-contracts/MevEth.ts:330
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"admins"`` |
-| `values` | [`string`] |
+| Name               | Type       |
+| :----------------- | :--------- |
+| `functionFragment` | `"admins"` |
+| `values`           | [`string`] |
 
 #### Returns
 
@@ -2388,10 +2377,10 @@ types/ethers-contracts/MevEth.ts:331
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"allowance"`` |
-| `values` | [`string`, `string`] |
+| Name               | Type                 |
+| :----------------- | :------------------- |
+| `functionFragment` | `"allowance"`        |
+| `values`           | [`string`, `string`] |
 
 #### Returns
 
@@ -2405,10 +2394,10 @@ types/ethers-contracts/MevEth.ts:332
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"approve"`` |
-| `values` | [`string`, `BigNumberish`] |
+| Name               | Type                       |
+| :----------------- | :------------------------- |
+| `functionFragment` | `"approve"`                |
+| `values`           | [`string`, `BigNumberish`] |
 
 #### Returns
 
@@ -2422,10 +2411,10 @@ types/ethers-contracts/MevEth.ts:336
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"asset"`` |
-| `values?` | `undefined` |
+| Name               | Type        |
+| :----------------- | :---------- |
+| `functionFragment` | `"asset"`   |
+| `values?`          | `undefined` |
 
 #### Returns
 
@@ -2439,10 +2428,10 @@ types/ethers-contracts/MevEth.ts:340
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"balanceOf"`` |
-| `values` | [`string`] |
+| Name               | Type          |
+| :----------------- | :------------ |
+| `functionFragment` | `"balanceOf"` |
+| `values`           | [`string`]    |
 
 #### Returns
 
@@ -2456,10 +2445,10 @@ types/ethers-contracts/MevEth.ts:341
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"calculateNeededEtherBuffer"`` |
-| `values?` | `undefined` |
+| Name               | Type                           |
+| :----------------- | :----------------------------- |
+| `functionFragment` | `"calculateNeededEtherBuffer"` |
+| `values?`          | `undefined`                    |
 
 #### Returns
 
@@ -2473,10 +2462,10 @@ types/ethers-contracts/MevEth.ts:342
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"callOnOFTReceived"`` |
-| `values` | [`BigNumberish`, `BytesLike`, `BigNumberish`, `BytesLike`, `string`, `BigNumberish`, `BytesLike`, `BigNumberish`] |
+| Name               | Type                                                                                                              |
+| :----------------- | :---------------------------------------------------------------------------------------------------------------- |
+| `functionFragment` | `"callOnOFTReceived"`                                                                                             |
+| `values`           | [`BigNumberish`, `BytesLike`, `BigNumberish`, `BytesLike`, `string`, `BigNumberish`, `BytesLike`, `BigNumberish`] |
 
 #### Returns
 
@@ -2490,10 +2479,10 @@ types/ethers-contracts/MevEth.ts:346
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"cancelUpdateMevEthShareVault"`` |
-| `values?` | `undefined` |
+| Name               | Type                             |
+| :----------------- | :------------------------------- |
+| `functionFragment` | `"cancelUpdateMevEthShareVault"` |
+| `values?`          | `undefined`                      |
 
 #### Returns
 
@@ -2507,10 +2496,10 @@ types/ethers-contracts/MevEth.ts:359
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"cancelUpdateStakingModule"`` |
-| `values?` | `undefined` |
+| Name               | Type                          |
+| :----------------- | :---------------------------- |
+| `functionFragment` | `"cancelUpdateStakingModule"` |
+| `values?`          | `undefined`                   |
 
 #### Returns
 
@@ -2524,10 +2513,10 @@ types/ethers-contracts/MevEth.ts:363
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"chainIdToFeeBps"`` |
-| `values` | [`BigNumberish`] |
+| Name               | Type                |
+| :----------------- | :------------------ |
+| `functionFragment` | `"chainIdToFeeBps"` |
+| `values`           | [`BigNumberish`]    |
 
 #### Returns
 
@@ -2541,10 +2530,10 @@ types/ethers-contracts/MevEth.ts:367
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"circulatingSupply"`` |
-| `values?` | `undefined` |
+| Name               | Type                  |
+| :----------------- | :-------------------- |
+| `functionFragment` | `"circulatingSupply"` |
+| `values?`          | `undefined`           |
 
 #### Returns
 
@@ -2558,10 +2547,10 @@ types/ethers-contracts/MevEth.ts:371
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"claim"`` |
-| `values` | [`BigNumberish`] |
+| Name               | Type             |
+| :----------------- | :--------------- |
+| `functionFragment` | `"claim"`        |
+| `values`           | [`BigNumberish`] |
 
 #### Returns
 
@@ -2575,10 +2564,10 @@ types/ethers-contracts/MevEth.ts:375
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"commitUpdateMevEthShareVault"`` |
-| `values` | [`string`] |
+| Name               | Type                             |
+| :----------------- | :------------------------------- |
+| `functionFragment` | `"commitUpdateMevEthShareVault"` |
+| `values`           | [`string`]                       |
 
 #### Returns
 
@@ -2592,10 +2581,10 @@ types/ethers-contracts/MevEth.ts:376
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"commitUpdateStakingModule"`` |
-| `values` | [`string`] |
+| Name               | Type                          |
+| :----------------- | :---------------------------- |
+| `functionFragment` | `"commitUpdateStakingModule"` |
+| `values`           | [`string`]                    |
 
 #### Returns
 
@@ -2609,10 +2598,10 @@ types/ethers-contracts/MevEth.ts:380
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"convertToAssets"`` |
-| `values` | [`BigNumberish`] |
+| Name               | Type                |
+| :----------------- | :------------------ |
+| `functionFragment` | `"convertToAssets"` |
+| `values`           | [`BigNumberish`]    |
 
 #### Returns
 
@@ -2626,10 +2615,10 @@ types/ethers-contracts/MevEth.ts:384
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"convertToShares"`` |
-| `values` | [`BigNumberish`] |
+| Name               | Type                |
+| :----------------- | :------------------ |
+| `functionFragment` | `"convertToShares"` |
+| `values`           | [`BigNumberish`]    |
 
 #### Returns
 
@@ -2643,10 +2632,10 @@ types/ethers-contracts/MevEth.ts:388
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"creamToken"`` |
-| `values?` | `undefined` |
+| Name               | Type           |
+| :----------------- | :------------- |
+| `functionFragment` | `"creamToken"` |
+| `values?`          | `undefined`    |
 
 #### Returns
 
@@ -2660,10 +2649,10 @@ types/ethers-contracts/MevEth.ts:392
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"createValidator"`` |
-| `values` | [[`ValidatorDataStruct`](../modules/IStakingModule.md#validatordatastruct), `BytesLike`] |
+| Name               | Type                                                                                     |
+| :----------------- | :--------------------------------------------------------------------------------------- |
+| `functionFragment` | `"createValidator"`                                                                      |
+| `values`           | [[`ValidatorDataStruct`](../modules/IStakingModule.md#validatordatastruct), `BytesLike`] |
 
 #### Returns
 
@@ -2677,10 +2666,10 @@ types/ethers-contracts/MevEth.ts:396
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"creditedPackets"`` |
-| `values` | [`BigNumberish`, `BytesLike`, `BigNumberish`] |
+| Name               | Type                                          |
+| :----------------- | :-------------------------------------------- |
+| `functionFragment` | `"creditedPackets"`                           |
+| `values`           | [`BigNumberish`, `BytesLike`, `BigNumberish`] |
 
 #### Returns
 
@@ -2694,10 +2683,10 @@ types/ethers-contracts/MevEth.ts:400
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"decimals"`` |
-| `values?` | `undefined` |
+| Name               | Type         |
+| :----------------- | :----------- |
+| `functionFragment` | `"decimals"` |
+| `values?`          | `undefined`  |
 
 #### Returns
 
@@ -2711,10 +2700,10 @@ types/ethers-contracts/MevEth.ts:404
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"defaultFeeBp"`` |
-| `values?` | `undefined` |
+| Name               | Type             |
+| :----------------- | :--------------- |
+| `functionFragment` | `"defaultFeeBp"` |
+| `values?`          | `undefined`      |
 
 #### Returns
 
@@ -2728,10 +2717,10 @@ types/ethers-contracts/MevEth.ts:405
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"deleteAdmin"`` |
-| `values` | [`string`] |
+| Name               | Type            |
+| :----------------- | :-------------- |
+| `functionFragment` | `"deleteAdmin"` |
+| `values`           | [`string`]      |
 
 #### Returns
 
@@ -2745,10 +2734,10 @@ types/ethers-contracts/MevEth.ts:409
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"deleteOperator"`` |
-| `values` | [`string`] |
+| Name               | Type               |
+| :----------------- | :----------------- |
+| `functionFragment` | `"deleteOperator"` |
+| `values`           | [`string`]         |
 
 #### Returns
 
@@ -2762,10 +2751,10 @@ types/ethers-contracts/MevEth.ts:410
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"deposit"`` |
-| `values` | [`BigNumberish`, `string`] |
+| Name               | Type                       |
+| :----------------- | :------------------------- |
+| `functionFragment` | `"deposit"`                |
+| `values`           | [`BigNumberish`, `string`] |
 
 #### Returns
 
@@ -2779,10 +2768,10 @@ types/ethers-contracts/MevEth.ts:414
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"estimateSendFee"`` |
-| `values` | [`BigNumberish`, `BytesLike`, `BigNumberish`, `boolean`, `BytesLike`] |
+| Name               | Type                                                                  |
+| :----------------- | :-------------------------------------------------------------------- |
+| `functionFragment` | `"estimateSendFee"`                                                   |
+| `values`           | [`BigNumberish`, `BytesLike`, `BigNumberish`, `boolean`, `BytesLike`] |
 
 #### Returns
 
@@ -2796,10 +2785,10 @@ types/ethers-contracts/MevEth.ts:418
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"failedMessages"`` |
-| `values` | [`BigNumberish`, `BytesLike`, `BigNumberish`] |
+| Name               | Type                                          |
+| :----------------- | :-------------------------------------------- |
+| `functionFragment` | `"failedMessages"`                            |
+| `values`           | [`BigNumberish`, `BytesLike`, `BigNumberish`] |
 
 #### Returns
 
@@ -2813,10 +2802,10 @@ types/ethers-contracts/MevEth.ts:422
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"feeOwner"`` |
-| `values?` | `undefined` |
+| Name               | Type         |
+| :----------------- | :----------- |
+| `functionFragment` | `"feeOwner"` |
+| `values?`          | `undefined`  |
 
 #### Returns
 
@@ -2830,10 +2819,10 @@ types/ethers-contracts/MevEth.ts:426
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"finalizeUpdateMevEthShareVault"`` |
-| `values` | [`boolean`] |
+| Name               | Type                               |
+| :----------------- | :--------------------------------- |
+| `functionFragment` | `"finalizeUpdateMevEthShareVault"` |
+| `values`           | [`boolean`]                        |
 
 #### Returns
 
@@ -2847,10 +2836,10 @@ types/ethers-contracts/MevEth.ts:427
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"finalizeUpdateStakingModule"`` |
-| `values?` | `undefined` |
+| Name               | Type                            |
+| :----------------- | :------------------------------ |
+| `functionFragment` | `"finalizeUpdateStakingModule"` |
+| `values?`          | `undefined`                     |
 
 #### Returns
 
@@ -2864,10 +2853,10 @@ types/ethers-contracts/MevEth.ts:431
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"forceResumeReceive"`` |
-| `values` | [`BigNumberish`, `BytesLike`] |
+| Name               | Type                          |
+| :----------------- | :---------------------------- |
+| `functionFragment` | `"forceResumeReceive"`        |
+| `values`           | [`BigNumberish`, `BytesLike`] |
 
 #### Returns
 
@@ -2881,10 +2870,10 @@ types/ethers-contracts/MevEth.ts:435
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"fraction"`` |
-| `values?` | `undefined` |
+| Name               | Type         |
+| :----------------- | :----------- |
+| `functionFragment` | `"fraction"` |
+| `values?`          | `undefined`  |
 
 #### Returns
 
@@ -2898,10 +2887,10 @@ types/ethers-contracts/MevEth.ts:439
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"getConfig"`` |
-| `values` | [`BigNumberish`, `BigNumberish`, `string`, `BigNumberish`] |
+| Name               | Type                                                       |
+| :----------------- | :--------------------------------------------------------- |
+| `functionFragment` | `"getConfig"`                                              |
+| `values`           | [`BigNumberish`, `BigNumberish`, `string`, `BigNumberish`] |
 
 #### Returns
 
@@ -2915,10 +2904,10 @@ types/ethers-contracts/MevEth.ts:440
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"getTrustedRemoteAddress"`` |
-| `values` | [`BigNumberish`] |
+| Name               | Type                        |
+| :----------------- | :-------------------------- |
+| `functionFragment` | `"getTrustedRemoteAddress"` |
+| `values`           | [`BigNumberish`]            |
 
 #### Returns
 
@@ -2932,10 +2921,10 @@ types/ethers-contracts/MevEth.ts:444
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"grantRewards"`` |
-| `values?` | `undefined` |
+| Name               | Type             |
+| :----------------- | :--------------- |
+| `functionFragment` | `"grantRewards"` |
+| `values?`          | `undefined`      |
 
 #### Returns
 
@@ -2949,10 +2938,10 @@ types/ethers-contracts/MevEth.ts:448
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"grantValidatorWithdraw"`` |
-| `values?` | `undefined` |
+| Name               | Type                       |
+| :----------------- | :------------------------- |
+| `functionFragment` | `"grantValidatorWithdraw"` |
+| `values?`          | `undefined`                |
 
 #### Returns
 
@@ -2966,10 +2955,10 @@ types/ethers-contracts/MevEth.ts:452
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"init"`` |
-| `values` | [`string`, `string`] |
+| Name               | Type                 |
+| :----------------- | :------------------- |
+| `functionFragment` | `"init"`             |
+| `values`           | [`string`, `string`] |
 
 #### Returns
 
@@ -2983,10 +2972,10 @@ types/ethers-contracts/MevEth.ts:456
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"initialized"`` |
-| `values?` | `undefined` |
+| Name               | Type            |
+| :----------------- | :-------------- |
+| `functionFragment` | `"initialized"` |
+| `values?`          | `undefined`     |
 
 #### Returns
 
@@ -3000,10 +2989,10 @@ types/ethers-contracts/MevEth.ts:460
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"isTrustedRemote"`` |
-| `values` | [`BigNumberish`, `BytesLike`] |
+| Name               | Type                          |
+| :----------------- | :---------------------------- |
+| `functionFragment` | `"isTrustedRemote"`           |
+| `values`           | [`BigNumberish`, `BytesLike`] |
 
 #### Returns
 
@@ -3017,10 +3006,10 @@ types/ethers-contracts/MevEth.ts:464
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"lzEndpoint"`` |
-| `values?` | `undefined` |
+| Name               | Type           |
+| :----------------- | :------------- |
+| `functionFragment` | `"lzEndpoint"` |
+| `values?`          | `undefined`    |
 
 #### Returns
 
@@ -3034,10 +3023,10 @@ types/ethers-contracts/MevEth.ts:468
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"lzReceive"`` |
-| `values` | [`BigNumberish`, `BytesLike`, `BigNumberish`, `BytesLike`] |
+| Name               | Type                                                       |
+| :----------------- | :--------------------------------------------------------- |
+| `functionFragment` | `"lzReceive"`                                              |
+| `values`           | [`BigNumberish`, `BytesLike`, `BigNumberish`, `BytesLike`] |
 
 #### Returns
 
@@ -3051,10 +3040,10 @@ types/ethers-contracts/MevEth.ts:472
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"maxDeposit"`` |
-| `values` | [`string`] |
+| Name               | Type           |
+| :----------------- | :------------- |
+| `functionFragment` | `"maxDeposit"` |
+| `values`           | [`string`]     |
 
 #### Returns
 
@@ -3068,10 +3057,10 @@ types/ethers-contracts/MevEth.ts:476
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"maxMint"`` |
-| `values` | [`string`] |
+| Name               | Type        |
+| :----------------- | :---------- |
+| `functionFragment` | `"maxMint"` |
+| `values`           | [`string`]  |
 
 #### Returns
 
@@ -3085,10 +3074,10 @@ types/ethers-contracts/MevEth.ts:477
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"maxRedeem"`` |
-| `values` | [`string`] |
+| Name               | Type          |
+| :----------------- | :------------ |
+| `functionFragment` | `"maxRedeem"` |
+| `values`           | [`string`]    |
 
 #### Returns
 
@@ -3102,10 +3091,10 @@ types/ethers-contracts/MevEth.ts:478
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"maxWithdraw"`` |
-| `values` | [`string`] |
+| Name               | Type            |
+| :----------------- | :-------------- |
+| `functionFragment` | `"maxWithdraw"` |
+| `values`           | [`string`]      |
 
 #### Returns
 
@@ -3119,10 +3108,10 @@ types/ethers-contracts/MevEth.ts:479
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"mevEthShareVault"`` |
-| `values?` | `undefined` |
+| Name               | Type                 |
+| :----------------- | :------------------- |
+| `functionFragment` | `"mevEthShareVault"` |
+| `values?`          | `undefined`          |
 
 #### Returns
 
@@ -3136,10 +3125,10 @@ types/ethers-contracts/MevEth.ts:480
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"minDstGasLookup"`` |
-| `values` | [`BigNumberish`, `BigNumberish`] |
+| Name               | Type                             |
+| :----------------- | :------------------------------- |
+| `functionFragment` | `"minDstGasLookup"`              |
+| `values`           | [`BigNumberish`, `BigNumberish`] |
 
 #### Returns
 
@@ -3153,10 +3142,10 @@ types/ethers-contracts/MevEth.ts:484
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"mint"`` |
-| `values` | [`BigNumberish`, `string`] |
+| Name               | Type                       |
+| :----------------- | :------------------------- |
+| `functionFragment` | `"mint"`                   |
+| `values`           | [`BigNumberish`, `string`] |
 
 #### Returns
 
@@ -3170,10 +3159,10 @@ types/ethers-contracts/MevEth.ts:488
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"name"`` |
-| `values?` | `undefined` |
+| Name               | Type        |
+| :----------------- | :---------- |
+| `functionFragment` | `"name"`    |
+| `values?`          | `undefined` |
 
 #### Returns
 
@@ -3187,10 +3176,10 @@ types/ethers-contracts/MevEth.ts:492
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"nonblockingLzReceive"`` |
-| `values` | [`BigNumberish`, `BytesLike`, `BigNumberish`, `BytesLike`] |
+| Name               | Type                                                       |
+| :----------------- | :--------------------------------------------------------- |
+| `functionFragment` | `"nonblockingLzReceive"`                                   |
+| `values`           | [`BigNumberish`, `BytesLike`, `BigNumberish`, `BytesLike`] |
 
 #### Returns
 
@@ -3204,10 +3193,10 @@ types/ethers-contracts/MevEth.ts:493
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"nonces"`` |
-| `values` | [`string`] |
+| Name               | Type       |
+| :----------------- | :--------- |
+| `functionFragment` | `"nonces"` |
+| `values`           | [`string`] |
 
 #### Returns
 
@@ -3221,10 +3210,10 @@ types/ethers-contracts/MevEth.ts:497
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"operators"`` |
-| `values` | [`string`] |
+| Name               | Type          |
+| :----------------- | :------------ |
+| `functionFragment` | `"operators"` |
+| `values`           | [`string`]    |
 
 #### Returns
 
@@ -3238,10 +3227,10 @@ types/ethers-contracts/MevEth.ts:498
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"pauseStaking"`` |
-| `values?` | `undefined` |
+| Name               | Type             |
+| :----------------- | :--------------- |
+| `functionFragment` | `"pauseStaking"` |
+| `values?`          | `undefined`      |
 
 #### Returns
 
@@ -3255,10 +3244,10 @@ types/ethers-contracts/MevEth.ts:499
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"payloadSizeLimitLookup"`` |
-| `values` | [`BigNumberish`] |
+| Name               | Type                       |
+| :----------------- | :------------------------- |
+| `functionFragment` | `"payloadSizeLimitLookup"` |
+| `values`           | [`BigNumberish`]           |
 
 #### Returns
 
@@ -3272,10 +3261,10 @@ types/ethers-contracts/MevEth.ts:503
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"pendingMevEthShareVault"`` |
-| `values?` | `undefined` |
+| Name               | Type                        |
+| :----------------- | :-------------------------- |
+| `functionFragment` | `"pendingMevEthShareVault"` |
+| `values?`          | `undefined`                 |
 
 #### Returns
 
@@ -3289,10 +3278,10 @@ types/ethers-contracts/MevEth.ts:507
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"pendingMevEthShareVaultCommittedTimestamp"`` |
-| `values?` | `undefined` |
+| Name               | Type                                          |
+| :----------------- | :-------------------------------------------- |
+| `functionFragment` | `"pendingMevEthShareVaultCommittedTimestamp"` |
+| `values?`          | `undefined`                                   |
 
 #### Returns
 
@@ -3306,10 +3295,10 @@ types/ethers-contracts/MevEth.ts:511
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"pendingStakingModule"`` |
-| `values?` | `undefined` |
+| Name               | Type                     |
+| :----------------- | :----------------------- |
+| `functionFragment` | `"pendingStakingModule"` |
+| `values?`          | `undefined`              |
 
 #### Returns
 
@@ -3323,10 +3312,10 @@ types/ethers-contracts/MevEth.ts:515
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"pendingStakingModuleCommittedTimestamp"`` |
-| `values?` | `undefined` |
+| Name               | Type                                       |
+| :----------------- | :----------------------------------------- |
+| `functionFragment` | `"pendingStakingModuleCommittedTimestamp"` |
+| `values?`          | `undefined`                                |
 
 #### Returns
 
@@ -3340,10 +3329,10 @@ types/ethers-contracts/MevEth.ts:519
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"permit"`` |
-| `values` | [`string`, `string`, `BigNumberish`, `BigNumberish`, `BigNumberish`, `BytesLike`, `BytesLike`] |
+| Name               | Type                                                                                           |
+| :----------------- | :--------------------------------------------------------------------------------------------- |
+| `functionFragment` | `"permit"`                                                                                     |
+| `values`           | [`string`, `string`, `BigNumberish`, `BigNumberish`, `BigNumberish`, `BytesLike`, `BytesLike`] |
 
 #### Returns
 
@@ -3357,10 +3346,10 @@ types/ethers-contracts/MevEth.ts:523
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"precrime"`` |
-| `values?` | `undefined` |
+| Name               | Type         |
+| :----------------- | :----------- |
+| `functionFragment` | `"precrime"` |
+| `values?`          | `undefined`  |
 
 #### Returns
 
@@ -3374,10 +3363,10 @@ types/ethers-contracts/MevEth.ts:535
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"previewDeposit"`` |
-| `values` | [`BigNumberish`] |
+| Name               | Type               |
+| :----------------- | :----------------- |
+| `functionFragment` | `"previewDeposit"` |
+| `values`           | [`BigNumberish`]   |
 
 #### Returns
 
@@ -3391,10 +3380,10 @@ types/ethers-contracts/MevEth.ts:536
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"previewMint"`` |
-| `values` | [`BigNumberish`] |
+| Name               | Type             |
+| :----------------- | :--------------- |
+| `functionFragment` | `"previewMint"`  |
+| `values`           | [`BigNumberish`] |
 
 #### Returns
 
@@ -3408,10 +3397,10 @@ types/ethers-contracts/MevEth.ts:540
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"previewRedeem"`` |
-| `values` | [`BigNumberish`] |
+| Name               | Type              |
+| :----------------- | :---------------- |
+| `functionFragment` | `"previewRedeem"` |
+| `values`           | [`BigNumberish`]  |
 
 #### Returns
 
@@ -3425,10 +3414,10 @@ types/ethers-contracts/MevEth.ts:544
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"previewWithdraw"`` |
-| `values` | [`BigNumberish`] |
+| Name               | Type                |
+| :----------------- | :------------------ |
+| `functionFragment` | `"previewWithdraw"` |
+| `values`           | [`BigNumberish`]    |
 
 #### Returns
 
@@ -3442,10 +3431,10 @@ types/ethers-contracts/MevEth.ts:548
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"processWithdrawalQueue"`` |
-| `values` | [`BigNumberish`] |
+| Name               | Type                       |
+| :----------------- | :------------------------- |
+| `functionFragment` | `"processWithdrawalQueue"` |
+| `values`           | [`BigNumberish`]           |
 
 #### Returns
 
@@ -3459,10 +3448,10 @@ types/ethers-contracts/MevEth.ts:552
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"queueLength"`` |
-| `values?` | `undefined` |
+| Name               | Type            |
+| :----------------- | :-------------- |
+| `functionFragment` | `"queueLength"` |
+| `values?`          | `undefined`     |
 
 #### Returns
 
@@ -3476,10 +3465,10 @@ types/ethers-contracts/MevEth.ts:556
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"quoteOFTFee"`` |
-| `values` | [`BigNumberish`, `BigNumberish`] |
+| Name               | Type                             |
+| :----------------- | :------------------------------- |
+| `functionFragment` | `"quoteOFTFee"`                  |
+| `values`           | [`BigNumberish`, `BigNumberish`] |
 
 #### Returns
 
@@ -3493,10 +3482,10 @@ types/ethers-contracts/MevEth.ts:560
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"redeem"`` |
-| `values` | [`BigNumberish`, `string`, `string`] |
+| Name               | Type                                 |
+| :----------------- | :----------------------------------- |
+| `functionFragment` | `"redeem"`                           |
+| `values`           | [`BigNumberish`, `string`, `string`] |
 
 #### Returns
 
@@ -3510,10 +3499,10 @@ types/ethers-contracts/MevEth.ts:564
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"redeemCream"`` |
-| `values` | [`BigNumberish`] |
+| Name               | Type             |
+| :----------------- | :--------------- |
+| `functionFragment` | `"redeemCream"`  |
+| `values`           | [`BigNumberish`] |
 
 #### Returns
 
@@ -3527,10 +3516,10 @@ types/ethers-contracts/MevEth.ts:568
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"requestsFinalisedUntil"`` |
-| `values?` | `undefined` |
+| Name               | Type                       |
+| :----------------- | :------------------------- |
+| `functionFragment` | `"requestsFinalisedUntil"` |
+| `values?`          | `undefined`                |
 
 #### Returns
 
@@ -3544,10 +3533,10 @@ types/ethers-contracts/MevEth.ts:572
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"retryMessage"`` |
-| `values` | [`BigNumberish`, `BytesLike`, `BigNumberish`, `BytesLike`] |
+| Name               | Type                                                       |
+| :----------------- | :--------------------------------------------------------- |
+| `functionFragment` | `"retryMessage"`                                           |
+| `values`           | [`BigNumberish`, `BytesLike`, `BigNumberish`, `BytesLike`] |
 
 #### Returns
 
@@ -3561,10 +3550,10 @@ types/ethers-contracts/MevEth.ts:576
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"sendFrom"`` |
-| `values` | [`string`, `BigNumberish`, `BytesLike`, `BigNumberish`, `BigNumberish`, [`LzCallParamsStruct`](../modules/ICommonOFT.md#lzcallparamsstruct)] |
+| Name               | Type                                                                                                                                         |
+| :----------------- | :------------------------------------------------------------------------------------------------------------------------------------------- |
+| `functionFragment` | `"sendFrom"`                                                                                                                                 |
+| `values`           | [`string`, `BigNumberish`, `BytesLike`, `BigNumberish`, `BigNumberish`, [`LzCallParamsStruct`](../modules/ICommonOFT.md#lzcallparamsstruct)] |
 
 #### Returns
 
@@ -3578,10 +3567,10 @@ types/ethers-contracts/MevEth.ts:580
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"setConfig"`` |
-| `values` | [`BigNumberish`, `BigNumberish`, `BigNumberish`, `BytesLike`] |
+| Name               | Type                                                          |
+| :----------------- | :------------------------------------------------------------ |
+| `functionFragment` | `"setConfig"`                                                 |
+| `values`           | [`BigNumberish`, `BigNumberish`, `BigNumberish`, `BytesLike`] |
 
 #### Returns
 
@@ -3595,10 +3584,10 @@ types/ethers-contracts/MevEth.ts:591
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"setDefaultFeeBp"`` |
-| `values` | [`BigNumberish`] |
+| Name               | Type                |
+| :----------------- | :------------------ |
+| `functionFragment` | `"setDefaultFeeBp"` |
+| `values`           | [`BigNumberish`]    |
 
 #### Returns
 
@@ -3612,10 +3601,10 @@ types/ethers-contracts/MevEth.ts:595
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"setFeeBp"`` |
-| `values` | [`BigNumberish`, `boolean`, `BigNumberish`] |
+| Name               | Type                                        |
+| :----------------- | :------------------------------------------ |
+| `functionFragment` | `"setFeeBp"`                                |
+| `values`           | [`BigNumberish`, `boolean`, `BigNumberish`] |
 
 #### Returns
 
@@ -3629,10 +3618,10 @@ types/ethers-contracts/MevEth.ts:599
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"setFeeOwner"`` |
-| `values` | [`string`] |
+| Name               | Type            |
+| :----------------- | :-------------- |
+| `functionFragment` | `"setFeeOwner"` |
+| `values`           | [`string`]      |
 
 #### Returns
 
@@ -3646,10 +3635,10 @@ types/ethers-contracts/MevEth.ts:603
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"setMinDstGas"`` |
-| `values` | [`BigNumberish`, `BigNumberish`, `BigNumberish`] |
+| Name               | Type                                             |
+| :----------------- | :----------------------------------------------- |
+| `functionFragment` | `"setMinDstGas"`                                 |
+| `values`           | [`BigNumberish`, `BigNumberish`, `BigNumberish`] |
 
 #### Returns
 
@@ -3663,10 +3652,10 @@ types/ethers-contracts/MevEth.ts:604
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"setPayloadSizeLimit"`` |
-| `values` | [`BigNumberish`, `BigNumberish`] |
+| Name               | Type                             |
+| :----------------- | :------------------------------- |
+| `functionFragment` | `"setPayloadSizeLimit"`          |
+| `values`           | [`BigNumberish`, `BigNumberish`] |
 
 #### Returns
 
@@ -3680,10 +3669,10 @@ types/ethers-contracts/MevEth.ts:608
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"setPrecrime"`` |
-| `values` | [`string`] |
+| Name               | Type            |
+| :----------------- | :-------------- |
+| `functionFragment` | `"setPrecrime"` |
+| `values`           | [`string`]      |
 
 #### Returns
 
@@ -3697,10 +3686,10 @@ types/ethers-contracts/MevEth.ts:612
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"setReceiveVersion"`` |
-| `values` | [`BigNumberish`] |
+| Name               | Type                  |
+| :----------------- | :-------------------- |
+| `functionFragment` | `"setReceiveVersion"` |
+| `values`           | [`BigNumberish`]      |
 
 #### Returns
 
@@ -3714,10 +3703,10 @@ types/ethers-contracts/MevEth.ts:613
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"setSendVersion"`` |
-| `values` | [`BigNumberish`] |
+| Name               | Type               |
+| :----------------- | :----------------- |
+| `functionFragment` | `"setSendVersion"` |
+| `values`           | [`BigNumberish`]   |
 
 #### Returns
 
@@ -3731,10 +3720,10 @@ types/ethers-contracts/MevEth.ts:617
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"setTrustedRemote"`` |
-| `values` | [`BigNumberish`, `BytesLike`] |
+| Name               | Type                          |
+| :----------------- | :---------------------------- |
+| `functionFragment` | `"setTrustedRemote"`          |
+| `values`           | [`BigNumberish`, `BytesLike`] |
 
 #### Returns
 
@@ -3748,10 +3737,10 @@ types/ethers-contracts/MevEth.ts:621
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"setTrustedRemoteAddress"`` |
-| `values` | [`BigNumberish`, `BytesLike`] |
+| Name               | Type                          |
+| :----------------- | :---------------------------- |
+| `functionFragment` | `"setTrustedRemoteAddress"`   |
+| `values`           | [`BigNumberish`, `BytesLike`] |
 
 #### Returns
 
@@ -3765,10 +3754,10 @@ types/ethers-contracts/MevEth.ts:625
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"setUseCustomAdapterParams"`` |
-| `values` | [`boolean`] |
+| Name               | Type                          |
+| :----------------- | :---------------------------- |
+| `functionFragment` | `"setUseCustomAdapterParams"` |
+| `values`           | [`boolean`]                   |
 
 #### Returns
 
@@ -3782,10 +3771,10 @@ types/ethers-contracts/MevEth.ts:629
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"sharedDecimals"`` |
-| `values?` | `undefined` |
+| Name               | Type               |
+| :----------------- | :----------------- |
+| `functionFragment` | `"sharedDecimals"` |
+| `values?`          | `undefined`        |
 
 #### Returns
 
@@ -3799,10 +3788,10 @@ types/ethers-contracts/MevEth.ts:633
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"stakingModule"`` |
-| `values?` | `undefined` |
+| Name               | Type              |
+| :----------------- | :---------------- |
+| `functionFragment` | `"stakingModule"` |
+| `values?`          | `undefined`       |
 
 #### Returns
 
@@ -3816,10 +3805,10 @@ types/ethers-contracts/MevEth.ts:637
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"stakingPaused"`` |
-| `values?` | `undefined` |
+| Name               | Type              |
+| :----------------- | :---------------- |
+| `functionFragment` | `"stakingPaused"` |
+| `values?`          | `undefined`       |
 
 #### Returns
 
@@ -3833,10 +3822,10 @@ types/ethers-contracts/MevEth.ts:641
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"supportsInterface"`` |
-| `values` | [`BytesLike`] |
+| Name               | Type                  |
+| :----------------- | :-------------------- |
+| `functionFragment` | `"supportsInterface"` |
+| `values`           | [`BytesLike`]         |
 
 #### Returns
 
@@ -3850,10 +3839,10 @@ types/ethers-contracts/MevEth.ts:645
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"symbol"`` |
-| `values?` | `undefined` |
+| Name               | Type        |
+| :----------------- | :---------- |
+| `functionFragment` | `"symbol"`  |
+| `values?`          | `undefined` |
 
 #### Returns
 
@@ -3867,10 +3856,10 @@ types/ethers-contracts/MevEth.ts:649
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"token"`` |
-| `values?` | `undefined` |
+| Name               | Type        |
+| :----------------- | :---------- |
+| `functionFragment` | `"token"`   |
+| `values?`          | `undefined` |
 
 #### Returns
 
@@ -3884,10 +3873,10 @@ types/ethers-contracts/MevEth.ts:650
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"totalAssets"`` |
-| `values?` | `undefined` |
+| Name               | Type            |
+| :----------------- | :-------------- |
+| `functionFragment` | `"totalAssets"` |
+| `values?`          | `undefined`     |
 
 #### Returns
 
@@ -3901,10 +3890,10 @@ types/ethers-contracts/MevEth.ts:651
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"totalSupply"`` |
-| `values?` | `undefined` |
+| Name               | Type            |
+| :----------------- | :-------------- |
+| `functionFragment` | `"totalSupply"` |
+| `values?`          | `undefined`     |
 
 #### Returns
 
@@ -3918,10 +3907,10 @@ types/ethers-contracts/MevEth.ts:655
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"transfer"`` |
-| `values` | [`string`, `BigNumberish`] |
+| Name               | Type                       |
+| :----------------- | :------------------------- |
+| `functionFragment` | `"transfer"`               |
+| `values`           | [`string`, `BigNumberish`] |
 
 #### Returns
 
@@ -3935,10 +3924,10 @@ types/ethers-contracts/MevEth.ts:659
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"transferFrom"`` |
-| `values` | [`string`, `string`, `BigNumberish`] |
+| Name               | Type                                 |
+| :----------------- | :----------------------------------- |
+| `functionFragment` | `"transferFrom"`                     |
+| `values`           | [`string`, `string`, `BigNumberish`] |
 
 #### Returns
 
@@ -3952,10 +3941,10 @@ types/ethers-contracts/MevEth.ts:663
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"trustedRemoteLookup"`` |
-| `values` | [`BigNumberish`] |
+| Name               | Type                    |
+| :----------------- | :---------------------- |
+| `functionFragment` | `"trustedRemoteLookup"` |
+| `values`           | [`BigNumberish`]        |
 
 #### Returns
 
@@ -3969,10 +3958,10 @@ types/ethers-contracts/MevEth.ts:667
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"unpauseStaking"`` |
-| `values?` | `undefined` |
+| Name               | Type               |
+| :----------------- | :----------------- |
+| `functionFragment` | `"unpauseStaking"` |
+| `values?`          | `undefined`        |
 
 #### Returns
 
@@ -3986,10 +3975,10 @@ types/ethers-contracts/MevEth.ts:671
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"useCustomAdapterParams"`` |
-| `values?` | `undefined` |
+| Name               | Type                       |
+| :----------------- | :------------------------- |
+| `functionFragment` | `"useCustomAdapterParams"` |
+| `values?`          | `undefined`                |
 
 #### Returns
 
@@ -4003,10 +3992,10 @@ types/ethers-contracts/MevEth.ts:675
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"withdraw"`` |
-| `values` | [`BigNumberish`, `string`, `string`] |
+| Name               | Type                                 |
+| :----------------- | :----------------------------------- |
+| `functionFragment` | `"withdraw"`                         |
+| `values`           | [`BigNumberish`, `string`, `string`] |
 
 #### Returns
 
@@ -4020,10 +4009,10 @@ types/ethers-contracts/MevEth.ts:679
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"withdrawQueue"`` |
-| `values` | [`BigNumberish`, `string`, `string`] |
+| Name               | Type                                 |
+| :----------------- | :----------------------------------- |
+| `functionFragment` | `"withdrawQueue"`                    |
+| `values`           | [`BigNumberish`, `string`, `string`] |
 
 #### Returns
 
@@ -4037,10 +4026,10 @@ types/ethers-contracts/MevEth.ts:683
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"withdrawalAmountQueued"`` |
-| `values?` | `undefined` |
+| Name               | Type                       |
+| :----------------- | :------------------------- |
+| `functionFragment` | `"withdrawalAmountQueued"` |
+| `values?`          | `undefined`                |
 
 #### Returns
 
@@ -4054,10 +4043,10 @@ types/ethers-contracts/MevEth.ts:687
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `functionFragment` | ``"withdrawalQueue"`` |
-| `values` | [`BigNumberish`] |
+| Name               | Type                |
+| :----------------- | :------------------ |
+| `functionFragment` | `"withdrawalQueue"` |
+| `values`           | [`BigNumberish`]    |
 
 #### Returns
 
@@ -4067,7 +4056,7 @@ types/ethers-contracts/MevEth.ts:687
 
 types/ethers-contracts/MevEth.ts:691
 
-___
+---
 
 ### getEvent
 
@@ -4075,9 +4064,9 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nameOrSignatureOrTopic` | ``"AdminAdded"`` |
+| Name                     | Type           |
+| :----------------------- | :------------- |
+| `nameOrSignatureOrTopic` | `"AdminAdded"` |
 
 #### Returns
 
@@ -4091,9 +4080,9 @@ types/ethers-contracts/MevEth.ts:1076
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nameOrSignatureOrTopic` | ``"AdminDeleted"`` |
+| Name                     | Type             |
+| :----------------------- | :--------------- |
+| `nameOrSignatureOrTopic` | `"AdminDeleted"` |
 
 #### Returns
 
@@ -4107,9 +4096,9 @@ types/ethers-contracts/MevEth.ts:1077
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nameOrSignatureOrTopic` | ``"Approval"`` |
+| Name                     | Type         |
+| :----------------------- | :----------- |
+| `nameOrSignatureOrTopic` | `"Approval"` |
 
 #### Returns
 
@@ -4123,9 +4112,9 @@ types/ethers-contracts/MevEth.ts:1078
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nameOrSignatureOrTopic` | ``"CallOFTReceivedSuccess"`` |
+| Name                     | Type                       |
+| :----------------------- | :------------------------- |
+| `nameOrSignatureOrTopic` | `"CallOFTReceivedSuccess"` |
 
 #### Returns
 
@@ -4139,9 +4128,9 @@ types/ethers-contracts/MevEth.ts:1079
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nameOrSignatureOrTopic` | ``"CreamRedeemed"`` |
+| Name                     | Type              |
+| :----------------------- | :---------------- |
+| `nameOrSignatureOrTopic` | `"CreamRedeemed"` |
 
 #### Returns
 
@@ -4155,9 +4144,9 @@ types/ethers-contracts/MevEth.ts:1080
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nameOrSignatureOrTopic` | ``"Deposit"`` |
+| Name                     | Type        |
+| :----------------------- | :---------- |
+| `nameOrSignatureOrTopic` | `"Deposit"` |
 
 #### Returns
 
@@ -4171,9 +4160,9 @@ types/ethers-contracts/MevEth.ts:1081
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nameOrSignatureOrTopic` | ``"MessageFailed"`` |
+| Name                     | Type              |
+| :----------------------- | :---------------- |
+| `nameOrSignatureOrTopic` | `"MessageFailed"` |
 
 #### Returns
 
@@ -4187,9 +4176,9 @@ types/ethers-contracts/MevEth.ts:1082
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nameOrSignatureOrTopic` | ``"MevEthInitialized"`` |
+| Name                     | Type                  |
+| :----------------------- | :-------------------- |
+| `nameOrSignatureOrTopic` | `"MevEthInitialized"` |
 
 #### Returns
 
@@ -4203,9 +4192,9 @@ types/ethers-contracts/MevEth.ts:1083
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nameOrSignatureOrTopic` | ``"MevEthShareVaultUpdateCanceled"`` |
+| Name                     | Type                               |
+| :----------------------- | :--------------------------------- |
+| `nameOrSignatureOrTopic` | `"MevEthShareVaultUpdateCanceled"` |
 
 #### Returns
 
@@ -4219,9 +4208,9 @@ types/ethers-contracts/MevEth.ts:1084
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nameOrSignatureOrTopic` | ``"MevEthShareVaultUpdateCommitted"`` |
+| Name                     | Type                                |
+| :----------------------- | :---------------------------------- |
+| `nameOrSignatureOrTopic` | `"MevEthShareVaultUpdateCommitted"` |
 
 #### Returns
 
@@ -4235,9 +4224,9 @@ types/ethers-contracts/MevEth.ts:1087
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nameOrSignatureOrTopic` | ``"MevEthShareVaultUpdateFinalized"`` |
+| Name                     | Type                                |
+| :----------------------- | :---------------------------------- |
+| `nameOrSignatureOrTopic` | `"MevEthShareVaultUpdateFinalized"` |
 
 #### Returns
 
@@ -4251,9 +4240,9 @@ types/ethers-contracts/MevEth.ts:1090
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nameOrSignatureOrTopic` | ``"NonContractAddress"`` |
+| Name                     | Type                   |
+| :----------------------- | :--------------------- |
+| `nameOrSignatureOrTopic` | `"NonContractAddress"` |
 
 #### Returns
 
@@ -4267,9 +4256,9 @@ types/ethers-contracts/MevEth.ts:1093
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nameOrSignatureOrTopic` | ``"OperatorAdded"`` |
+| Name                     | Type              |
+| :----------------------- | :---------------- |
+| `nameOrSignatureOrTopic` | `"OperatorAdded"` |
 
 #### Returns
 
@@ -4283,9 +4272,9 @@ types/ethers-contracts/MevEth.ts:1094
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nameOrSignatureOrTopic` | ``"OperatorDeleted"`` |
+| Name                     | Type                |
+| :----------------------- | :------------------ |
+| `nameOrSignatureOrTopic` | `"OperatorDeleted"` |
 
 #### Returns
 
@@ -4299,9 +4288,9 @@ types/ethers-contracts/MevEth.ts:1095
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nameOrSignatureOrTopic` | ``"ReceiveFromChain"`` |
+| Name                     | Type                 |
+| :----------------------- | :------------------- |
+| `nameOrSignatureOrTopic` | `"ReceiveFromChain"` |
 
 #### Returns
 
@@ -4315,9 +4304,9 @@ types/ethers-contracts/MevEth.ts:1096
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nameOrSignatureOrTopic` | ``"RetryMessageSuccess"`` |
+| Name                     | Type                    |
+| :----------------------- | :---------------------- |
+| `nameOrSignatureOrTopic` | `"RetryMessageSuccess"` |
 
 #### Returns
 
@@ -4331,9 +4320,9 @@ types/ethers-contracts/MevEth.ts:1097
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nameOrSignatureOrTopic` | ``"Rewards"`` |
+| Name                     | Type        |
+| :----------------------- | :---------- |
+| `nameOrSignatureOrTopic` | `"Rewards"` |
 
 #### Returns
 
@@ -4347,9 +4336,9 @@ types/ethers-contracts/MevEth.ts:1098
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nameOrSignatureOrTopic` | ``"SendToChain"`` |
+| Name                     | Type            |
+| :----------------------- | :-------------- |
+| `nameOrSignatureOrTopic` | `"SendToChain"` |
 
 #### Returns
 
@@ -4363,9 +4352,9 @@ types/ethers-contracts/MevEth.ts:1099
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nameOrSignatureOrTopic` | ``"SetDefaultFeeBp"`` |
+| Name                     | Type                |
+| :----------------------- | :------------------ |
+| `nameOrSignatureOrTopic` | `"SetDefaultFeeBp"` |
 
 #### Returns
 
@@ -4379,9 +4368,9 @@ types/ethers-contracts/MevEth.ts:1100
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nameOrSignatureOrTopic` | ``"SetFeeBp"`` |
+| Name                     | Type         |
+| :----------------------- | :----------- |
+| `nameOrSignatureOrTopic` | `"SetFeeBp"` |
 
 #### Returns
 
@@ -4395,9 +4384,9 @@ types/ethers-contracts/MevEth.ts:1101
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nameOrSignatureOrTopic` | ``"SetFeeOwner"`` |
+| Name                     | Type            |
+| :----------------------- | :-------------- |
+| `nameOrSignatureOrTopic` | `"SetFeeOwner"` |
 
 #### Returns
 
@@ -4411,9 +4400,9 @@ types/ethers-contracts/MevEth.ts:1102
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nameOrSignatureOrTopic` | ``"SetMinDstGas"`` |
+| Name                     | Type             |
+| :----------------------- | :--------------- |
+| `nameOrSignatureOrTopic` | `"SetMinDstGas"` |
 
 #### Returns
 
@@ -4427,9 +4416,9 @@ types/ethers-contracts/MevEth.ts:1103
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nameOrSignatureOrTopic` | ``"SetPrecrime"`` |
+| Name                     | Type            |
+| :----------------------- | :-------------- |
+| `nameOrSignatureOrTopic` | `"SetPrecrime"` |
 
 #### Returns
 
@@ -4443,9 +4432,9 @@ types/ethers-contracts/MevEth.ts:1104
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nameOrSignatureOrTopic` | ``"SetTrustedRemote"`` |
+| Name                     | Type                 |
+| :----------------------- | :------------------- |
+| `nameOrSignatureOrTopic` | `"SetTrustedRemote"` |
 
 #### Returns
 
@@ -4459,9 +4448,9 @@ types/ethers-contracts/MevEth.ts:1105
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nameOrSignatureOrTopic` | ``"SetTrustedRemoteAddress"`` |
+| Name                     | Type                        |
+| :----------------------- | :-------------------------- |
+| `nameOrSignatureOrTopic` | `"SetTrustedRemoteAddress"` |
 
 #### Returns
 
@@ -4475,9 +4464,9 @@ types/ethers-contracts/MevEth.ts:1106
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nameOrSignatureOrTopic` | ``"SetUseCustomAdapterParams"`` |
+| Name                     | Type                          |
+| :----------------------- | :---------------------------- |
+| `nameOrSignatureOrTopic` | `"SetUseCustomAdapterParams"` |
 
 #### Returns
 
@@ -4491,9 +4480,9 @@ types/ethers-contracts/MevEth.ts:1107
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nameOrSignatureOrTopic` | ``"StakingModuleUpdateCanceled"`` |
+| Name                     | Type                            |
+| :----------------------- | :------------------------------ |
+| `nameOrSignatureOrTopic` | `"StakingModuleUpdateCanceled"` |
 
 #### Returns
 
@@ -4507,9 +4496,9 @@ types/ethers-contracts/MevEth.ts:1108
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nameOrSignatureOrTopic` | ``"StakingModuleUpdateCommitted"`` |
+| Name                     | Type                             |
+| :----------------------- | :------------------------------- |
+| `nameOrSignatureOrTopic` | `"StakingModuleUpdateCommitted"` |
 
 #### Returns
 
@@ -4523,9 +4512,9 @@ types/ethers-contracts/MevEth.ts:1111
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nameOrSignatureOrTopic` | ``"StakingModuleUpdateFinalized"`` |
+| Name                     | Type                             |
+| :----------------------- | :------------------------------- |
+| `nameOrSignatureOrTopic` | `"StakingModuleUpdateFinalized"` |
 
 #### Returns
 
@@ -4539,9 +4528,9 @@ types/ethers-contracts/MevEth.ts:1114
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nameOrSignatureOrTopic` | ``"StakingPaused"`` |
+| Name                     | Type              |
+| :----------------------- | :---------------- |
+| `nameOrSignatureOrTopic` | `"StakingPaused"` |
 
 #### Returns
 
@@ -4555,9 +4544,9 @@ types/ethers-contracts/MevEth.ts:1117
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nameOrSignatureOrTopic` | ``"StakingUnpaused"`` |
+| Name                     | Type                |
+| :----------------------- | :------------------ |
+| `nameOrSignatureOrTopic` | `"StakingUnpaused"` |
 
 #### Returns
 
@@ -4571,9 +4560,9 @@ types/ethers-contracts/MevEth.ts:1118
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nameOrSignatureOrTopic` | ``"Transfer"`` |
+| Name                     | Type         |
+| :----------------------- | :----------- |
+| `nameOrSignatureOrTopic` | `"Transfer"` |
 
 #### Returns
 
@@ -4587,9 +4576,9 @@ types/ethers-contracts/MevEth.ts:1119
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nameOrSignatureOrTopic` | ``"ValidatorCreated"`` |
+| Name                     | Type                 |
+| :----------------------- | :------------------- |
+| `nameOrSignatureOrTopic` | `"ValidatorCreated"` |
 
 #### Returns
 
@@ -4603,9 +4592,9 @@ types/ethers-contracts/MevEth.ts:1120
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nameOrSignatureOrTopic` | ``"ValidatorWithdraw"`` |
+| Name                     | Type                  |
+| :----------------------- | :-------------------- |
+| `nameOrSignatureOrTopic` | `"ValidatorWithdraw"` |
 
 #### Returns
 
@@ -4619,9 +4608,9 @@ types/ethers-contracts/MevEth.ts:1121
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nameOrSignatureOrTopic` | ``"Withdraw"`` |
+| Name                     | Type         |
+| :----------------------- | :----------- |
+| `nameOrSignatureOrTopic` | `"Withdraw"` |
 
 #### Returns
 
@@ -4635,9 +4624,9 @@ types/ethers-contracts/MevEth.ts:1122
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nameOrSignatureOrTopic` | ``"WithdrawalQueueClosed"`` |
+| Name                     | Type                      |
+| :----------------------- | :------------------------ |
+| `nameOrSignatureOrTopic` | `"WithdrawalQueueClosed"` |
 
 #### Returns
 
@@ -4651,9 +4640,9 @@ types/ethers-contracts/MevEth.ts:1123
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nameOrSignatureOrTopic` | ``"WithdrawalQueueOpened"`` |
+| Name                     | Type                      |
+| :----------------------- | :------------------------ |
+| `nameOrSignatureOrTopic` | `"WithdrawalQueueOpened"` |
 
 #### Returns
 
@@ -4663,7 +4652,7 @@ types/ethers-contracts/MevEth.ts:1123
 
 types/ethers-contracts/MevEth.ts:1124
 
-___
+---
 
 ### getFunction
 
@@ -4671,9 +4660,9 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nameOrSignatureOrTopic` | ``"symbol"`` \| ``"fraction"`` \| ``"name"`` \| ``"addAdmin"`` \| ``"addOperator"`` \| ``"admins"`` \| ``"deleteAdmin"`` \| ``"deleteOperator"`` \| ``"operators"`` \| ``"mevEthShareVault"`` \| ``"BP_DENOMINATOR"`` \| ``"DEFAULT_PAYLOAD_SIZE_LIMIT"`` \| ``"NO_EXTRA_GAS"`` \| ``"PT_SEND"`` \| ``"PT_SEND_AND_CALL"`` \| ``"callOnOFTReceived"`` \| ``"chainIdToFeeBps"`` \| ``"circulatingSupply"`` \| ``"creditedPackets"`` \| ``"defaultFeeBp"`` \| ``"estimateSendFee"`` \| ``"failedMessages"`` \| ``"feeOwner"`` \| ``"forceResumeReceive"`` \| ``"getConfig"`` \| ``"getTrustedRemoteAddress"`` \| ``"isTrustedRemote"`` \| ``"lzEndpoint"`` \| ``"lzReceive"`` \| ``"minDstGasLookup"`` \| ``"nonblockingLzReceive"`` \| ``"payloadSizeLimitLookup"`` \| ``"precrime"`` \| ``"quoteOFTFee"`` \| ``"retryMessage"`` \| ``"sendFrom"`` \| ``"setConfig"`` \| ``"setDefaultFeeBp"`` \| ``"setFeeBp"`` \| ``"setFeeOwner"`` \| ``"setMinDstGas"`` \| ``"setPayloadSizeLimit"`` \| ``"setPrecrime"`` \| ``"setReceiveVersion"`` \| ``"setSendVersion"`` \| ``"setTrustedRemote"`` \| ``"setTrustedRemoteAddress"`` \| ``"setUseCustomAdapterParams"`` \| ``"sharedDecimals"`` \| ``"supportsInterface"`` \| ``"token"`` \| ``"trustedRemoteLookup"`` \| ``"useCustomAdapterParams"`` \| ``"DOMAIN_SEPARATOR"`` \| ``"allowance"`` \| ``"approve"`` \| ``"balanceOf"`` \| ``"decimals"`` \| ``"nonces"`` \| ``"permit"`` \| ``"totalSupply"`` \| ``"transfer"`` \| ``"transferFrom"`` \| ``"deposit"`` \| ``"asset"`` \| ``"convertToAssets"`` \| ``"convertToShares"`` \| ``"maxDeposit"`` \| ``"maxMint"`` \| ``"maxRedeem"`` \| ``"maxWithdraw"`` \| ``"mint"`` \| ``"previewDeposit"`` \| ``"previewMint"`` \| ``"previewRedeem"`` \| ``"previewWithdraw"`` \| ``"redeem"`` \| ``"totalAssets"`` \| ``"withdraw"`` \| ``"grantRewards"`` \| ``"grantValidatorWithdraw"`` \| ``"CREAM_TO_MEV_ETH_PERCENT"`` \| ``"MIN_DEPOSIT"`` \| ``"WETH9"`` \| ``"calculateNeededEtherBuffer"`` \| ``"cancelUpdateMevEthShareVault"`` \| ``"cancelUpdateStakingModule"`` \| ``"claim"`` \| ``"commitUpdateMevEthShareVault"`` \| ``"commitUpdateStakingModule"`` \| ``"creamToken"`` \| ``"createValidator"`` \| ``"finalizeUpdateMevEthShareVault"`` \| ``"finalizeUpdateStakingModule"`` \| ``"init"`` \| ``"initialized"`` \| ``"pauseStaking"`` \| ``"pendingMevEthShareVault"`` \| ``"pendingMevEthShareVaultCommittedTimestamp"`` \| ``"pendingStakingModule"`` \| ``"pendingStakingModuleCommittedTimestamp"`` \| ``"processWithdrawalQueue"`` \| ``"queueLength"`` \| ``"redeemCream"`` \| ``"requestsFinalisedUntil"`` \| ``"stakingModule"`` \| ``"stakingPaused"`` \| ``"unpauseStaking"`` \| ``"withdrawQueue"`` \| ``"withdrawalAmountQueued"`` \| ``"withdrawalQueue"`` |
+| Name                     | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| :----------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `nameOrSignatureOrTopic` | `"symbol"` \| `"fraction"` \| `"name"` \| `"addAdmin"` \| `"addOperator"` \| `"admins"` \| `"deleteAdmin"` \| `"deleteOperator"` \| `"operators"` \| `"mevEthShareVault"` \| `"BP_DENOMINATOR"` \| `"DEFAULT_PAYLOAD_SIZE_LIMIT"` \| `"NO_EXTRA_GAS"` \| `"PT_SEND"` \| `"PT_SEND_AND_CALL"` \| `"callOnOFTReceived"` \| `"chainIdToFeeBps"` \| `"circulatingSupply"` \| `"creditedPackets"` \| `"defaultFeeBp"` \| `"estimateSendFee"` \| `"failedMessages"` \| `"feeOwner"` \| `"forceResumeReceive"` \| `"getConfig"` \| `"getTrustedRemoteAddress"` \| `"isTrustedRemote"` \| `"lzEndpoint"` \| `"lzReceive"` \| `"minDstGasLookup"` \| `"nonblockingLzReceive"` \| `"payloadSizeLimitLookup"` \| `"precrime"` \| `"quoteOFTFee"` \| `"retryMessage"` \| `"sendFrom"` \| `"setConfig"` \| `"setDefaultFeeBp"` \| `"setFeeBp"` \| `"setFeeOwner"` \| `"setMinDstGas"` \| `"setPayloadSizeLimit"` \| `"setPrecrime"` \| `"setReceiveVersion"` \| `"setSendVersion"` \| `"setTrustedRemote"` \| `"setTrustedRemoteAddress"` \| `"setUseCustomAdapterParams"` \| `"sharedDecimals"` \| `"supportsInterface"` \| `"token"` \| `"trustedRemoteLookup"` \| `"useCustomAdapterParams"` \| `"DOMAIN_SEPARATOR"` \| `"allowance"` \| `"approve"` \| `"balanceOf"` \| `"decimals"` \| `"nonces"` \| `"permit"` \| `"totalSupply"` \| `"transfer"` \| `"transferFrom"` \| `"deposit"` \| `"asset"` \| `"convertToAssets"` \| `"convertToShares"` \| `"maxDeposit"` \| `"maxMint"` \| `"maxRedeem"` \| `"maxWithdraw"` \| `"mint"` \| `"previewDeposit"` \| `"previewMint"` \| `"previewRedeem"` \| `"previewWithdraw"` \| `"redeem"` \| `"totalAssets"` \| `"withdraw"` \| `"grantRewards"` \| `"grantValidatorWithdraw"` \| `"CREAM_TO_MEV_ETH_PERCENT"` \| `"MIN_DEPOSIT"` \| `"WETH9"` \| `"calculateNeededEtherBuffer"` \| `"cancelUpdateMevEthShareVault"` \| `"cancelUpdateStakingModule"` \| `"claim"` \| `"commitUpdateMevEthShareVault"` \| `"commitUpdateStakingModule"` \| `"creamToken"` \| `"createValidator"` \| `"finalizeUpdateMevEthShareVault"` \| `"finalizeUpdateStakingModule"` \| `"init"` \| `"initialized"` \| `"pauseStaking"` \| `"pendingMevEthShareVault"` \| `"pendingMevEthShareVaultCommittedTimestamp"` \| `"pendingStakingModule"` \| `"pendingStakingModuleCommittedTimestamp"` \| `"processWithdrawalQueue"` \| `"queueLength"` \| `"redeemCream"` \| `"requestsFinalisedUntil"` \| `"stakingModule"` \| `"stakingPaused"` \| `"unpauseStaking"` \| `"withdrawQueue"` \| `"withdrawalAmountQueued"` \| `"withdrawalQueue"` |
 
 #### Returns
 

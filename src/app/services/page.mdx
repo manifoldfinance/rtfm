@@ -8,356 +8,67 @@ export const metadata = {
 
 Services are how MEV Builders and Searchers interact with mevETH Protocol. Services for MEV Builders and Searchers. These endpoints let you access our MEV services programmatically. {{ className: 'lead' }}
 
-## OpenMEV model
-
-The attachment model contains all the information about the files you send to your contacts and groups, including the name, type, and size.
-
-### Properties
-
-<Properties>
-  <Property name="id" type="string">
-    Unique identifier for the attachment.
-  </Property>
-  <Property name="message_id" type="string">
-    Unique identifier for the message associated with the attachment.
-  </Property>
-  <Property name="filename" type="string">
-    The filename for the attachment.
-  </Property>
-  <Property name="file_url" type="string">
-    The URL for the attached file.
-  </Property>
-  <Property name="file_type" type="string">
-    The MIME type of the attached file.
-  </Property>
-  <Property name="file_size" type="integer">
-    The file size of the attachment in bytes.
-  </Property>
-  <Property name="created_at" type="timestamp">
-    Timestamp of when the attachment was created.
-  </Property>
-</Properties>
-
----
-
-## List all mev {{ tag: 'GET', label: '/v1/mev' }}
-
-<Row>
-  <Col>
-
-    This endpoint allows you to retrieve a paginated list of all your mev (in a conversation if a conversation id is provided). By default, a maximum of ten mev are shown per page.
-
-    ### Optional attributes
-
-    <Properties>
-      <Property name="conversation_id" type="string">
-        Limit to mev from a given conversation.
-      </Property>
-      <Property name="limit" type="integer">
-        Limit the number of mev returned.
-      </Property>
-    </Properties>
-
-  </Col>
-  <Col sticky>
+## Builder Api
 
-    <CodeGroup title="Request" tag="GET" label="/v1/mev">
 
-    ```bash {{ title: 'cURL' }}
-    curl -G https://docs.meveth.org/v1/mev \
-      -H "Authorization: Bearer {token}" \
-      -d conversation_id="xgQQXg3hrtjh7AvZ" \
-      -d limit=10
-    ```
-
-    ```js
-    import ApiClient from '@example/protocol-api'
+| Method                                           | HTTP request                         | Description                                                                                              |
+| ------------------------------------------------ | ------------------------------------ | -------------------------------------------------------------------------------------------------------- |
+| [**getValidators**](BuilderApi.md#getValidators) | **GET** /relay/v1/builder/validators | Get a list of validator registrations for validators scheduled to propose in the current and next epoch. |
+| [**submitBlock**](BuilderApi.md#submitBlock)     | **POST** /relay/v1/builder/blocks    | Submit a new block to the relay.                                                                         |
 
-    const client = new ApiClient(token)
+<a name="getValidators"></a>
 
-    await client.mev.list()
-    ```
-
-    ```python
-    from protocol_api import ApiClient
-
-    client = ApiClient(token)
-
-    client.mev.list()
-    ```
-
-    ```solidity
-    $client = new \Protocol\ApiClient($token);
-
-    $client->mev->list();
-    ```
+### **getValidators**
 
-    </CodeGroup>
-
-    ```json {{ title: 'Response' }}
-    {
-      "has_more": false,
-      "data": [
-        {
-          "id": "Nc6yKKMpcxiiFxp6",
-          "message_id": "LoPsJaMcPBuFNjg1",
-          "filename": "Invoice_room_service__Plaza_Hotel.pdf",
-          "file_url": "https://assets.protocol.chat/mev/Invoice_room_service__Plaza_Hotel.pdf",
-          "file_type": "application/pdf",
-          "file_size": 21352,
-          "created_at": 692233200
-        },
-        {
-          "id": "hSIhXBhNe8X1d8Et"
-          // ...
-        }
-      ]
-    }
-    ```
+> List getValidators()
 
-  </Col>
-</Row>
+Get a list of validator registrations for validators scheduled to propose in the current and next epoch.
 
----
+    * Used by builders to know when to submit bids for an upcoming proposal.  * Returns an array of validator registrations for the current and next epoch.  * Each entry includes a slot and the validator with assigned duty.  * Slots without a registered validator are omitted.
 
-## Create an attachment {{ tag: 'POST', label: '/v1/mev' }}
+### Parameters
 
-<Row>
-  <Col>
+This endpoint does not need any parameter.
 
-    This endpoint allows you to upload a new attachment to a conversation. See the code examples for how to send the file to the Protocol API.
+### Return type
 
-    ### Required attributes
+[**List**](../Models/ValidatorsResponseEntry.md)
 
-    <Properties>
-      <Property name="file" type="string">
-        The file you want to add as an attachment.
-      </Property>
-    </Properties>
+### Authorization
 
-  </Col>
-  <Col sticky>
+No authorization required
 
-    <CodeGroup title="Request" tag="POST" label="/v1/mev">
+### HTTP request headers
 
-    ```bash {{ title: 'cURL' }}
-    curl https://docs.meveth.org/v1/mev \
-      -H "Authorization: Bearer {token}" \
-      -F file="../Invoice_room_service__Plaza_Hotel.pdf"
-    ```
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-    ```js
-    import ApiClient from '@example/protocol-api'
+<a name="submitBlock"></a>
 
-    const client = new ApiClient(token)
+### **submitBlock**
 
-    await client.mev.create({ file })
-    ```
+> submitBlock(submitBlock_request, cancellations)
 
-    ```python
-    from protocol_api import ApiClient
+Submit a new block to the relay.
 
-    client = ApiClient(token)
+    * Blocks can be submitted as JSON or SSZ, and optionally GZIP encoded. To be   clear, there are four options: JSON, JSON+GZIP, SSZ, SSZ+GZIP. If JSON, the   content type should be &#x60;application/json&#x60;. If SSZ, the content type should   be &#x60;application/octet-stream&#x60;.  * The relay will simulate the block to verify properties and proposer   payment in the payment transaction from builder to proposer   &#x60;fee_recipient&#x60; at the end of block.  * For accountability, builder signature is over the SSZ encoded &#x60;message&#x60;.  * The &#x60;message&#x60;, which does not include the transactions, will be made   public via the data API, allowing anyone to verify the builder signature.  * Any new submission by a builder will overwrite a previous one by the same   &#x60;builder_pubkey&#x60;, even if it is less profitable.
 
-    client.mev.create(file=file)
-    ```
+### Parameters
 
-    ```solidity
-    $client = new \Protocol\ApiClient($token);
+| Name                    | Type                                                        | Description                              | Notes                        |
+| ----------------------- | ----------------------------------------------------------- | ---------------------------------------- | ---------------------------- |
+| **submitBlock_request** | [**submitBlock_request**](../Models/submitBlock_request.md) | A signed bid with an execution payload.  |                              |
+| **cancellations**       | **String**                                                  | If set to 1, opt into bid cancellations. | [optional] [default to null] |
 
-    $client->mev->create([
-      'file' => $file,
-    ]);
-    ```
+### Return type
 
-    </CodeGroup>
+null (empty response body)
 
-    ```json {{ title: 'Response' }}
-    {
-      "id": "Nc6yKKMpcxiiFxp6",
-      "message_id": "LoPsJaMcPBuFNjg1",
-      "filename": "Invoice_room_service__Plaza_Hotel.pdf",
-      "file_url": "https://assets.protocol.chat/mev/Invoice_room_service__Plaza_Hotel.pdf",
-      "file_type": "application/pdf",
-      "file_size": 21352,
-      "created_at": 692233200
-    }
-    ```
+### Authorization
 
-  </Col>
-</Row>
+No authorization required
 
----
+### HTTP request headers
 
-## Retrieve an attachment {{ tag: 'GET', label: '/v1/mev/:id' }}
-
-<Row>
-  <Col>
-
-    This endpoint allows you to retrieve an attachment by providing the attachment id. Refer to [the list](#the-attachment-model) at the top of this page to see which properties are included with attachment objects.
-
-  </Col>
-  <Col sticky>
-
-    <CodeGroup title="Request" tag="GET" label="/v1/mev/Nc6yKKMpcxiiFxp6">
-
-    ```bash {{ title: 'cURL' }}
-    curl https://docs.meveth.org/v1/mev/Nc6yKKMpcxiiFxp6 \
-      -H "Authorization: Bearer {token}"
-    ```
-
-    ```js
-    import ApiClient from '@example/protocol-api'
-
-    const client = new ApiClient(token)
-
-    await client.mev.get('Nc6yKKMpcxiiFxp6')
-    ```
-
-    ```python
-    from protocol_api import ApiClient
-
-    client = ApiClient(token)
-
-    client.mev.get("Nc6yKKMpcxiiFxp6")
-    ```
-
-    ```solidity
-    $client = new \Protocol\ApiClient($token);
-
-    $client->mev->get('Nc6yKKMpcxiiFxp6');
-    ```
-
-    </CodeGroup>
-
-    ```json {{ title: 'Response' }}
-    {
-      "id": "Nc6yKKMpcxiiFxp6",
-      "message_id": "LoPsJaMcPBuFNjg1",
-      "filename": "Invoice_room_service__Plaza_Hotel.pdf",
-      "file_url": "https://assets.protocol.chat/mev/Invoice_room_service__Plaza_Hotel.pdf",
-      "file_type": "application/pdf",
-      "file_size": 21352,
-      "created_at": 692233200
-    }
-    ```
-
-  </Col>
-</Row>
-
----
-
-## Update an attachment {{ tag: 'PUT', label: '/v1/mev/:id' }}
-
-<Row>
-  <Col>
-
-    This endpoint allows you to perform an update on an attachment. Currently, the only supported type of update is changing the filename.
-
-    ### Optional attributes
-
-    <Properties>
-      <Property name="filename" type="string">
-        The new filename for the attachment.
-      </Property>
-    </Properties>
-
-  </Col>
-  <Col sticky>
-
-    <CodeGroup title="Request" tag="PUT" label="/v1/mev/Nc6yKKMpcxiiFxp6">
-
-    ```bash {{ title: 'cURL' }}
-    curl -X PUT https://docs.meveth.org/v1/mev/Nc6yKKMpcxiiFxp6 \
-      -H "Authorization: Bearer {token}" \
-      -d filename="Invoice_room_service__Plaza_Hotel_updated.pdf"
-    ```
-
-    ```js
-    import ApiClient from '@example/protocol-api'
-
-    const client = new ApiClient(token)
-
-    await client.mev.update('Nc6yKKMpcxiiFxp6', {
-      filename: 'Invoice_room_service__Plaza_Hotel_updated.pdf',
-    })
-    ```
-
-    ```python
-    from protocol_api import ApiClient
-
-    client = ApiClient(token)
-
-    client.mev.update("Nc6yKKMpcxiiFxp6", filename="Invoice_room_service__Plaza_Hotel_updated.pdf")
-    ```
-
-    ```solidity
-    $client = new \Protocol\ApiClient($token);
-
-    $client->mev->update('Nc6yKKMpcxiiFxp6', [
-      'filename' => 'Invoice_room_service__Plaza_Hotel_updated.pdf',
-    ]);
-    ```
-
-    </CodeGroup>
-
-    ```json {{ title: 'Response' }}
-    {
-      "id": "Nc6yKKMpcxiiFxp6",
-      "message_id": "LoPsJaMcPBuFNjg1",
-      "filename": "Invoice_room_service__Plaza_Hotel.pdf",
-      "file_url": "https://assets.protocol.chat/mev/Invoice_room_service__Plaza_Hotel_updated.pdf",
-      "file_type": "application/pdf",
-      "file_size": 21352,
-      "created_at": 692233200
-    }
-    ```
-
-  </Col>
-</Row>
-
----
-
-## Delete an attachment {{ tag: 'DELETE', label: '/v1/mev/:id' }}
-
-<Row>
-  <Col>
-
-    This endpoint allows you to delete mev. Note: This will permanently delete the file.
-
-  </Col>
-  <Col sticky>
-
-    <CodeGroup title="Request" tag="DELETE" label="/v1/mev/Nc6yKKMpcxiiFxp6">
-
-    ```bash {{ title: 'cURL' }}
-    curl -X DELETE https://docs.meveth.org/v1/mev/Nc6yKKMpcxiiFxp6 \
-      -H "Authorization: Bearer {token}"
-    ```
-
-    ```js
-    import ApiClient from '@example/protocol-api'
-
-    const client = new ApiClient(token)
-
-    await client.mev.delete('Nc6yKKMpcxiiFxp6')
-    ```
-
-    ```python
-    from protocol_api import ApiClient
-
-    client = ApiClient(token)
-
-    client.mev.delete("Nc6yKKMpcxiiFxp6")
-    ```
-
-    ```solidity
-    $client = new \Protocol\ApiClient($token);
-
-    $client->mev->delete('Nc6yKKMpcxiiFxp6');
-    ```
-
-    </CodeGroup>
-
-  </Col>
-</Row>
+- **Content-Type**: application/json, application/octet-stream
+- **Accept**: application/json

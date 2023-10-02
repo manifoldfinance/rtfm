@@ -1,6 +1,6 @@
 /**
- * @filename Resources.tsx
- * @see {@link resources}
+ * @filename Protocol.tsx
+ * @see {@link protocol}
  */
 'use client';
 
@@ -30,12 +30,12 @@ interface Resource {
   >;
 }
 
-const resources: Array<Resource> = [
+const protocol: Array<Resource> = [
   {
-    href: '/staking',
-    name: 'Staking',
+    href: '/wagyustaker',
+    name: 'WagyuStaker',
     description:
-      'Learn about the staking model and how to create, retrieve, update, delete, and list staking.',
+      'Learn about the WagyuStaker modelWagyuStaker.',
     icon: UserIcon,
     pattern: {
       y: 16,
@@ -46,10 +46,10 @@ const resources: Array<Resource> = [
     },
   },
   {
-    href: '/lending',
-    name: 'Lending',
+    href: '/mevethsharevault',
+    name: 'MevEthShareVault',
     description:
-      'Learn about the lending model and how to create, retrieve, update, delete, and list lending.',
+      'Learn about the MevETH Share Vault .',
     icon: ChatBubbleIcon,
     pattern: {
       y: -6,
@@ -60,10 +60,10 @@ const resources: Array<Resource> = [
     },
   },
   {
-    href: '/markets',
-    name: 'Markets',
+    href: '/mevethrateprovider',
+    name: 'MevEthRateProvider',
     description:
-      'Learn about the MEV markets and how to create, retrieve, bid, join, and list available markets.',
+      'Learn about the mevETH Rate Provider and how to retrieve, and list updates',
     icon: EnvelopeIcon,
     pattern: {
       y: 32,
@@ -172,14 +172,14 @@ function Resource({ resource }: { resource: Resource }) {
   );
 }
 
-export function Resources() {
+export function Protocol() {
   return (
     <div className="my-16 xl:max-w-none">
-      <Heading level={2} id="resources">
-        Resources
+      <Heading level={2} id="protocol">
+        Protocol
       </Heading>
       <div className="not-prose mt-4 grid grid-cols-1 gap-8 border-t border-zinc-900/5 pt-10 dark:border-white/5 sm:grid-cols-2 xl:grid-cols-4">
-        {resources.map((resource) => (
+        {protocol.map((resource) => (
           <Resource key={resource.href} resource={resource} />
         ))}
       </div>

@@ -1,12 +1,11 @@
 export const metadata = {
   title: 'Rates',
   description:
-    'On this page, we’ll dive into the different group endpoints you can use to manage groups programmatically.',
+    'Protocol',
 };
 
 # Rates
 
-Groups are where communities live in Protocol — they are a collection of contacts you're talking to all at once. On this page, we'll dive into the different group endpoints you can use to manage groups programmatically. We'll look at how to query, create, update, and delete groups. {{ className: 'lead' }}
 
 
 ## MevETHRateProvider
@@ -16,22 +15,21 @@ Groups are where communities live in Protocol — they are a collection of conta
 
 Returns the value of mevETH in terms of ETH
 
-
 ## State Variables
-### mevETH
-The address of the mevETH contract
 
+### mevETH
+
+The address of the mevETH contract
 
 ```solidity
 IMevEth public immutable mevETH;
 ```
 
-
 ## Functions
+
 ### constructor
 
 Constructs the MevETHRateProvider contract, setting the mevETH address
-
 
 ```solidity
 constructor(IMevEth _mevETH);
@@ -41,15 +39,15 @@ constructor(IMevEth _mevETH);
 
 Returns the value of mevETH in terms of ETH
 
-
 ```solidity
 function getRate() external view override returns (uint256);
 ```
+
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`uint256`|the value of mevETH in terms of ETH|
+| Name     | Type      | Description                         |
+| -------- | --------- | ----------------------------------- |
+| `<none>` | `uint256` | the value of mevETH in terms of ETH |
 
 ---
 
