@@ -11,7 +11,7 @@ import { type Section } from '@/components/SectionProvider';
 export const metadata: Metadata = {
   title: {
     template: '%s - Protocol Reference',
-    default: 'mevETH Protocol Specification',
+    default: 'MEV Protocol Specification',
   },
 };
 
